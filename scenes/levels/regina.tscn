@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqjykmgnntvul"]
+
+[ext_resource type="Texture2D" uid="uid://cwodns6norp8n" path="res://assets/sprites/Regina-First.png" id="1_d8ykd"]
+[ext_resource type="Script" uid="uid://bsisum0mu6omg" path="res://scripts/regina.gd" id="1_f77aw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f77aw"]
+size = Vector2(37, 64)
+
+[node name="Regina" type="CharacterBody2D" unique_id=1694901564]
+script = ExtResource("1_f77aw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=450909838]
+texture = ExtResource("1_d8ykd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113969849]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_f77aw")
