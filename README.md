@@ -47,4 +47,4 @@ Gabriel Sironi da Luz - https://github.com/GabrielSiras
 
 Matheus Concari Metz - https://github.com/MatheusMetzUCS
 
-Douglas Romio - []
+Douglas Romio - https://github.com/DerangedPalmito
