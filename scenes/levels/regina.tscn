@@ -8,6 +8,8 @@ size = Vector2(37, 64)
 
 [node name="Regina" type="CharacterBody2D" unique_id=1694901564]
 script = ExtResource("1_f77aw")
+DASH_SPEED_H = 600.0
+DASH_SPEED_V = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=450909838]
 texture = ExtResource("1_d8ykd")
