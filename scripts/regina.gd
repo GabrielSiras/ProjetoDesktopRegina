@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player #
+@onready var hearts_container: HBoxContainer = %HeartsContainer
 
 # Configurações de Movimento
 @export_group("Movimento")
@@ -14,10 +16,35 @@ extends CharacterBody2D
 @export var DASH_DURATION := 0.2
 @export var DASH_COOLDOWN := 0.4
 
+# Health
+@export_group("Vida")
+@export var max_health := 3
+var current_health := max_health
+
 # Estados Internos
 var is_dashing := false
 var can_dash := true
 var dash_cooldown_active := false
+
+func update_hearts_ui() -> void:
+	if hearts_container == null: return
+	
+	var hearts = hearts_container.get_children()
+	
+	for i in range(hearts.size()):
+		if hearts[i].has_node("AnimatedSprite2D"):
+			var sprite = hearts[i].get_node("AnimatedSprite2D") as AnimatedSprite2D
+			
+			hearts[i].visible = true
+			
+			if i < current_health:
+				if sprite.animation != "cheio":
+					sprite.animation = "cheio"
+					sprite.play()
+			else:
+				if sprite.animation != "vazio":
+					sprite.animation = "vazio"
+					sprite.play()
 
 func _physics_process(delta: float) -> void:
 	# Reseta dash quando estiver no chão
@@ -77,3 +104,19 @@ func start_dash() -> void:
 	
 	await get_tree().create_timer(DASH_COOLDOWN).timeout
 	dash_cooldown_active = false
+	
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	current_health = clamp(current_health, 0, max_health) 
+	
+	# Avisa a HUD para atualizar os corações na tela
+	update_hearts_ui()
+	print("Regina tomou dano! Vida atual: ", current_health)
+	
+	if current_health <= 0:
+		die()
+
+func die() -> void:
+	print("Regina morreu!")
+	# Recarrega a fase atual se ela perder as 3 vidas
+	get_tree().reload_current_scene()
