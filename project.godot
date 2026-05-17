@@ -14,6 +14,17 @@ config/name="Regina"
 run/main_scene="uid://dipy6y1atruy5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+run/size/mode=0
+
+[audio]
+
+buses/default_bus_layout="uid://ddtq6j0o00s3b"
+
+[display]
+
+window/size/mode=4
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
 
 [input]
 
