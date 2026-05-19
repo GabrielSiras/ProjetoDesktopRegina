@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwodns6norp8n"
-path="res://.godot/imported/Regina-First.png-39dcdc6b5daa7ec94ccf37fe972faa0a.ctex"
+uid="uid://q2khhadceadd"
+path="res://.godot/imported/Idle-animation.png-6ab6cecd3701b811f043603dbc5507e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Regina-First.png"
-dest_files=["res://.godot/imported/Regina-First.png-39dcdc6b5daa7ec94ccf37fe972faa0a.ctex"]
+source_file="res://assets/sprites/Regina/Idle/Idle-animation.png"
+dest_files=["res://.godot/imported/Idle-animation.png-6ab6cecd3701b811f043603dbc5507e9.ctex"]
 
 [params]
 

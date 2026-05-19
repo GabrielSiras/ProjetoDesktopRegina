@@ -1,20 +1,22 @@
-extends CharacterBody2D
+extends BaseEnemy
+class_name Mimic
 
-# No script do Mímico:
+func _ready() -> void:
+	base_sprite = $Sprite2D
+	max_health = 1
+	current_health = max_health
+	SPEED = 180.0
+
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body is Player: 
-		if body.is_dashing:
-			destroy_mimic(body)
-		else:
-			body.take_damage(1)
-			print("Regina tomou dano do baú!")
+	if body is Player:
+		body.take_damage(DAMAGE_AMOUNT)
 
-func destroy_mimic(player: Node2D) -> void:
-	print("Mímico destruído pelo Dash!")
-	
-	player.is_dashing = false
-	player.can_dash = true
-	player.dash_cooldown_active = false
-	
-	player.velocity.y = -1000.0 
-	queue_free() # Remove o mímico do jogo
+
+func _on_field_of_view_body_entered(body: Node2D) -> void:
+	if body is Player:
+		target_player = body
+
+
+func _on_field_of_view_body_exited(body: Node2D) -> void:
+	if body == target_player:
+		target_player = null
