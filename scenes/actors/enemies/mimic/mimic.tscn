@@ -9,7 +9,7 @@ size = Vector2(32.5, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_624a8"]
 size = Vector2(32.75, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4eyds"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yr2h2"]
 
 [node name="Mimic" type="CharacterBody2D" unique_id=273717979]
 script = ExtResource("1_yr2h2")
@@ -33,7 +33,7 @@ shape = SubResource("RectangleShape2D_624a8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Field_of_view" unique_id=2035795205]
 position = Vector2(16, 17)
 scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_4eyds")
+shape = SubResource("CircleShape2D_yr2h2")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_field_of_view_body_entered"]

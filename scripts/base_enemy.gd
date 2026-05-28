@@ -20,11 +20,12 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
+# Persegue com base na diferença entre coordenadas globais
 func chase_target() -> void:
 	var direction = (target_player.global_position - global_position).normalized()
 	velocity.x = direction.x * SPEED
 	
-	if base_sprite and direction.x != 0:
+	if base_sprite and direction.x != 0: #Flippar sprite
 		base_sprite.flip_h = direction.x < 0
 
 func stand_still() -> void:

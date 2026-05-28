@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjd4rko0ehkwn" path="res://scenes/actors/enemies/mimic/mimic.tscn" id="3_xsvc7"]
 [ext_resource type="PackedScene" uid="uid://ck8kpmllsqdwe" path="res://scenes/ui/hud-vida/HeartUI.tscn" id="4_me76l"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/titlescreen/opcoes.tscn" id="5_cpdyg"]
+[ext_resource type="PackedScene" uid="uid://bwn72gatu541w" path="res://scenes/actors/enemies/spider/spider.tscn" id="6_e22h8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsvc7"]
 texture = ExtResource("1_5glon")
@@ -28,7 +29,6 @@ layer_0/tile_data = PackedInt32Array(262144, 0, 0, 327680, 0, 1, 262145, 65536, 
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("1_w7jjs")]
 position = Vector2(-124, 13)
-DASH_DURATION = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="Regina" unique_id=466738218]
 position = Vector2(4, -2)
@@ -72,3 +72,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Opções" parent="Hud" unique_id=1955436429 instance=ExtResource("5_cpdyg")]
+visible = false
+
+[node name="Node2D" parent="." unique_id=1128485171 instance=ExtResource("6_e22h8")]
+position = Vector2(-178, 29)
