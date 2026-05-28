@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cjd4rko0ehkwn"]
+
+[ext_resource type="Texture2D" uid="uid://cejbpgabk430r" path="res://scenes/actors/enemies/mimic/mimic.png" id="1_3gh61"]
+[ext_resource type="Script" uid="uid://dsglk2hgi0s5p" path="res://scenes/actors/enemies/mimic/mimic.gd" id="1_yr2h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2h2"]
+size = Vector2(32.5, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_624a8"]
+size = Vector2(32.75, 33)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yr2h2"]
+
+[node name="Mimic" type="CharacterBody2D" unique_id=273717979]
+script = ExtResource("1_yr2h2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=543718510]
+position = Vector2(16, 17)
+texture = ExtResource("1_3gh61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1838168446]
+position = Vector2(16.25, 17)
+shape = SubResource("RectangleShape2D_yr2h2")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1036819546]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=663119462]
+position = Vector2(15.625, 17)
+shape = SubResource("RectangleShape2D_624a8")
+
+[node name="Field_of_view" type="Area2D" parent="." unique_id=688170111]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Field_of_view" unique_id=2035795205]
+position = Vector2(16, 17)
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_yr2h2")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="Field_of_view" to="." method="_on_field_of_view_body_entered"]
+[connection signal="body_exited" from="Field_of_view" to="." method="_on_field_of_view_body_exited"]
