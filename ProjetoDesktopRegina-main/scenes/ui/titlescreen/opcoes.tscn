@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://diulgkqwhcxp5"]
+
+[ext_resource type="Script" uid="uid://dkub4dilmwy4s" path="res://scenes/ui/titlescreen/opcoes.gd" id="1_dsfyt"]
+[ext_resource type="FontFile" uid="uid://33ip77dc7vt3" path="res://assets/fonts/KiwiSoda.ttf" id="1_vejr5"]
+[ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/audio_control.gd" id="2_dsfyt"]
+[ext_resource type="Script" uid="uid://dkr3qmvsnoyoi" path="res://scripts/sfx_control.gd" id="3_l3evi"]
+[ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/fullscreen_control.gd" id="4_0ddgp"]
+
+[node name="Opções" type="Panel" unique_id=1955436429]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.25
+offset_top = -173.75
+offset_right = 270.25
+offset_bottom = 173.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_dsfyt")
+
+[node name="Opções" type="Label" parent="." unique_id=1867217488]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 20.75
+offset_right = 46.0
+offset_bottom = 51.75
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+text = "Opções:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=754633389]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -64.75
+offset_right = 127.5
+offset_bottom = 64.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/separation = 15
+
+[node name="Música" type="HBoxContainer" parent="VBoxContainer" unique_id=626791192]
+layout_mode = 2
+
+[node name="Música" type="Label" parent="VBoxContainer/Música" unique_id=126775451]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Música: "
+
+[node name="MusicControl" type="HSlider" parent="VBoxContainer/Música" unique_id=1951801278]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_dsfyt")
+audio_bus_name = "Music"
+
+[node name="SFX" type="HBoxContainer" parent="VBoxContainer" unique_id=642374669]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SFX" type="Label" parent="VBoxContainer/SFX" unique_id=1387686162]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "SFX:"
+
+[node name="SFXControl" type="HSlider" parent="VBoxContainer/SFX" unique_id=1846286352]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+script = ExtResource("3_l3evi")
+audio_bus_name = "SFX"
+
+[node name="Tela cheia" type="HBoxContainer" parent="VBoxContainer" unique_id=1356097768]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Tela cheia" type="Label" parent="VBoxContainer/Tela cheia" unique_id=772784917]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Tela cheia:"
+
+[node name="FullscreenControl" type="CheckButton" parent="VBoxContainer/Tela cheia" unique_id=2031800291]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+script = ExtResource("4_0ddgp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1801834984]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -81.75
+offset_right = 159.0
+offset_bottom = -41.75
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Voltar" type="Button" parent="HBoxContainer" unique_id=500114692]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+text = "Voltar"
+
+[node name="Salvar e Sair" type="Button" parent="HBoxContainer" unique_id=911018234]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+text = "Salvar e sair
+"
+
+[node name="Sair" type="Button" parent="HBoxContainer" unique_id=105154879]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+text = "Sair"
+
+[connection signal="value_changed" from="VBoxContainer/Música/MusicControl" to="VBoxContainer/Música/MusicControl" method="_on_value_changed"]
+[connection signal="toggled" from="VBoxContainer/Tela cheia/FullscreenControl" to="VBoxContainer/Tela cheia/FullscreenControl" method="_on_toggled"]
+[connection signal="pressed" from="HBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="HBoxContainer/Sair" to="." method="_on_sair_pressed"]
