@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dpkswjsiv42dj" path="res://assets/sprites/tilebasico.png" id="1_5glon"]
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/levels/regina.tscn" id="1_w7jjs"]
-[ext_resource type="PackedScene" uid="uid://cjd4rko0ehkwn" path="res://scenes/actors/enemies/mimic/mimic.tscn" id="3_xsvc7"]
-[ext_resource type="PackedScene" uid="uid://ck8kpmllsqdwe" path="res://scenes/ui/hud-vida/HeartUI.tscn" id="4_me76l"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/titlescreen/opcoes.tscn" id="5_cpdyg"]
 [ext_resource type="PackedScene" uid="uid://bwn72gatu541w" path="res://scenes/actors/enemies/spider/spider.tscn" id="6_e22h8"]
+[ext_resource type="PackedScene" uid="uid://c6c3v7rpdq66q" path="res://scenes/levels/end-of-phase-portal.tscn" id="7_p33bb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsvc7"]
 texture = ExtResource("1_5glon")
@@ -42,37 +41,20 @@ position_smoothing_speed = 4.0
 position = Vector2(9, 65)
 shape = SubResource("WorldBoundaryShape2D_w7jjs")
 
-[node name="Mimic" parent="." unique_id=273717979 instance=ExtResource("3_xsvc7")]
-position = Vector2(141, 31)
-
-[node name="Mimic2" parent="." unique_id=36541288 instance=ExtResource("3_xsvc7")]
-position = Vector2(267, -81)
-
-[node name="Mimic3" parent="." unique_id=1743140193 instance=ExtResource("3_xsvc7")]
-position = Vector2(400, -184)
-
 [node name="Hud" type="CanvasLayer" parent="." unique_id=702036945]
-
-[node name="HeartsContainer" type="HBoxContainer" parent="Hud" unique_id=2004111413]
-unique_name_in_owner = true
-offset_left = 30.0
-offset_top = 40.0
-offset_right = 140.0
-offset_bottom = 79.0
-size_flags_vertical = 0
-theme_override_constants/separation = 62
-
-[node name="Heart1" parent="Hud/HeartsContainer" unique_id=1256366719 instance=ExtResource("4_me76l")]
-layout_mode = 2
-
-[node name="Heart2" parent="Hud/HeartsContainer" unique_id=1246415147 instance=ExtResource("4_me76l")]
-layout_mode = 2
-
-[node name="Heart3" parent="Hud/HeartsContainer" unique_id=1184732298 instance=ExtResource("4_me76l")]
-layout_mode = 2
 
 [node name="Opções" parent="Hud" unique_id=1955436429 instance=ExtResource("5_cpdyg")]
 visible = false
 
 [node name="Node2D" parent="." unique_id=1128485171 instance=ExtResource("6_e22h8")]
 position = Vector2(-178, 29)
+
+[node name="Label" type="Label" parent="." unique_id=1585834124]
+offset_left = 292.0
+offset_top = 32.0
+offset_right = 361.0
+offset_bottom = 55.0
+text = "Saída: >>"
+
+[node name="end-of-phase-portal" parent="." unique_id=583445692 instance=ExtResource("7_p33bb")]
+position = Vector2(379, 49)

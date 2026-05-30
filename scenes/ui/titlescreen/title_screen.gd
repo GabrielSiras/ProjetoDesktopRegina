@@ -9,7 +9,7 @@ func _ready() -> void:
 	opções.visible = false
 
 func _on_começar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/game-basico.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/devroom.tscn")
 
 func _on_creditos_pressed() -> void:
 	pass

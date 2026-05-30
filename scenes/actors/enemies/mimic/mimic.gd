@@ -9,7 +9,10 @@ func _ready() -> void:
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.take_damage(DAMAGE_AMOUNT)
+		if body.is_dashing:
+			return
+		print("Mímico pegou a Regina!")
+		body.die()
 
 
 func _on_field_of_view_body_entered(body: Node2D) -> void:

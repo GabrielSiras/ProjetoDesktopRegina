@@ -1,7 +1,6 @@
 extends CharacterBase
 class_name Player
 
-@onready var hearts_container: HBoxContainer = %HeartsContainer
 @onready var dash_sword: Node2D = $DashSword
 @onready var jump_indicator: Node2D = $JumpIndicator
 
@@ -40,6 +39,10 @@ func _ready() -> void:
 		base_sprite.play("regina-idle")
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
+		return
+		
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
 	
@@ -162,18 +165,26 @@ func check_dash_attack() -> void:
 		var collision = get_slide_collision(i)
 		var object = collision.get_collider()
 		
+		if object == null:
+			continue
+		
 		if object is BaseEnemy:
-			object.take_damage(1)
+			if is_dashing:
+				
+				object.take_damage(1)
 			
-			is_dashing = false
-			can_dash = true
-			jump_available = true
-			dash_used_since_ground = false
-			dash_remaining_distance = 0.0
-			hide_dash_sword()
+				is_dashing = false
+				can_dash = true
+				jump_available = true
+				dash_used_since_ground = false
+				dash_remaining_distance = 0.0
+				hide_dash_sword()
 			
-			velocity.y = JUMP_VELOCITY
-			break
+				velocity.y = JUMP_VELOCITY
+				break
+			else:
+				die()
+				break
 
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and jump_available:
@@ -230,30 +241,6 @@ func start_dash() -> void:
 	
 	show_dash_sword()
 
-func _on_damage_taken() -> void:
-	update_hearts_ui()
-	print("Regina herdada tomou dano! Vida atual: ", current_health)
-
 func die() -> void:
-	print("Regina foi derrotada! Reiniciando fase...")
-	get_tree().reload_current_scene()
-
-func update_hearts_ui() -> void:
-	if hearts_container == null: return
-	
-	var hearts = hearts_container.get_children()
-	
-	for i in range(hearts.size()):
-		if hearts[i].has_node("AnimatedSprite2D"):
-			var sprite_heart = hearts[i].get_node("AnimatedSprite2D") as AnimatedSprite2D
-			
-			hearts[i].visible = true
-			
-			if i < current_health:
-				if sprite_heart.animation != "full":
-					sprite_heart.animation = "full"
-					sprite_heart.play()
-			else:
-				if sprite_heart.animation != "empty":
-					sprite_heart.animation = "empty"
-					sprite_heart.play()
+	#await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")

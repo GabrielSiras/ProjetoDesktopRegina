@@ -18,20 +18,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		print("--- ESC APERTADO! ---")
-		print("Cena atual detetada: ", get_tree().current_scene.name)
 		toggle_pause()
 
 func toggle_pause() -> void:
 	visible = !visible
 	get_tree().paused = visible
-	print("Estado da Janela de Opções (Visible): ", visible)
-	print("Estado do Jogo (Paused): ", get_tree().paused)
 
 func _on_voltar_pressed() -> void:
-	print("--- BOTÃO VOLTAR CLICADO! ---")
-	print("Jogo estava pausado? ", get_tree().paused)
-	
 	if get_tree().paused:
 		toggle_pause()
 	else:

@@ -47,13 +47,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -257.5
-offset_top = 57.0
-offset_right = 257.5
-offset_bottom = 133.0
+offset_left = -176.0
+offset_top = 13.0
+offset_right = 172.5
+offset_bottom = 68.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_k83vc")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 text = "Regina's Ascent"
 
 [node name="Botões" type="VBoxContainer" parent="." unique_id=2113917244]
