@@ -4,14 +4,18 @@ class_name BaseEnemy
 @export_group("Configurações do Inimigo")
 @export var SPEED := 150.0
 @export var DAMAGE_AMOUNT := 1
+@export var AFFECTED_BY_GRAVITY := true
 
 var target_player: Player = null
 
 func _physics_process(delta: float) -> void:
 	super(delta)
 	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if AFFECTED_BY_GRAVITY:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+	else:
+		velocity.y = 0
 	
 	if target_player:
 		chase_target()

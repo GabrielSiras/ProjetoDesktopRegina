@@ -5,7 +5,7 @@ func _ready() -> void:
 	base_sprite = $Sprite2D
 	max_health = 1
 	current_health = max_health
-	SPEED = 180.0
+	SPEED = 60.0
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body is Player:
