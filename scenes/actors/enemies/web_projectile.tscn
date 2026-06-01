@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cyomeyhxxoxbh"]
+
+[ext_resource type="Texture2D" uid="uid://dg3vbep5556e" path="res://assets/sprites/Enemies/WebProjectile.png" id="1_ily33"]
+[ext_resource type="Script" uid="uid://dd5awqco2hn8d" path="res://scripts/web_projectile.gd" id="1_oqgxr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oqgxr"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pamv"]
+radius = 1.0
+height = 4.0
+
+[node name="WebProjectile" type="CharacterBody2D" unique_id=1178223244]
+script = ExtResource("1_oqgxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=691062779]
+position = Vector2(1.1920929e-07, 0)
+scale = Vector2(0.049999997, 0.05)
+texture = ExtResource("1_ily33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=964850987]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_oqgxr")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=963296887]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1205994769]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_1pamv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

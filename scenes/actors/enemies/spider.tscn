@@ -19,7 +19,6 @@ script = ExtResource("1_xoucn")
 metadata/_custom_type_script = "uid://cdkyqxxy0u0j5"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063782078]
-position = Vector2(1, 0)
 rotation = 1.5707964
 texture = ExtResource("1_vfxfr")
 
@@ -32,6 +31,7 @@ shape = SubResource("CapsuleShape2D_7q7pv")
 [node name="Field_of_view" type="Area2D" parent="." unique_id=1364850414]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Field_of_view" unique_id=1138538236]
+rotation = 1.5707964
 shape = SubResource("CircleShape2D_gdlk0")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=766492616]
@@ -40,6 +40,11 @@ shape = SubResource("CircleShape2D_gdlk0")
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_khy4e")
 
+[node name="Timer" type="Timer" parent="." unique_id=1162315289]
+wait_time = 2.0
+autostart = true
+
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_field_of_view_body_entered"]
 [connection signal="body_exited" from="Field_of_view" to="." method="_on_field_of_view_body_exited"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

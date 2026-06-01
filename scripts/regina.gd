@@ -253,7 +253,7 @@ func handle_movement(delta: float) -> void:
 		ice_momentum = true
 		target_vel = direction * MAX_SPEED
 		velocity.x = move_toward(velocity.x, target_vel, accel_rate * delta)
-		print(accel_rate)
+		#print(accel_rate) #PARA TESTE
 	else: 
 		velocity.x = move_toward(velocity.x, target_vel, SPEED)
 
