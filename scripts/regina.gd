@@ -1,6 +1,7 @@
 extends CharacterBase
 class_name Player
 
+@onready var tile_map_layer: TileMapLayer =$"../Floor/Web"
 @onready var dash_sword: Node2D = $DashSword
 @onready var jump_indicator: Node2D = $JumpIndicator
 
@@ -62,6 +63,36 @@ func _physics_process(delta: float) -> void:
 
 	update_ground_recharge(was_on_floor_before_move)
 	update_jump_indicator()
+	
+	if get_tile_data("speed_modifier") == 0.4 && SPEED != 48:
+		SPEED *= get_tile_data("speed_modifier")
+	elif get_tile_data("speed_modifier") == null:
+		SPEED = 120
+		
+	if(get_tile_data("death") != null):
+		die()
+
+# Varia velocidade de acordo com a tile que o player está pisando (WIP)
+func get_tile_data(custom_data_name: StringName) -> Variant:
+	var tilemaps: = get_tree().get_nodes_in_group("TileMaps")
+	tilemaps.reverse()
+	
+	for tilemap in tilemaps:
+		var ret = _get_tile_data_from_tilemap(custom_data_name, tilemap)
+		if ret!= null:
+			return ret
+
+	return null
+
+func _get_tile_data_from_tilemap(custom_data_name: StringName, tilemap: TileMapLayer) -> Variant:
+	var cell: Vector2i = tilemap.local_to_map(position+Vector2(0,9))
+	var data: TileData = tilemap.get_cell_tile_data(cell)
+	if data:
+		var tile_data = data.get_custom_data(custom_data_name)
+		return tile_data
+	
+	return null
+
 
 func update_ground_recharge(was_on_floor_before_move: bool) -> void:
 	var grounded := is_on_floor()

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/levels/regina.tscn" id="1_hhyrm"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/titlescreen/opcoes.tscn" id="3_10xc4"]
-[ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Pedra/tiles-pedra-1.png" id="4_dwcxj"]
+[ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="4_dwcxj"]
 [ext_resource type="PackedScene" uid="uid://c6c3v7rpdq66q" path="res://scenes/levels/end-of-phase-portal.tscn" id="5_c83vx"]
 [ext_resource type="PackedScene" uid="uid://bwn72gatu541w" path="res://scenes/actors/enemies/spider/spider.tscn" id="5_hhyrm"]
-[ext_resource type="PackedScene" uid="uid://cjd4rko0ehkwn" path="res://scenes/actors/enemies/mimic/mimic.tscn" id="6_5mpa8"]
+[ext_resource type="PackedScene" uid="uid://cjd4rko0ehkwn" path="res://scenes/actors/enemies/mimic/skeleton.tscn" id="6_5mpa8"]
 [ext_resource type="PackedScene" uid="uid://bch6kqjjnpaok" path="res://scenes/actors/enemies/Ghost/Ghost.tscn" id="7_10xc4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v83sa"]

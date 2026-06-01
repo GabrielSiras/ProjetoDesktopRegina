@@ -10,6 +10,7 @@ var time := 0.0
 func _ready() -> void:
 	AFFECTED_BY_GRAVITY = false
 	start_position = global_position
+	SPEED /= 2
 
 func _physics_process(delta: float) -> void:
 	time += delta

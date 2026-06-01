@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgpanykghgnu1"]
 
-[ext_resource type="Texture2D" uid="uid://dpkswjsiv42dj" path="res://assets/sprites/tilebasico.png" id="1_5glon"]
+[ext_resource type="Texture2D" uid="uid://dpkswjsiv42dj" path="res://assets/sprites/Tiles/tilebasico.png" id="1_5glon"]
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/levels/regina.tscn" id="1_w7jjs"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/titlescreen/opcoes.tscn" id="5_cpdyg"]
 [ext_resource type="PackedScene" uid="uid://bwn72gatu541w" path="res://scenes/actors/enemies/spider/spider.tscn" id="6_e22h8"]
@@ -48,6 +48,10 @@ visible = false
 
 [node name="Node2D" parent="." unique_id=1128485171 instance=ExtResource("6_e22h8")]
 position = Vector2(-178, 29)
+SPEED = null
+DAMAGE_AMOUNT = null
+AFFECTED_BY_GRAVITY = null
+max_health = null
 
 [node name="Label" type="Label" parent="." unique_id=1585834124]
 offset_left = 292.0

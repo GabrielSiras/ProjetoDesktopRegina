@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://diulgkqwhcxp5"]
 
-[ext_resource type="Script" uid="uid://dkub4dilmwy4s" path="res://scenes/ui/titlescreen/opcoes.gd" id="1_dsfyt"]
+[ext_resource type="Script" uid="uid://dkub4dilmwy4s" path="res://scripts/opcoes.gd" id="1_dsfyt"]
 [ext_resource type="FontFile" uid="uid://33ip77dc7vt3" path="res://assets/fonts/KiwiSoda.ttf" id="1_vejr5"]
 [ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/audio_control.gd" id="2_dsfyt"]
 [ext_resource type="Script" uid="uid://dkr3qmvsnoyoi" path="res://scripts/sfx_control.gd" id="3_l3evi"]
