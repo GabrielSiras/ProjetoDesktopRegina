@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cl1ixjris0jvc"]
+
+[ext_resource type="Script" uid="uid://dnqhmrb83wi1y" path="res://scripts/game_over.gd" id="1_lpwf7"]
+
+[node name="GameOver" type="Control" unique_id=1607842150]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lpwf7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1645766035]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20871013, 0.20871016, 0.20871013, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1042763821]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -32.0
+offset_right = 44.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fim de jogo"
+
+[node name="Reiniciar" type="Button" parent="." unique_id=639415245]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = 9.5
+offset_right = 38.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reiniciar"

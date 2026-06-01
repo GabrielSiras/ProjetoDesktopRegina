@@ -1,14 +1,14 @@
 extends CharacterBase
 class_name Player
 
-@onready var tile_map_layer: TileMapLayer =$"../Floor/Web"
 @onready var dash_sword: Node2D = $DashSword
 @onready var jump_indicator: Node2D = $JumpIndicator
 
 @export_group("Movimento")
 @export var SPEED := 120.0
-@export var ACCELERATION := 3000.0 
-@export var FRICTION := 3000.0
+@export var MAX_SPEED := 160.0
+@export var ACCELERATION := 130
+@export var FRICTION := 60
 @export var JUMP_VELOCITY := -315.0
 @export var JUMP_CUT_MULTIPLIER := 0.566
 
@@ -27,6 +27,7 @@ var is_dashing := false
 var can_dash := true
 var dash_cooldown_timer := 0.0
 var dash_used_since_ground := false
+var ice_momentum := false
 
 var dash_momentum_active := false
 var dash_direction := Vector2.ZERO
@@ -64,15 +65,24 @@ func _physics_process(delta: float) -> void:
 	update_ground_recharge(was_on_floor_before_move)
 	update_jump_indicator()
 	
+	#print(SPEED) #PARA TESTE
+	
+	# Testa o modificador de velocidade da tile
 	if get_tile_data("speed_modifier") == 0.4 && SPEED != 48:
 		SPEED *= get_tile_data("speed_modifier")
 	elif get_tile_data("speed_modifier") == null:
 		SPEED = 120
 		
-	if(get_tile_data("death") != null):
+	# Remove o efeito da inércia quando o player acerta as tiles normais de novo
+	if(get_tile_data("normal_floor")):
+		ice_momentum = false
+		
+	# Testa se a tile é fatal
+	if(get_tile_data("death")):
 		die()
+	
 
-# Varia velocidade de acordo com a tile que o player está pisando (WIP)
+# Confere se o parâmetro passado faz parte da tile em que o player está pisando
 func get_tile_data(custom_data_name: StringName) -> Variant:
 	var tilemaps: = get_tree().get_nodes_in_group("TileMaps")
 	tilemaps.reverse()
@@ -84,6 +94,7 @@ func get_tile_data(custom_data_name: StringName) -> Variant:
 
 	return null
 
+# Retorna informações da tile em que o player está pisando
 func _get_tile_data_from_tilemap(custom_data_name: StringName, tilemap: TileMapLayer) -> Variant:
 	var cell: Vector2i = tilemap.local_to_map(position+Vector2(0,9))
 	var data: TileData = tilemap.get_cell_tile_data(cell)
@@ -236,7 +247,15 @@ func handle_movement(delta: float) -> void:
 
 	var target_vel = direction * SPEED
 	var accel_rate = ACCELERATION if direction != 0 else FRICTION
-	velocity.x = move_toward(velocity.x, target_vel, accel_rate * delta)
+	
+	# Controle de aceleração e fricção no gelo
+	if get_tile_data("ice") != null || ice_momentum == true:
+		ice_momentum = true
+		target_vel = direction * MAX_SPEED
+		velocity.x = move_toward(velocity.x, target_vel, accel_rate * delta)
+		print(accel_rate)
+	else: 
+		velocity.x = move_toward(velocity.x, target_vel, SPEED)
 
 func handle_dash_input() -> void:
 	var ready_cooldown = (dash_cooldown_timer <= 0.0)
@@ -274,4 +293,4 @@ func start_dash() -> void:
 
 func die() -> void:
 	#await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")

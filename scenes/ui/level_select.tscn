@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dghjanqtrlc8o"]
+
+[ext_resource type="Script" uid="uid://7qxpjgfbqjyk" path="res://scripts/level_select.gd" id="1_qi77a"]
+
+[node name="level_select" type="Control" unique_id=1254227703]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qi77a")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1235900478]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.48235294, 0, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2100406517]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -19.25
+offset_right = 59.0
+offset_bottom = 19.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnFase1" type="Button" parent="HBoxContainer" unique_id=118860393]
+layout_mode = 2
+text = "Fase 1"
+
+[node name="BtnFase2" type="Button" parent="HBoxContainer" unique_id=408087731]
+layout_mode = 2
+text = "Fase 2
+"
+
+[connection signal="pressed" from="HBoxContainer/BtnFase1" to="." method="_on_btn_fase_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/BtnFase2" to="." method="_on_btn_fase_2_pressed"]

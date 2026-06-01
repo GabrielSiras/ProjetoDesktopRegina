@@ -2,6 +2,7 @@ extends BaseEnemy
 class_name Spider
 
 func _ready() -> void:
+	AFFECTED_BY_GRAVITY = false
 	SPEED = 0
 	target_player = $Regina
 
