@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://doyabksgxq348" path="res://assets/sprites/Enemies/Ghost.png" id="2_mthm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mthm4"]
-size = Vector2(2.5714262, 2.4285712)
+size = Vector2(3.8571424, 3.8571424)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mthm4"]
 radius = 103.31021
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sn4c"]
-size = Vector2(22, 18)
+size = Vector2(16, 18)
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1950784212]
 script = ExtResource("1_mthm4")
@@ -21,10 +21,9 @@ scale = Vector2(0.12380952, 0.12380952)
 texture = ExtResource("2_mthm4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168319503]
-position = Vector2(-0.9999999, -2.4999993)
+position = Vector2(-0.5000005, 0.5000002)
 scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_mthm4")
-disabled = true
 
 [node name="Field_of_view" type="Area2D" parent="." unique_id=1364850414]
 
@@ -34,7 +33,7 @@ shape = SubResource("CircleShape2D_mthm4")
 [node name="Hurtbox" type="Area2D" parent="." unique_id=766492616]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1230944225]
-position = Vector2(-1, -2)
+position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_7sn4c")
 
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_detection_area_body_entered"]

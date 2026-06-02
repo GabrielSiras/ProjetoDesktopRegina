@@ -6,7 +6,14 @@ class_name BaseEnemy
 @export var DAMAGE_AMOUNT := 1
 @export var AFFECTED_BY_GRAVITY := true
 
+@onready var hurtbox_area: Area2D = $Hurtbox
+
 var target_player: Player = null
+
+func _ready() -> void:
+	if hurtbox_area:
+		if not hurtbox_area.body_entered.is_connected(_on_hurtbox_body_entered):
+			hurtbox_area.body_entered.connect(_on_hurtbox_body_entered)
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -24,12 +31,11 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
-# Persegue com base na diferença entre coordenadas globais
 func chase_target() -> void:
 	var direction = (target_player.global_position - global_position).normalized()
 	velocity.x = direction.x * SPEED
 	
-	if base_sprite and direction.x != 0: #Flippar sprite
+	if base_sprite and direction.x != 0:
 		base_sprite.flip_h = direction.x < 0
 
 func stand_still() -> void:
@@ -43,10 +49,10 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body == target_player:
 		target_player = null
 
-func _on_hitbox_area_body_entered(body: Node2D) -> void:
+func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.take_damage(DAMAGE_AMOUNT)
+		body.die()
 
 func die() -> void:
 	print(name, " foi destruído!")
-	queue_free() # Todo inimigo se deleta ao morrer
+	queue_free()

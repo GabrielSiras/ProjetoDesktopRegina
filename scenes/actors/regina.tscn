@@ -89,6 +89,7 @@ scale = Vector2(1.09, 1.09)
 shape = SubResource("RectangleShape2D_f77aw")
 
 [node name="DashSword" type="Node2D" parent="." unique_id=1584613783]
+visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DashSword" unique_id=1999180861]
 position = Vector2(9, 2)

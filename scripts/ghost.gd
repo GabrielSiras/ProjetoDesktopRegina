@@ -8,6 +8,8 @@ var start_position := Vector2.ZERO
 var time := 0.0
 
 func _ready() -> void:
+	super._ready()
+	
 	AFFECTED_BY_GRAVITY = false
 	start_position = global_position
 	SPEED /= 2
@@ -15,9 +17,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	time += delta
 	
-	# Usa o comportamento normal do BaseEnemy:
-	# detecção, perseguição em X, hitbox, move_and_slide etc.
 	super(delta)
 	
-	# Movimento de flutuação para cima e para baixo
 	global_position.y = start_position.y + sin(time * FLOAT_SPEED) * FLOAT_DISTANCE

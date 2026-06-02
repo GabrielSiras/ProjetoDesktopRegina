@@ -1,14 +1,15 @@
 extends BaseEnemy
 class_name Spider
 
-# Variáveis para o disparo da teia
 @onready var main = get_tree().current_scene
 @onready var projectile = load("res://scenes/actors/enemies/web_projectile.tscn")
 
 func _ready() -> void:
+	super._ready()
+	
 	AFFECTED_BY_GRAVITY = false
 	SPEED = 0
-	target_player = $Regina
+	target_player = null
 
 func _on_field_of_view_body_entered(body: Node2D) -> void:
 	if body is Player:

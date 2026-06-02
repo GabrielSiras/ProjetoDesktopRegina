@@ -21,29 +21,11 @@ func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-# Controle de Dano:
 func take_damage(amount: int) -> void:
 	if is_invincible:
 		return
-		
-	# Mantém a imunidade do dash da Regina
-	if self is Player and self.is_dashing:
-		return
-		
-	# SE FOR O PLAYER: Morre direto.
-	if self is Player:
-		die()
-		return
-		
-	# --- DAQUI PARA BAIXO: Lógica exclusiva para os INIMIGOS ---
-	current_health = clamp(current_health - amount, 0, max_health)
-	_on_damage_taken()
 	
-	if current_health <= 0:
-		die()
-	else:
-		# Chama a função com o nome correto que vocês criaram!
-		active_imunity(1.5)
+	die()
 
 # Invincibilidade:
 func active_imunity(time: float) -> void:

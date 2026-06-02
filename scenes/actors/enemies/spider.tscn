@@ -4,14 +4,13 @@
 [ext_resource type="Script" uid="uid://gf1v8nd4fxh4" path="res://scripts/spider.gd" id="1_xoucn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7q7pv"]
-radius = 0.7142858
-height = 2.5714304
+radius = 2.0
+height = 4.000002
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdlk0"]
 radius = 152.0033
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khy4e"]
-radius = 6.0
 height = 20.0
 
 [node name="Spider" type="CharacterBody2D" unique_id=1950784212]
