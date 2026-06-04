@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Regina"
-run/main_scene="uid://bncs85vpeh1c7"
+run/main_scene="uid://dipy6y1atruy5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 run/size/mode=0
@@ -25,9 +25,9 @@ buses/default_bus_layout="uid://ddtq6j0o00s3b"
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/mode=3
+window/size/borderless=true
 window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 
 [global_group]
 

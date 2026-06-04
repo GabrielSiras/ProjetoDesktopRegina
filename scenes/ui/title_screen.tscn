@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dipy6y1atruy5"]
 
-[ext_resource type="Script" uid="uid://bw3h6e7h3vxo" path="res://title_screen.gd" id="1_k83vc"]
-[ext_resource type="Texture2D" uid="uid://bfm57fetwaeud" path="res://scenes/ui/titlescreen/title-screen-bg.png" id="1_yc6j5"]
+[ext_resource type="Script" uid="uid://bw3h6e7h3vxo" path="res://scripts/title_screen.gd" id="1_k83vc"]
+[ext_resource type="Texture2D" uid="uid://bfm57fetwaeud" path="res://assets/images/title-screen-bg.png" id="1_yc6j5"]
 [ext_resource type="FontFile" uid="uid://33ip77dc7vt3" path="res://assets/fonts/KiwiSoda.ttf" id="3_k83vc"]
 [ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/audio_control.gd" id="5_bl8v3"]
-[ext_resource type="AudioStream" uid="uid://dv40stf7ikaxp" path="res://scenes/ui/titlescreen/audios/som-basico.mp3" id="5_hki88"]
+[ext_resource type="AudioStream" uid="uid://dv40stf7ikaxp" path="res://assets/audios/som-basico.mp3" id="5_hki88"]
 [ext_resource type="Script" uid="uid://dkr3qmvsnoyoi" path="res://scripts/sfx_control.gd" id="6_7l6iu"]
 [ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/fullscreen_control.gd" id="6_bl8v3"]
 
