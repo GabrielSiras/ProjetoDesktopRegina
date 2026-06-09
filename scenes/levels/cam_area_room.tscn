@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cmeaabg7vjvb4"]
+
+[ext_resource type="Script" uid="uid://brfg7je7yxmr0" path="res://scripts/room_area.gd" id="1_q3ynw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cre3"]
+size = Vector2(640, 360)
+
+[node name="Sala1" type="Area2D" unique_id=1576416373]
+script = ExtResource("1_q3ynw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=75590030]
+position = Vector2(-348, -38)
+shape = SubResource("RectangleShape2D_6cre3")

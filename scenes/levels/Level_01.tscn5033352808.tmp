@@ -129,21 +129,14 @@ custom_data_layer_0/name = "spikes"
 custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_xpxa0")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpxa0"]
-size = Vector2(819, 360)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_shv8k"]
-size = Vector2(640, 400)
-
 [node name="Devroom" type="Node2D" unique_id=1261008392]
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=978070134]
-process_mode = 3
 position = Vector2(-484, -85)
 script = ExtResource("2_xpxa0")
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("1_hhyrm")]
-position = Vector2(-484, -82)
+position = Vector2(-484, -85)
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1820756090]
 
@@ -199,27 +192,13 @@ tile_map_data = PackedByteArray("AAD9//r/AQAAAAAAAAD+//r/AQAAAAAAAAD///r/AQAAAAA
 tile_set = SubResource("TileSet_o03p7")
 
 [node name="Sala1" parent="." unique_id=1576416373 instance=ExtResource("11_vlkw4")]
-position = Vector2(-135, -90)
+position = Vector2(-136, -47)
 
 [node name="Sala2" parent="." unique_id=816111515 instance=ExtResource("11_vlkw4")]
 position = Vector2(504, -208)
 
-[node name="CollisionShape2D" parent="Sala2" index="0" unique_id=75590030]
-position = Vector2(-258.5, -38)
-shape = SubResource("RectangleShape2D_xpxa0")
-
 [node name="Sala3" parent="." unique_id=2044041908 instance=ExtResource("11_vlkw4")]
 position = Vector2(1324, -206)
 
-[node name="Sala5" parent="." unique_id=2060150947 instance=ExtResource("11_vlkw4")]
-position = Vector2(1324, -566)
-
 [node name="Sala4" parent="." unique_id=1793255510 instance=ExtResource("11_vlkw4")]
-position = Vector2(1964, -246)
-
-[node name="CollisionShape2D" parent="Sala4" index="0" unique_id=75590030]
-position = Vector2(-348, -118)
-shape = SubResource("RectangleShape2D_shv8k")
-
-[editable path="Sala2"]
-[editable path="Sala4"]
+position = Vector2(1885, -253)
