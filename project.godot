@@ -20,6 +20,10 @@ run/size/mode=0
 
 buses/default_bus_layout="uid://ddtq6j0o00s3b"
 
+[autoload]
+
+GameManager="*uid://cg0ujcx5qs33"
+
 [display]
 
 window/size/viewport_width=640

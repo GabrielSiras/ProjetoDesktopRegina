@@ -390,9 +390,7 @@ func handle_movement(delta: float) -> void:
 		accel_rate = ICE_ACCELERATION if direction != 0 else ICE_FRICTION
 
 	var target_vel := direction * current_speed
-	
-	print("ICE TILE: ", has_tile_flag("ice"), " | ICE MOMENTUM: ", ice_momentum_active, " | FLOOR: ", is_on_floor())
-	
+		
 	velocity.x = move_toward(velocity.x, target_vel, accel_rate * delta)
 
 func handle_dash_input() -> void:
@@ -451,9 +449,23 @@ func _reload_current_scene_with_fade() -> void:
 	canvas.add_child(fade)
 	get_tree().current_scene.add_child(canvas)
 	
+	# 1. Tela vai ficando preta...
 	var tween := get_tree().create_tween()
 	tween.tween_property(fade, "modulate:a", 1.0, DEATH_FADE_TIME)
 	
 	await tween.finished
 	
-	get_tree().reload_current_scene()
+	# 2. O NOVO SISTEMA DE CHECKPOINT ENTRA AQUI!
+	# Em vez de dar reload na cena inteira, a gente chama o GameManager
+	GameManager.respawn_player()
+	
+	# 3. Como a Regina "ressuscitou", precisamos devolver o controle físico para ela!
+	is_dead = false
+	set_physics_process(true)
+	
+	# 4. EFEITO INVERSO: A tela preta clareia de volta para revelar ela no checkpoint!
+	var tween_out := get_tree().create_tween()
+	tween_out.tween_property(fade, "modulate:a", 0.0, DEATH_FADE_TIME)
+	
+	await tween_out.finished
+	canvas.queue_free() # Deleta a tela preta da memória

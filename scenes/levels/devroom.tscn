@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bncs85vpeh1c7"]
 
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/game_camera.gd" id="1_6cre3"]
-[ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/regina.tscn" id="1_ywbmh"]
+[ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="1_ywbmh"]
 [ext_resource type="PackedScene" uid="uid://cjd4rko0ehkwn" path="res://scenes/actors/enemies/skeleton.tscn" id="2_p11xe"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/opcoes.tscn" id="4_j0dn1"]
 [ext_resource type="Texture2D" uid="uid://d0kr2fkk4imjv" path="res://assets/sprites/Tiles/Spikes.png" id="5_1ar6h"]

@@ -89,6 +89,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 	
 	if body is Player:
+		if body.is_dashing:
+			queue_free()
+			return
+			
 		print("Ouch!")
 		body.die()
 		queue_free()

@@ -143,7 +143,7 @@ position = Vector2(-484, -85)
 script = ExtResource("2_xpxa0")
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("1_hhyrm")]
-position = Vector2(938, -494)
+position = Vector2(811, -281)
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1820756090]
 
@@ -168,13 +168,13 @@ next_phase_path = "uid://dghjanqtrlc8o"
 [node name="Spider2" parent="." unique_id=2008445216 instance=ExtResource("5_hhyrm")]
 position = Vector2(1770, -364)
 
-[node name="Skeleton" parent="." unique_id=273717979 instance=ExtResource("6_5mpa8")]
+[node name="Mimic" parent="." unique_id=273717979 instance=ExtResource("6_5mpa8")]
 position = Vector2(1170, -237)
 
-[node name="Skeleton2" parent="." unique_id=1637855712 instance=ExtResource("6_5mpa8")]
+[node name="Mimic2" parent="." unique_id=1637855712 instance=ExtResource("6_5mpa8")]
 position = Vector2(953, -273)
 
-[node name="Skeleton3" parent="." unique_id=765745750 instance=ExtResource("6_5mpa8")]
+[node name="Mimic3" parent="." unique_id=765745750 instance=ExtResource("6_5mpa8")]
 position = Vector2(1217, -476)
 
 [node name="Ghost" parent="." unique_id=1950784212 instance=ExtResource("7_10xc4")]
@@ -198,32 +198,33 @@ tile_set = SubResource("TileSet_ixnes")
 tile_map_data = PackedByteArray("AAD9//r/AQAAAAAAAAD+//r/AQAAAAAAAAD///r/AQAAAAAAAADe//P/AQAAAAAAAADf//P/AQAAAAAAAAAUAPX/AQAAAAAAAAAVAPX/AQAAAAAAAAAZAPb/AQAAAAAAAAAaAPb/AQAAAAAAAAAbAPb/AQAAAAAAAAAfAPb/AQAAAAAAAAAgAPb/AQAAAAAAAAAhAPb/AQAAAAAAAAAlAPX/AQAAAAAAAAAmAPX/AQAAAAAAAAAnAPX/AQAAAAAAAAAuAOf/AQAAAAAAAAAvAOX/AQAAAAAAAAAzAOf/AQAAAAAAAAAyAOX/AQAAAAAAAABVAPL/AQAAAAAAAABUAPT/AQAAAAAAAABVAPb/AQAAAAAAAABUAPj/AQAAAAAAAABgAPT/AQAAAAAAAABfAPb/AQAAAAAAAABiAPX/AQAAAAAAAABjAPP/AQAAAAAAAABgAPj/AQAAAAAAAABiAPn/AQAAAAAAAABfAPr/AQAAAAAAAABgAPz/AQAAAAAAAABjAPv/AQAAAAAAAABjAPf/AQAAAAAAAABiAP3/AQAAAAAAAABrAPT/AQAAAAAAAABsAPb/AQAAAAAAAABwAPT/AQAAAAAAAABvAPb/AQAAAAAAAABwAPj/AQAAAAAAAABvAPr/AQAAAAAAAABsAPr/AQAAAAAAAABrAPj/AQAAAAAAAABrAPz/AQAAAAAAAABwAPz/AQAAAAAAAABhAN7/AQAAAAAAAABhANz/AQAAAAAAAABhANb/AQAAAAAAAABhANT/AQAAAAAAAABmANn/AQAAAAAAAABnANn/AQAAAAAAAABoANn/AQAAAAAAAABpANn/AQAAAAAAAABqANn/AQAAAAAAAABrANn/AQAAAAAAAABsANn/AQAAAAAAAABtANn/AQAAAAAAAABuANn/AQAAAAAAAABvANn/AQAAAAAAAABwANn/AQAAAAAAAABxANn/AQAAAAAAAAByANn/AQAAAAAAAABzANn/AQAAAAAAAAB0ANn/AQAAAAAAAAB1ANn/AQAAAAAAAAB2ANn/AQAAAAAAAAB3ANn/AQAAAAAAAAB4ANn/AQAAAAAAAAB5ANn/AQAAAAAAAAB6ANn/AQAAAAAAAAB7ANn/AQAAAAAAAAB8ANn/AQAAAAAAAAB9ANn/AQAAAAAAAABMANn/AQAAAAAAAABNANn/AQAAAAAAAABOANn/AQAAAAAAAABPANn/AQAAAAAAAABQANn/AQAAAAAAAABRANn/AQAAAAAAAABOANz/AQAAAAAAAABOAO//AQAAAAAAAABPAPL/AQAAAAAAAABOAPX/AQAAAAAAAABPAPj/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_o03p7")
 
-[node name="Room1" parent="." unique_id=1576416373 instance=ExtResource("11_vlkw4")]
+[node name="Sala1" parent="." unique_id=1576416373 instance=ExtResource("11_vlkw4")]
+visible = false
 position = Vector2(-135, -90)
 
-[node name="Room2" parent="." unique_id=816111515 instance=ExtResource("11_vlkw4")]
+[node name="Sala2" parent="." unique_id=816111515 instance=ExtResource("11_vlkw4")]
+visible = false
 position = Vector2(504, -208)
-room_index = 1
 
-[node name="CollisionShape2D" parent="Room2" index="0" unique_id=75590030]
+[node name="CollisionShape2D" parent="Sala2" index="0" unique_id=75590030]
 position = Vector2(-258.5, -38)
 shape = SubResource("RectangleShape2D_xpxa0")
 
-[node name="Room3" parent="." unique_id=2044041908 instance=ExtResource("11_vlkw4")]
+[node name="Sala3" parent="." unique_id=2044041908 instance=ExtResource("11_vlkw4")]
+visible = false
 position = Vector2(1324, -206)
-room_index = 2
 
-[node name="Room4" parent="." unique_id=1793255510 instance=ExtResource("11_vlkw4")]
+[node name="Sala5" parent="." unique_id=2060150947 instance=ExtResource("11_vlkw4")]
+visible = false
+position = Vector2(1324, -566)
+
+[node name="Sala4" parent="." unique_id=1793255510 instance=ExtResource("11_vlkw4")]
+visible = false
 position = Vector2(1964, -246)
-room_index = 3
 
-[node name="CollisionShape2D" parent="Room4" index="0" unique_id=75590030]
+[node name="CollisionShape2D" parent="Sala4" index="0" unique_id=75590030]
 position = Vector2(-348, -118)
 shape = SubResource("RectangleShape2D_shv8k")
 
-[node name="Room5" parent="." unique_id=2060150947 instance=ExtResource("11_vlkw4")]
-position = Vector2(1324, -566)
-room_index = 4
-
-[editable path="Room2"]
-[editable path="Room4"]
+[editable path="Sala2"]
+[editable path="Sala4"]

@@ -54,5 +54,12 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		body.die()
 
 func die() -> void:
-	print(name, " foi destruído!")
-	queue_free()
+	print("Inimigo morreu: ", name) # <--- ADICIONE ISSO
+	
+	if has_method("on_death"):
+		print("Ligando o timer de respawn para: ", name) # <--- ADICIONE ISSO
+		call("on_death")
+	else:
+		visible = false
+		set_process(false)
+		set_physics_process(false)
