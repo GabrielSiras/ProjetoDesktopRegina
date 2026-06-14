@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://bbm16lbvnogne"]
 
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="1_hhyrm"]
+[ext_resource type="PackedScene" uid="uid://fek6gy54l1un" path="res://scenes/DialogueBox.tscn" id="1_shv8k"]
+[ext_resource type="Script" uid="uid://2w5xxnx75apf" path="res://scripts/level_01.gd" id="1_xg7sb"]
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/game_camera.gd" id="2_xpxa0"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/opcoes.tscn" id="3_10xc4"]
 [ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="4_dwcxj"]
@@ -135,7 +137,8 @@ size = Vector2(819, 360)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shv8k"]
 size = Vector2(640, 400)
 
-[node name="Devroom" type="Node2D" unique_id=1261008392]
+[node name="Level_01" type="Node2D" unique_id=1261008392]
+script = ExtResource("1_xg7sb")
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=978070134]
 process_mode = 3
@@ -143,7 +146,7 @@ position = Vector2(-484, -85)
 script = ExtResource("2_xpxa0")
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("1_hhyrm")]
-position = Vector2(938, -494)
+position = Vector2(-484, -72)
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1820756090]
 
@@ -224,6 +227,8 @@ shape = SubResource("RectangleShape2D_shv8k")
 [node name="Room5" parent="." unique_id=2060150947 instance=ExtResource("11_vlkw4")]
 position = Vector2(1324, -566)
 room_index = 4
+
+[node name="DialogueBox" parent="." unique_id=862037101 instance=ExtResource("1_shv8k")]
 
 [editable path="Room2"]
 [editable path="Room4"]

@@ -135,7 +135,7 @@ custom_data_layer_0/name = "spikes"
 custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_8ccjp")
 
-[node name="Devroom" type="Node2D" unique_id=1261008392]
+[node name="Level_02" type="Node2D" unique_id=1261008392]
 metadata/_edit_lock_ = true
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("1_x0641")]
