@@ -3,6 +3,7 @@ class_name Player
 
 @onready var dash_sword: Node2D = $DashSword
 @onready var jump_indicator: Node2D = $JumpIndicator
+@onready var dash_attack_shape: CollisionShape2D = $DashSword/DashAttackArea/CollisionShape2D
 
 @export_group("Movimento")
 @export var BASE_SPEED := 120.0
@@ -220,6 +221,9 @@ func show_dash_sword() -> void:
 	dash_sword.modulate.a = 1.0
 	dash_sword.position = Vector2(SWORD_OFFSET_X * direction_sign, SWORD_OFFSET_Y)
 	dash_sword.scale.x = direction_sign
+	
+	if dash_attack_shape:
+		dash_attack_shape.set_deferred("disabled", false)
 
 func hide_dash_sword() -> void:
 	if dash_sword == null:
@@ -227,6 +231,9 @@ func hide_dash_sword() -> void:
 	
 	if sword_tween:
 		sword_tween.kill()
+		
+	if dash_attack_shape:
+		dash_attack_shape.set_deferred("disabled", true)
 	
 	sword_tween = create_tween()
 	sword_tween.tween_property(dash_sword, "modulate:a", 0.0, SWORD_FADE_TIME)
@@ -317,9 +324,7 @@ func check_dash_attack() -> void:
 		
 		if object == null:
 			continue
-		
-		print("Dash colidiu com: ", object.name, " | É BaseEnemy? ", object is BaseEnemy)
-		
+				
 		if object is BaseEnemy:
 			if is_dashing:
 				object.take_damage(1)
@@ -408,7 +413,6 @@ func start_dash() -> void:
 	
 	dash_direction = input_vec.normalized() if input_vec != Vector2.ZERO else default_dir
 	
-	# Deixa o dash apenas horizontal
 	dash_direction.y = 0
 	
 	if dash_direction.x == 0:
@@ -449,23 +453,39 @@ func _reload_current_scene_with_fade() -> void:
 	canvas.add_child(fade)
 	get_tree().current_scene.add_child(canvas)
 	
-	# 1. Tela vai ficando preta...
 	var tween := get_tree().create_tween()
 	tween.tween_property(fade, "modulate:a", 1.0, DEATH_FADE_TIME)
 	
 	await tween.finished
 	
-	# 2. O NOVO SISTEMA DE CHECKPOINT ENTRA AQUI!
-	# Em vez de dar reload na cena inteira, a gente chama o GameManager
+
 	GameManager.respawn_player()
 	
-	# 3. Como a Regina "ressuscitou", precisamos devolver o controle físico para ela!
 	is_dead = false
 	set_physics_process(true)
 	
-	# 4. EFEITO INVERSO: A tela preta clareia de volta para revelar ela no checkpoint!
 	var tween_out := get_tree().create_tween()
 	tween_out.tween_property(fade, "modulate:a", 0.0, DEATH_FADE_TIME)
 	
 	await tween_out.finished
-	canvas.queue_free() # Deleta a tela preta da memória
+	canvas.queue_free()
+
+
+func _on_dash_attack_area_body_entered(body: Node2D) -> void:
+	if not is_dashing:
+		return
+		
+	if body is BaseEnemy:
+		body.take_damage(1)
+		
+		is_dashing = false
+		can_dash = true
+		jump_available = true
+		dash_used_since_ground = false
+		dash_remaining_distance = 0.0
+		hide_dash_sword()
+		
+		velocity.x = 0
+		velocity.y = JUMP_VELOCITY
+		
+		move_and_slide()
