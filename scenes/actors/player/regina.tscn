@@ -52,6 +52,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwghu"]
+size = Vector2(23, 12)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m48ne"]
 atlas = ExtResource("4_5tqi8")
 region = Rect2(0, 0, 16, 16)
@@ -98,6 +101,13 @@ animation = &"sword-dash"
 autoplay = "sword-dash"
 frame_progress = 0.68394464
 
+[node name="DashAttackArea" type="Area2D" parent="DashSword" unique_id=908768107]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashSword/DashAttackArea" unique_id=235701048]
+position = Vector2(6.5, 2)
+shape = SubResource("RectangleShape2D_dwghu")
+disabled = true
+
 [node name="JumpIndicator" type="Node2D" parent="." unique_id=1436962936]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="JumpIndicator" unique_id=1135133019]
@@ -105,3 +115,5 @@ position = Vector2(0, 10)
 sprite_frames = SubResource("SpriteFrames_4r2mg")
 autoplay = "default"
 frame_progress = 0.82559276
+
+[connection signal="body_entered" from="DashSword/DashAttackArea" to="." method="_on_dash_attack_area_body_entered"]
