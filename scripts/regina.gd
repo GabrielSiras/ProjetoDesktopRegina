@@ -241,6 +241,25 @@ func hide_dash_sword() -> void:
 		dash_sword.visible = false
 		dash_sword.modulate.a = 1.0
 	)
+	
+func _on_dash_attack_area_body_entered(body: Node2D) -> void:
+	if not is_dashing:
+		return
+		
+	if body is BaseEnemy:		
+		body.take_damage(1)
+		
+		is_dashing = false
+		can_dash = true
+		jump_available = true
+		dash_used_since_ground = false
+		dash_remaining_distance = 0.0
+		hide_dash_sword()
+		
+		velocity.x = 0
+		velocity.y = JUMP_VELOCITY
+		
+		move_and_slide()
 
 func update_dash(delta: float) -> void:
 	var step := DASH_SPEED * delta
@@ -324,7 +343,9 @@ func check_dash_attack() -> void:
 		
 		if object == null:
 			continue
-				
+		
+		print("Dash colidiu com: ", object.name, " | É BaseEnemy? ", object is BaseEnemy)
+		
 		if object is BaseEnemy:
 			if is_dashing:
 				object.take_damage(1)
@@ -413,6 +434,7 @@ func start_dash() -> void:
 	
 	dash_direction = input_vec.normalized() if input_vec != Vector2.ZERO else default_dir
 	
+	# Deixa o dash apenas horizontal
 	dash_direction.y = 0
 	
 	if dash_direction.x == 0:
@@ -458,7 +480,6 @@ func _reload_current_scene_with_fade() -> void:
 	
 	await tween.finished
 	
-
 	GameManager.respawn_player()
 	
 	is_dead = false
@@ -469,23 +490,4 @@ func _reload_current_scene_with_fade() -> void:
 	
 	await tween_out.finished
 	canvas.queue_free()
-
-
-func _on_dash_attack_area_body_entered(body: Node2D) -> void:
-	if not is_dashing:
-		return
-		
-	if body is BaseEnemy:
-		body.take_damage(1)
-		
-		is_dashing = false
-		can_dash = true
-		jump_available = true
-		dash_used_since_ground = false
-		dash_remaining_distance = 0.0
-		hide_dash_sword()
-		
-		velocity.x = 0
-		velocity.y = JUMP_VELOCITY
-		
-		move_and_slide()
+	

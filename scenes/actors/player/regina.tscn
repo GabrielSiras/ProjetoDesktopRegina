@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwghu"]
-size = Vector2(21, 12)
+size = Vector2(23, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m48ne"]
 atlas = ExtResource("4_5tqi8")
@@ -101,9 +101,9 @@ animation = &"sword-dash"
 autoplay = "sword-dash"
 frame_progress = 0.68394464
 
-[node name="DashAttackArea" type="Area2D" parent="DashSword" unique_id=625804839]
+[node name="DashAttackArea" type="Area2D" parent="DashSword" unique_id=908768107]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DashSword/DashAttackArea" unique_id=392248152]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashSword/DashAttackArea" unique_id=235701048]
 position = Vector2(6.5, 2)
 shape = SubResource("RectangleShape2D_dwghu")
 disabled = true
