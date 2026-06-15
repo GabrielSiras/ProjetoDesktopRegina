@@ -87,10 +87,6 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not launched:
 		return
-		
-	if body is TileMapLayer or body.name.to_lower().contains("tilemap") or body is StaticBody2D:
-		queue_free()
-		return
 	
 	if body is Player:
 		if body.is_dashing:
