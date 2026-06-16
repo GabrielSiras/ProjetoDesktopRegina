@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dkub4dilmwy4s" path="res://scripts/opcoes.gd" id="1_dsfyt"]
 [ext_resource type="FontFile" uid="uid://33ip77dc7vt3" path="res://assets/fonts/KiwiSoda.ttf" id="1_vejr5"]
-[ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/audio_control.gd" id="2_dsfyt"]
-[ext_resource type="Script" uid="uid://dkr3qmvsnoyoi" path="res://scripts/sfx_control.gd" id="3_l3evi"]
+[ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/volume_slider.gd" id="2_dsfyt"]
+[ext_resource type="Script" uid="uid://dg6jcyokcohgt" path="res://scripts/remap_button.gd" id="3_7xt70"]
 [ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/fullscreen_control.gd" id="4_0ddgp"]
 
 [node name="Opções" type="Panel" unique_id=1955436429]
@@ -22,20 +22,198 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_dsfyt")
 
-[node name="Opções" type="Label" parent="." unique_id=1867217488]
+[node name="Paused" type="Label" parent="." unique_id=1867217488]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -46.0
-offset_top = 20.75
-offset_right = 46.0
-offset_bottom = 51.75
+offset_left = -50.5
+offset_top = 37.75
+offset_right = 50.5
+offset_bottom = 68.75
 grow_horizontal = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_vejr5")
 theme_override_font_sizes/font_size = 30
-text = "Opções:"
+text = "Pausado"
+
+[node name="Settings" type="Panel" parent="." unique_id=1063730654]
+layout_mode = 0
+offset_left = 0.25
+offset_top = -0.25
+offset_right = 540.5
+offset_bottom = 347.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings" unique_id=1916176765]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.9375
+offset_top = -102.0625
+offset_right = 166.9375
+offset_bottom = 102.0625
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Audio" type="Label" parent="Settings/VBoxContainer" unique_id=1199640575]
+layout_mode = 2
+text = "Áudio:"
+horizontal_alignment = 1
+
+[node name="Música" type="HBoxContainer" parent="Settings/VBoxContainer" unique_id=626791192]
+layout_mode = 2
+
+[node name="Música" type="Label" parent="Settings/VBoxContainer/Música" unique_id=126775451]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Música: "
+
+[node name="MusicControl" type="HSlider" parent="Settings/VBoxContainer/Música" unique_id=1951801278]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_dsfyt")
+audio_bus_name = "Music"
+
+[node name="SFX" type="HBoxContainer" parent="Settings/VBoxContainer" unique_id=642374669]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SFX" type="Label" parent="Settings/VBoxContainer/SFX" unique_id=1387686162]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "SFX:"
+
+[node name="SFXControl" type="HSlider" parent="Settings/VBoxContainer/SFX" unique_id=1846286352]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_dsfyt")
+audio_bus_name = "Sfx"
+
+[node name="Resolution" type="Label" parent="Settings/VBoxContainer" unique_id=376527202]
+layout_mode = 2
+text = "Resolução:"
+horizontal_alignment = 1
+
+[node name="FullScreen" type="HBoxContainer" parent="Settings/VBoxContainer" unique_id=1356097768]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="FullScreen" type="Label" parent="Settings/VBoxContainer/FullScreen" unique_id=844587885]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Tela cheia:"
+
+[node name="FullscreenControl" type="CheckButton" parent="Settings/VBoxContainer/FullScreen" unique_id=2031800291]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+script = ExtResource("4_0ddgp")
+
+[node name="Controls" type="Label" parent="Settings/VBoxContainer" unique_id=571003050]
+layout_mode = 2
+text = "Controles:"
+horizontal_alignment = 1
+
+[node name="Left" type="HBoxContainer" parent="Settings/VBoxContainer" unique_id=2117073704]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Left2" type="Label" parent="Settings/VBoxContainer/Left" unique_id=772784917]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Mover para Esquerda:"
+
+[node name="Left" type="Button" parent="Settings/VBoxContainer/Left" unique_id=1842263265]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "<-"
+script = ExtResource("3_7xt70")
+action_name = "ui_left"
+
+[node name="Right" type="HBoxContainer" parent="Settings/VBoxContainer" unique_id=759035421]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Right2" type="Label" parent="Settings/VBoxContainer/Right" unique_id=1209144308]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Mover para Direita:"
+
+[node name="Right" type="Button" parent="Settings/VBoxContainer/Right" unique_id=2063483574]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "->"
+script = ExtResource("3_7xt70")
+action_name = "ui_right"
+
+[node name="Jump" type="HBoxContainer" parent="Settings/VBoxContainer" unique_id=1234558554]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Jump" type="Label" parent="Settings/VBoxContainer/Jump" unique_id=1739407124]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Pulo:"
+
+[node name="Jump2" type="Button" parent="Settings/VBoxContainer/Jump" unique_id=845439709]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Z"
+script = ExtResource("3_7xt70")
+action_name = "jump"
+
+[node name="Dash" type="HBoxContainer" parent="Settings/VBoxContainer" unique_id=503476902]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Dash" type="Label" parent="Settings/VBoxContainer/Dash" unique_id=1358418633]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Pulo:"
+
+[node name="Dash2" type="Button" parent="Settings/VBoxContainer/Dash" unique_id=761204842]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "X"
+script = ExtResource("3_7xt70")
+action_name = "dash"
+
+[node name="Back2" type="Button" parent="Settings/VBoxContainer" unique_id=1253974708]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Voltar
+"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=754633389]
 layout_mode = 1
@@ -53,94 +231,26 @@ grow_vertical = 2
 mouse_filter = 0
 theme_override_constants/separation = 15
 
-[node name="Música" type="HBoxContainer" parent="VBoxContainer" unique_id=626791192]
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1819732396]
 layout_mode = 2
+text = "Configurações"
 
-[node name="Música" type="Label" parent="VBoxContainer/Música" unique_id=126775451]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_vejr5")
-theme_override_font_sizes/font_size = 20
-text = "Música: "
-
-[node name="MusicControl" type="HSlider" parent="VBoxContainer/Música" unique_id=1951801278]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.01
-value = 1.0
-script = ExtResource("2_dsfyt")
-audio_bus_name = "Music"
-
-[node name="SFX" type="HBoxContainer" parent="VBoxContainer" unique_id=642374669]
-layout_mode = 2
-theme_override_constants/separation = 32
-
-[node name="SFX" type="Label" parent="VBoxContainer/SFX" unique_id=1387686162]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_vejr5")
-theme_override_font_sizes/font_size = 20
-text = "SFX:"
-
-[node name="SFXControl" type="HSlider" parent="VBoxContainer/SFX" unique_id=1846286352]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-value = 100.0
-script = ExtResource("3_l3evi")
-audio_bus_name = "SFX"
-
-[node name="Tela cheia" type="HBoxContainer" parent="VBoxContainer" unique_id=1356097768]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Tela cheia" type="Label" parent="VBoxContainer/Tela cheia" unique_id=772784917]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_vejr5")
-theme_override_font_sizes/font_size = 20
-text = "Tela cheia:"
-
-[node name="FullscreenControl" type="CheckButton" parent="VBoxContainer/Tela cheia" unique_id=2031800291]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_vejr5")
-theme_override_font_sizes/font_size = 20
-button_pressed = true
-script = ExtResource("4_0ddgp")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1801834984]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -158.0
-offset_top = -81.75
-offset_right = 159.0
-offset_bottom = -41.75
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Voltar" type="Button" parent="HBoxContainer" unique_id=500114692]
+[node name="Back" type="Button" parent="VBoxContainer" unique_id=500114692]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_vejr5")
 theme_override_font_sizes/font_size = 30
-text = "Voltar"
+text = "Voltar ao jogo"
 
-[node name="Salvar e Sair" type="Button" parent="HBoxContainer" unique_id=911018234]
+[node name="Leave" type="Button" parent="VBoxContainer" unique_id=105154879]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_vejr5")
 theme_override_font_sizes/font_size = 30
-text = "Salvar e sair
-"
+text = "Sair para o menu"
 
-[node name="Sair" type="Button" parent="HBoxContainer" unique_id=105154879]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_vejr5")
-theme_override_font_sizes/font_size = 30
-text = "Sair"
-
-[connection signal="value_changed" from="VBoxContainer/Música/MusicControl" to="VBoxContainer/Música/MusicControl" method="_on_value_changed"]
-[connection signal="toggled" from="VBoxContainer/Tela cheia/FullscreenControl" to="VBoxContainer/Tela cheia/FullscreenControl" method="_on_toggled"]
-[connection signal="pressed" from="HBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
-[connection signal="pressed" from="HBoxContainer/Sair" to="." method="_on_sair_pressed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/Música/MusicControl" to="Settings/VBoxContainer/Música/MusicControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/SFX/SFXControl" to="Settings/VBoxContainer/SFX/SFXControl" method="_on_value_changed"]
+[connection signal="toggled" from="Settings/VBoxContainer/FullScreen/FullscreenControl" to="Settings/VBoxContainer/FullScreen/FullscreenControl" method="_on_toggled"]
+[connection signal="pressed" from="Settings/VBoxContainer/Back2" to="." method="_on_back_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Leave" to="." method="_on_leave_pressed"]

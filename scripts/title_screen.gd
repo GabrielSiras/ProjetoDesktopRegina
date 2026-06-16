@@ -14,7 +14,7 @@ func _on_começar_pressed() -> void:
 func _on_creditos_pressed() -> void:
 	pass
 
-func _on_opções_pressed() -> void:
+func _on_configurações_pressed() -> void:
 	botões.visible = false
 	opções.visible = true
 

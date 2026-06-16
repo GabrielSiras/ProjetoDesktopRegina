@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bw3h6e7h3vxo" path="res://scripts/title_screen.gd" id="1_k83vc"]
 [ext_resource type="Texture2D" uid="uid://bfm57fetwaeud" path="res://assets/images/title-screen-bg.png" id="1_yc6j5"]
 [ext_resource type="FontFile" uid="uid://33ip77dc7vt3" path="res://assets/fonts/KiwiSoda.ttf" id="3_k83vc"]
-[ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/audio_control.gd" id="5_bl8v3"]
+[ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/volume_slider.gd" id="5_bl8v3"]
 [ext_resource type="AudioStream" uid="uid://dv40stf7ikaxp" path="res://assets/audios/som-basico.mp3" id="5_hki88"]
-[ext_resource type="Script" uid="uid://dkr3qmvsnoyoi" path="res://scripts/sfx_control.gd" id="6_7l6iu"]
 [ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/fullscreen_control.gd" id="6_bl8v3"]
 
 [sub_resource type="Theme" id="Theme_hki88"]
@@ -83,11 +82,11 @@ theme_override_fonts/font = ExtResource("3_k83vc")
 theme_override_font_sizes/font_size = 30
 text = "Créditos"
 
-[node name="Opções" type="Button" parent="Botões" unique_id=1427712661]
+[node name="Configurações" type="Button" parent="Botões" unique_id=1427712661]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k83vc")
 theme_override_font_sizes/font_size = 30
-text = "Opções"
+text = "Configurações"
 
 [node name="Sair-do-jogo" type="Button" parent="Botões" unique_id=476957106]
 layout_mode = 2
@@ -115,7 +114,7 @@ offset_bottom = 173.75
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Opções" type="Label" parent="Opções" unique_id=1073944106]
+[node name="Configurações" type="Label" parent="Opções" unique_id=1073944106]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -127,7 +126,7 @@ offset_bottom = 51.75
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_k83vc")
 theme_override_font_sizes/font_size = 30
-text = "Opções:"
+text = "Configurações:"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Opções" unique_id=187131842]
 layout_mode = 1
@@ -177,9 +176,11 @@ text = "SFX:"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
-script = ExtResource("6_7l6iu")
-audio_bus_name = "SFX"
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("5_bl8v3")
+audio_bus_name = "Sfx"
 
 [node name="Tela cheia" type="HBoxContainer" parent="Opções/VBoxContainer" unique_id=1665430041]
 layout_mode = 2
@@ -217,8 +218,9 @@ text = "Voltar"
 
 [connection signal="pressed" from="Botões/Começar" to="." method="_on_começar_pressed"]
 [connection signal="pressed" from="Botões/Creditos" to="." method="_on_creditos_pressed"]
-[connection signal="pressed" from="Botões/Opções" to="." method="_on_opções_pressed"]
+[connection signal="pressed" from="Botões/Configurações" to="." method="_on_configurações_pressed"]
 [connection signal="pressed" from="Botões/Sair-do-jogo" to="." method="_on_sairdojogo_pressed"]
 [connection signal="value_changed" from="Opções/VBoxContainer/Música/MusicControl" to="Opções/VBoxContainer/Música/MusicControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Opções/VBoxContainer/SFX/SFXControl" to="Opções/VBoxContainer/SFX/SFXControl" method="_on_value_changed"]
 [connection signal="toggled" from="Opções/VBoxContainer/Tela cheia/FullscreenControl" to="Opções/VBoxContainer/Tela cheia/FullscreenControl" method="_on_toggled"]
 [connection signal="pressed" from="Opções/Voltar" to="." method="_on_voltar_pressed"]
