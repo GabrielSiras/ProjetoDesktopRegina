@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/volume_slider.gd" id="5_bl8v3"]
 [ext_resource type="AudioStream" uid="uid://dv40stf7ikaxp" path="res://assets/audios/som-basico.mp3" id="5_hki88"]
 [ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/fullscreen_control.gd" id="6_bl8v3"]
+[ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/game_camera.gd" id="7_6ik4u"]
 
 [sub_resource type="Theme" id="Theme_hki88"]
 default_font = ExtResource("3_k83vc")
@@ -22,8 +23,8 @@ script = ExtResource("1_k83vc")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2070275874]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 960.0
+offset_bottom = 360.0
 texture = ExtResource("1_yc6j5")
 expand_mode = 2
 
@@ -56,16 +57,15 @@ theme_override_font_sizes/font_size = 50
 text = "Regina's Ascent"
 
 [node name="Botões" type="VBoxContainer" parent="." unique_id=2113917244]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -115.5
+offset_left = -266.0
 offset_top = -86.0
-offset_right = 115.5
+offset_right = -35.0
 offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -101,6 +101,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Opções" type="Panel" parent="." unique_id=1608105903]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -215,6 +216,14 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_k83vc")
 theme_override_font_sizes/font_size = 30
 text = "Voltar"
+
+[node name="GameCamera" type="Camera2D" parent="." unique_id=401857997]
+process_mode = 3
+position = Vector2(320, 180)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+script = ExtResource("7_6ik4u")
 
 [connection signal="pressed" from="Botões/Começar" to="." method="_on_começar_pressed"]
 [connection signal="pressed" from="Botões/Creditos" to="." method="_on_creditos_pressed"]

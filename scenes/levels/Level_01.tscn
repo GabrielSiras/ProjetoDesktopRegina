@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bbm16lbvnogne"]
 
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="1_hhyrm"]
+[ext_resource type="Script" uid="uid://2w5xxnx75apf" path="res://scripts/level_01.gd" id="1_shv8k"]
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/game_camera.gd" id="2_xpxa0"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/opcoes.tscn" id="3_10xc4"]
 [ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="4_dwcxj"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bqs3p1ppfayq3" path="res://assets/sprites/Tiles/Ice.png" id="9_vlkw4"]
 [ext_resource type="Texture2D" uid="uid://d0kr2fkk4imjv" path="res://assets/sprites/Tiles/Spikes.png" id="10_xpxa0"]
 [ext_resource type="PackedScene" uid="uid://cmeaabg7vjvb4" path="res://scenes/levels/cam_area_room.tscn" id="11_vlkw4"]
+[ext_resource type="PackedScene" uid="uid://fek6gy54l1un" path="res://scenes/DialogueBox.tscn" id="14_xg7sb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_shv8k"]
 texture = ExtResource("4_dwcxj")
@@ -644,6 +646,7 @@ size = Vector2(640, 360)
 size = Vector2(640, 720)
 
 [node name="Level_01" type="Node2D" unique_id=1261008392]
+script = ExtResource("1_shv8k")
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=978070134]
 process_mode = 3
@@ -746,6 +749,8 @@ position = Vector2(1713, -544)
 
 [node name="Spider4" parent="." unique_id=1052961366 instance=ExtResource("5_hhyrm")]
 position = Vector2(1000, -658)
+
+[node name="DialogueBox" parent="." unique_id=862037101 instance=ExtResource("14_xg7sb")]
 
 [editable path="Room2"]
 [editable path="Room4"]

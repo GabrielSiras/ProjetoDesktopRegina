@@ -28,5 +28,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LetterTimer" type="Timer" parent="." unique_id=1803586128]
-wait_time = 0.030000000000000002
+wait_time = 0.03
 one_shot = true

@@ -11,7 +11,7 @@ func _ready() -> void:
 			"...Como cheguei aqui?",
 			"Preciso salvar meu cavaleiro!",
 			"Essas paredes... parecem que estou em algum tipo de esgoto.",
-			"Preciso tomar cuidado. Sinto que não estou sozinha aqui dentro..."
+			"Preciso tomar cuidado. Sinto que não estou sozinha aqui dentro...",
 		]
 		
 		dialog_box.start_dialogue(introducao)
