@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://bwn72gatu541w"]
 
 [ext_resource type="Texture2D" uid="uid://cu4lejrgehrr5" path="res://assets/sprites/Enemies/spider.png" id="1_vfxfr"]
-[ext_resource type="Script" uid="uid://gf1v8nd4fxh4" path="res://scripts/spider.gd" id="1_xoucn"]
+[ext_resource type="Script" uid="uid://gf1v8nd4fxh4" path="res://scripts/actors/enemies/spider.gd" id="1_xoucn"]
+[ext_resource type="AudioStream" uid="uid://bij6y7voo54w3" path="res://assets/audios/sfx/spider/spider-dying.mp3" id="3_bigkt"]
+[ext_resource type="AudioStream" uid="uid://c7y1vv2evc45m" path="res://assets/audios/sfx/spider/spider-respawn.mp3" id="4_exjdq"]
+[ext_resource type="AudioStream" uid="uid://bude8nnblcrr3" path="res://assets/audios/sfx/spider/spider-attack.mp3" id="5_72gj5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7q7pv"]
-radius = 2.0
-height = 4.000002
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q7pv"]
+size = Vector2(2.8571424, 2.8571427)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdlk0"]
 radius = 152.0033
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khy4e"]
-height = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khy4e"]
 
 [node name="Spider" type="CharacterBody2D" unique_id=1950784212]
 script = ExtResource("1_xoucn")
@@ -22,10 +23,10 @@ rotation = 1.5707964
 texture = ExtResource("1_vfxfr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168319503]
-position = Vector2(7.6293945e-06, -9.536743e-07)
+position = Vector2(-2.3841856e-07, 1.1920929e-07)
 rotation = 1.5707964
 scale = Vector2(7, 7)
-shape = SubResource("CapsuleShape2D_7q7pv")
+shape = SubResource("RectangleShape2D_7q7pv")
 
 [node name="Field_of_view" type="Area2D" parent="." unique_id=1364850414]
 
@@ -37,11 +38,25 @@ shape = SubResource("CircleShape2D_gdlk0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1230944225]
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_khy4e")
+shape = SubResource("RectangleShape2D_khy4e")
 
 [node name="Timer" type="Timer" parent="." unique_id=1162315289]
 wait_time = 2.0
 autostart = true
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=265982869]
+stream = ExtResource("3_bigkt")
+volume_db = -3.0
+bus = &"SFX"
+
+[node name="RespawnSFX" type="AudioStreamPlayer2D" parent="." unique_id=1180876778]
+stream = ExtResource("4_exjdq")
+bus = &"SFX"
+
+[node name="AttackSFX" type="AudioStreamPlayer2D" parent="." unique_id=1841991507]
+stream = ExtResource("5_72gj5")
+volume_db = -4.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_field_of_view_body_entered"]
 [connection signal="body_exited" from="Field_of_view" to="." method="_on_field_of_view_body_exited"]

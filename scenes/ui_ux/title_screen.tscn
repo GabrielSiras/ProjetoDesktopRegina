@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://dipy6y1atruy5"]
+
+[ext_resource type="Script" uid="uid://bw3h6e7h3vxo" path="res://scripts/ui_ux/title_screen.gd" id="1_k83vc"]
+[ext_resource type="Texture2D" uid="uid://bfm57fetwaeud" path="res://assets/images/title-screen-bg.png" id="1_yc6j5"]
+[ext_resource type="FontFile" uid="uid://33ip77dc7vt3" path="res://assets/fonts/KiwiSoda.ttf" id="3_k83vc"]
+[ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/settings/volume_slider.gd" id="5_bl8v3"]
+[ext_resource type="AudioStream" uid="uid://dv40stf7ikaxp" path="res://assets/audios/musics/som-basico.mp3" id="5_hki88"]
+[ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/ui_ux/fullscreen_control.gd" id="6_bl8v3"]
+[ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="7_6ik4u"]
+
+[sub_resource type="Theme" id="Theme_hki88"]
+default_font = ExtResource("3_k83vc")
+default_font_size = 30
+
+[node name="TitleScreen" type="Control" unique_id=1577277071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k83vc")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2070275874]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 360.0
+texture = ExtResource("1_yc6j5")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=921272606]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+
+[node name="Label2" type="Label" parent="." unique_id=1263452984]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 13.0
+offset_right = 172.5
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 50
+text = "Regina's Ascent"
+
+[node name="Botões" type="VBoxContainer" parent="." unique_id=2113917244]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.0
+offset_top = -86.0
+offset_right = -35.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Começar" type="Button" parent="Botões" unique_id=2071732159]
+layout_mode = 2
+theme = SubResource("Theme_hki88")
+text = "Começar"
+
+[node name="Creditos" type="Button" parent="Botões" unique_id=1863821736]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 30
+text = "Créditos"
+
+[node name="Configurações" type="Button" parent="Botões" unique_id=1427712661]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 30
+text = "Configurações"
+
+[node name="Sair-do-jogo" type="Button" parent="Botões" unique_id=476957106]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 30
+text = "Sair do Jogo"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1049621128]
+stream = ExtResource("5_hki88")
+volume_db = 1.825
+autoplay = true
+bus = &"Music"
+
+[node name="Opções" type="Panel" parent="." unique_id=1608105903]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.25
+offset_top = -173.75
+offset_right = 270.25
+offset_bottom = 173.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Configurações" type="Label" parent="Opções" unique_id=1073944106]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 20.75
+offset_right = 46.0
+offset_bottom = 51.75
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 30
+text = "Configurações:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Opções" unique_id=187131842]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -64.75
+offset_right = 127.5
+offset_bottom = 64.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Música" type="HBoxContainer" parent="Opções/VBoxContainer" unique_id=993432493]
+layout_mode = 2
+
+[node name="Música" type="Label" parent="Opções/VBoxContainer/Música" unique_id=1905876752]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 20
+text = "Música: "
+
+[node name="MusicControl" type="HSlider" parent="Opções/VBoxContainer/Música" unique_id=1694417274]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("5_bl8v3")
+audio_bus_name = "Music"
+
+[node name="SFX" type="HBoxContainer" parent="Opções/VBoxContainer" unique_id=418485889]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SFX" type="Label" parent="Opções/VBoxContainer/SFX" unique_id=1475264518]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 20
+text = "SFX:"
+
+[node name="SFXControl" type="HSlider" parent="Opções/VBoxContainer/SFX" unique_id=994681651]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("5_bl8v3")
+audio_bus_name = "Sfx"
+
+[node name="Tela cheia" type="HBoxContainer" parent="Opções/VBoxContainer" unique_id=1665430041]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Tela cheia" type="Label" parent="Opções/VBoxContainer/Tela cheia" unique_id=957101682]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 20
+text = "Tela cheia:"
+
+[node name="FullscreenControl" type="CheckButton" parent="Opções/VBoxContainer/Tela cheia" unique_id=1364766660]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+script = ExtResource("6_bl8v3")
+
+[node name="Voltar" type="Button" parent="Opções" unique_id=216068322]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.5
+offset_top = -61.75
+offset_right = 58.5
+offset_bottom = -22.75
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_k83vc")
+theme_override_font_sizes/font_size = 30
+text = "Voltar"
+
+[node name="GameCamera" type="Camera2D" parent="." unique_id=401857997]
+process_mode = 3
+position = Vector2(320, 180)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+script = ExtResource("7_6ik4u")
+
+[connection signal="pressed" from="Botões/Começar" to="." method="_on_começar_pressed"]
+[connection signal="pressed" from="Botões/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="Botões/Configurações" to="." method="_on_configurações_pressed"]
+[connection signal="pressed" from="Botões/Sair-do-jogo" to="." method="_on_sairdojogo_pressed"]
+[connection signal="value_changed" from="Opções/VBoxContainer/Música/MusicControl" to="Opções/VBoxContainer/Música/MusicControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Opções/VBoxContainer/SFX/SFXControl" to="Opções/VBoxContainer/SFX/SFXControl" method="_on_value_changed"]
+[connection signal="toggled" from="Opções/VBoxContainer/Tela cheia/FullscreenControl" to="Opções/VBoxContainer/Tela cheia/FullscreenControl" method="_on_toggled"]
+[connection signal="pressed" from="Opções/Voltar" to="." method="_on_voltar_pressed"]

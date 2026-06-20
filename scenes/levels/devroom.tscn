@@ -1,17 +1,17 @@
 [gd_scene format=4 uid="uid://bncs85vpeh1c7"]
 
-[ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/game_camera.gd" id="1_6cre3"]
+[ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="1_6cre3"]
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="1_ywbmh"]
 [ext_resource type="PackedScene" uid="uid://cjd4rko0ehkwn" path="res://scenes/actors/enemies/skeleton.tscn" id="2_p11xe"]
-[ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/opcoes.tscn" id="4_j0dn1"]
+[ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui_ux/opcoes.tscn" id="4_j0dn1"]
 [ext_resource type="Texture2D" uid="uid://d0kr2fkk4imjv" path="res://assets/sprites/Tiles/Spikes.png" id="5_1ar6h"]
 [ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="5_p11xe"]
-[ext_resource type="PackedScene" uid="uid://c6c3v7rpdq66q" path="res://scenes/ui/end-of-phase-portal.tscn" id="5_v83sa"]
+[ext_resource type="PackedScene" uid="uid://c6c3v7rpdq66q" path="res://scenes/ui_ux/end-of-phase-portal.tscn" id="5_v83sa"]
 [ext_resource type="Texture2D" uid="uid://dxwj35mwm6lbm" path="res://assets/sprites/Tiles/WebSurface.png" id="6_hqlyh"]
 [ext_resource type="Texture2D" uid="uid://bqs3p1ppfayq3" path="res://assets/sprites/Tiles/Ice.png" id="7_6cre3"]
 [ext_resource type="PackedScene" uid="uid://bch6kqjjnpaok" path="res://scenes/actors/enemies/ghost.tscn" id="7_j0dn1"]
 [ext_resource type="PackedScene" uid="uid://bwn72gatu541w" path="res://scenes/actors/enemies/spider.tscn" id="8_pcnt6"]
-[ext_resource type="Script" uid="uid://brfg7je7yxmr0" path="res://scripts/room_area.gd" id="11_hqlyh"]
+[ext_resource type="Script" uid="uid://brfg7je7yxmr0" path="res://scripts/levels/room_area.gd" id="11_hqlyh"]
 [ext_resource type="PackedScene" uid="uid://cmeaabg7vjvb4" path="res://scenes/levels/cam_area_room.tscn" id="12_s2i3n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdij4"]
@@ -164,6 +164,8 @@ size = Vector2(640, 360)
 
 [node name="Devroom" type="Node2D" unique_id=1261008392]
 
+[node name="Opções" parent="." unique_id=1955436429 instance=ExtResource("4_j0dn1")]
+
 [node name="GameCamera" type="Camera2D" parent="." unique_id=166192012]
 position = Vector2(-345, -34)
 process_callback = 0
@@ -172,15 +174,6 @@ script = ExtResource("1_6cre3")
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("1_ywbmh")]
 position = Vector2(-349, -32)
-
-[node name="Hud" type="CanvasLayer" parent="." unique_id=1820756090]
-
-[node name="Opções" parent="Hud" unique_id=1955436429 instance=ExtResource("4_j0dn1")]
-offset_left = -221.0
-offset_top = -146.0
-offset_right = 229.0
-offset_bottom = 159.0
-size_flags_horizontal = 4
 
 [node name="end-of-phase-portal" parent="." unique_id=583445692 instance=ExtResource("5_v83sa")]
 position = Vector2(-302, -175)
@@ -209,12 +202,10 @@ tile_set = SubResource("TileSet_wryis")
 [node name="Enemies" type="Node" parent="." unique_id=1167476668]
 
 [node name="Skeleton" parent="Enemies" unique_id=273717979 instance=ExtResource("2_p11xe")]
-visible = false
-position = Vector2(210, -34)
+position = Vector2(-510, -32)
 
 [node name="Skeleton2" parent="Enemies" unique_id=4359320 instance=ExtResource("2_p11xe")]
-visible = false
-position = Vector2(286, -31)
+position = Vector2(-630, -29)
 
 [node name="Skeleton3" parent="Enemies" unique_id=1333452333 instance=ExtResource("2_p11xe")]
 visible = false
@@ -222,11 +213,11 @@ position = Vector2(358, -39)
 
 [node name="Ghost" parent="Enemies" unique_id=1950784212 instance=ExtResource("7_j0dn1")]
 visible = false
-position = Vector2(-47, -212)
+position = Vector2(-690, -171)
 
 [node name="Spider" parent="Enemies" unique_id=1745426435 instance=ExtResource("8_pcnt6")]
 visible = false
-position = Vector2(-233, -46)
+position = Vector2(-716, -154)
 
 [node name="Spider2" parent="Enemies" unique_id=592188037 instance=ExtResource("8_pcnt6")]
 visible = false
@@ -241,6 +232,7 @@ visible = false
 position = Vector2(54, -102)
 
 [node name="Sala1" parent="." unique_id=1576416373 instance=ExtResource("12_s2i3n")]
+visible = false
 
 [node name="Sala2" type="Area2D" parent="." unique_id=2106283782]
 script = ExtResource("11_hqlyh")

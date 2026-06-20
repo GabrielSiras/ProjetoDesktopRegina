@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqjykmgnntvul"]
 
-[ext_resource type="Script" uid="uid://bsisum0mu6omg" path="res://scripts/regina.gd" id="1_f77aw"]
+[ext_resource type="Script" uid="uid://bsisum0mu6omg" path="res://scripts/actors/player/regina.gd" id="1_f77aw"]
 [ext_resource type="Texture2D" uid="uid://bthyk8h20bl4" path="res://assets/sprites/Regina/Idle/Regina-idle-1.png" id="2_f77aw"]
 [ext_resource type="Texture2D" uid="uid://bg7abxk01e1r7" path="res://assets/sprites/Regina/Sword/Sword-dash-1.png" id="3_8jvx2"]
 [ext_resource type="Texture2D" uid="uid://bki3vyclmgwt" path="res://assets/sprites/Regina/Jump/jump-air-1.png" id="4_5tqi8"]
@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwghu"]
-size = Vector2(23, 12)
+size = Vector2(21, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m48ne"]
 atlas = ExtResource("4_5tqi8")
@@ -104,7 +104,7 @@ frame_progress = 0.68394464
 [node name="DashAttackArea" type="Area2D" parent="DashSword" unique_id=908768107]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashSword/DashAttackArea" unique_id=235701048]
-position = Vector2(6.5, 2)
+position = Vector2(6.5, 1.5)
 shape = SubResource("RectangleShape2D_dwghu")
 disabled = true
 

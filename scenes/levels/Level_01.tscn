@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://bbm16lbvnogne"]
 
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="1_hhyrm"]
-[ext_resource type="Script" uid="uid://2w5xxnx75apf" path="res://scripts/level_01.gd" id="1_shv8k"]
-[ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/game_camera.gd" id="2_xpxa0"]
-[ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui/opcoes.tscn" id="3_10xc4"]
+[ext_resource type="Script" uid="uid://2w5xxnx75apf" path="res://scripts/levels/level_01.gd" id="1_shv8k"]
+[ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="2_xpxa0"]
+[ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui_ux/opcoes.tscn" id="3_10xc4"]
 [ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="4_dwcxj"]
-[ext_resource type="PackedScene" uid="uid://c6c3v7rpdq66q" path="res://scenes/ui/end-of-phase-portal.tscn" id="5_c83vx"]
+[ext_resource type="PackedScene" uid="uid://c6c3v7rpdq66q" path="res://scenes/ui_ux/end-of-phase-portal.tscn" id="5_c83vx"]
 [ext_resource type="PackedScene" uid="uid://bwn72gatu541w" path="res://scenes/actors/enemies/spider.tscn" id="5_hhyrm"]
 [ext_resource type="PackedScene" uid="uid://cjd4rko0ehkwn" path="res://scenes/actors/enemies/skeleton.tscn" id="6_5mpa8"]
 [ext_resource type="Texture2D" uid="uid://dxwj35mwm6lbm" path="res://assets/sprites/Tiles/WebSurface.png" id="8_5dpfh"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bqs3p1ppfayq3" path="res://assets/sprites/Tiles/Ice.png" id="9_vlkw4"]
 [ext_resource type="Texture2D" uid="uid://d0kr2fkk4imjv" path="res://assets/sprites/Tiles/Spikes.png" id="10_xpxa0"]
 [ext_resource type="PackedScene" uid="uid://cmeaabg7vjvb4" path="res://scenes/levels/cam_area_room.tscn" id="11_vlkw4"]
-[ext_resource type="PackedScene" uid="uid://fek6gy54l1un" path="res://scenes/DialogueBox.tscn" id="14_xg7sb"]
+[ext_resource type="PackedScene" uid="uid://fek6gy54l1un" path="res://scenes/ui_ux/DialogueBox.tscn" id="14_xg7sb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_shv8k"]
 texture = ExtResource("4_dwcxj")
@@ -720,12 +720,10 @@ position = Vector2(-307, 3)
 shape = SubResource("RectangleShape2D_xpxa0")
 
 [node name="Room3" parent="." unique_id=2044041908 instance=ExtResource("11_vlkw4")]
-visible = false
 position = Vector2(1219, -289)
 room_index = 2
 
 [node name="Room4" parent="." unique_id=1793255510 instance=ExtResource("11_vlkw4")]
-visible = false
 position = Vector2(1964, -246)
 room_index = 3
 
@@ -734,7 +732,6 @@ position = Vector2(-453, -290)
 shape = SubResource("RectangleShape2D_shv8k")
 
 [node name="Room5" parent="." unique_id=2060150947 instance=ExtResource("11_vlkw4")]
-visible = false
 position = Vector2(1219, -649)
 room_index = 4
 

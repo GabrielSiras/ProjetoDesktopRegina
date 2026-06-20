@@ -1,0 +1,285 @@
+[gd_scene format=3 uid="uid://diulgkqwhcxp5"]
+
+[ext_resource type="Script" uid="uid://dkub4dilmwy4s" path="res://scripts/ui_ux/opcoes.gd" id="1_dsfyt"]
+[ext_resource type="Texture2D" uid="uid://ddr718wb88p3o" path="res://assets/images/options-paused/scrollbackground.png" id="1_mja0o"]
+[ext_resource type="FontFile" uid="uid://33ip77dc7vt3" path="res://assets/fonts/KiwiSoda.ttf" id="1_vejr5"]
+[ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/settings/volume_slider.gd" id="2_dsfyt"]
+[ext_resource type="Texture2D" uid="uid://irbqegcthidw" path="res://assets/images/options-paused/wood-frame.png" id="3_4flu3"]
+[ext_resource type="Script" uid="uid://dg6jcyokcohgt" path="res://scripts/ui_ux/remap_button.gd" id="3_7xt70"]
+[ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/ui_ux/fullscreen_control.gd" id="4_0ddgp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mja0o"]
+texture = ExtResource("1_mja0o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22mjj"]
+texture = ExtResource("3_4flu3")
+expand_margin_left = 14.0
+expand_margin_top = 14.0
+expand_margin_right = 14.0
+expand_margin_bottom = 26.0
+
+[node name="Opções" type="CanvasLayer" unique_id=734415693]
+process_mode = 3
+script = ExtResource("1_dsfyt")
+metadata/_edit_use_anchors_ = true
+
+[node name="UI_Container" type="PanelContainer" parent="." unique_id=1305511294]
+anchors_preset = -1
+anchor_right = 0.9296875
+anchor_bottom = 0.9388889
+offset_left = 59.0
+offset_top = 23.0
+offset_right = -8.0
+offset_bottom = -2.0
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Scroll" type="Panel" parent="UI_Container" unique_id=537265017]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mja0o")
+
+[node name="Wood-Frame" type="Panel" parent="UI_Container" unique_id=149130610]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_22mjj")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_Container" unique_id=754633389]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+alignment = 1
+
+[node name="Back" type="Button" parent="UI_Container/VBoxContainer" unique_id=500114692]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+text = "Voltar ao jogo"
+
+[node name="Settings" type="Button" parent="UI_Container/VBoxContainer" unique_id=1819732396]
+layout_mode = 2
+text = "Configurações"
+
+[node name="Leave" type="Button" parent="UI_Container/VBoxContainer" unique_id=105154879]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+text = "Sair para o menu"
+
+[node name="Paused" type="Label" parent="." unique_id=1867217488]
+offset_left = 272.0
+offset_top = 57.0
+offset_right = 373.0
+offset_bottom = 88.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+text = "Pausado"
+
+[node name="Settings" type="Panel" parent="." unique_id=1063730654]
+anchors_preset = -1
+anchor_left = 0.0921875
+anchor_top = 0.06388889
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -53.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Scroll" type="Panel" parent="Settings" unique_id=1451232775]
+layout_mode = 0
+offset_right = 528.0
+offset_bottom = 313.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mja0o")
+
+[node name="Wood-Frame" type="Panel" parent="Settings" unique_id=1917607236]
+layout_mode = 0
+offset_right = 528.0
+offset_bottom = 313.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_22mjj")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Settings" unique_id=1000850372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 23.999998
+offset_right = -38.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/ScrollContainer" unique_id=1916176765]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Audio" type="Label" parent="Settings/ScrollContainer/VBoxContainer" unique_id=1199640575]
+layout_mode = 2
+text = "Áudio:"
+horizontal_alignment = 1
+
+[node name="Música" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=626791192]
+layout_mode = 2
+
+[node name="Música" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Música" unique_id=126775451]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Música: "
+
+[node name="MusicControl" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/Música" unique_id=1951801278]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_dsfyt")
+audio_bus_name = "Music"
+
+[node name="SFX" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=642374669]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SFX" type="Label" parent="Settings/ScrollContainer/VBoxContainer/SFX" unique_id=1387686162]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "SFX:"
+
+[node name="SFXControl" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/SFX" unique_id=1846286352]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_dsfyt")
+audio_bus_name = "SFX"
+
+[node name="Resolution" type="Label" parent="Settings/ScrollContainer/VBoxContainer" unique_id=376527202]
+layout_mode = 2
+text = "Resolução:"
+horizontal_alignment = 1
+
+[node name="FullScreen" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=1356097768]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="FullScreen" type="Label" parent="Settings/ScrollContainer/VBoxContainer/FullScreen" unique_id=844587885]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Tela cheia:"
+
+[node name="FullscreenControl" type="CheckButton" parent="Settings/ScrollContainer/VBoxContainer/FullScreen" unique_id=2031800291]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+script = ExtResource("4_0ddgp")
+
+[node name="Controls" type="Label" parent="Settings/ScrollContainer/VBoxContainer" unique_id=571003050]
+layout_mode = 2
+text = "Controles:"
+horizontal_alignment = 1
+
+[node name="Left" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=2117073704]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Left2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Left" unique_id=772784917]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Mover para Esquerda:"
+
+[node name="Left" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Left" unique_id=1842263265]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "<-"
+script = ExtResource("3_7xt70")
+action_name = "ui_left"
+
+[node name="Right" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=759035421]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Right2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Right" unique_id=1209144308]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Mover para Direita:"
+
+[node name="Right" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Right" unique_id=2063483574]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "->"
+script = ExtResource("3_7xt70")
+action_name = "ui_right"
+
+[node name="Jump" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=1234558554]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Jump" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Jump" unique_id=1739407124]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Pulo:"
+
+[node name="Jump2" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Jump" unique_id=845439709]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Z"
+script = ExtResource("3_7xt70")
+action_name = "jump"
+
+[node name="Dash" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=503476902]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Dash" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Dash" unique_id=1358418633]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 20
+text = "Dash:"
+
+[node name="Dash2" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Dash" unique_id=761204842]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "X"
+script = ExtResource("3_7xt70")
+action_name = "dash"
+
+[node name="Back2" type="Button" parent="Settings/ScrollContainer/VBoxContainer" unique_id=1253974708]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vejr5")
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Voltar
+"
+
+[connection signal="pressed" from="UI_Container/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UI_Container/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI_Container/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="value_changed" from="Settings/ScrollContainer/VBoxContainer/Música/MusicControl" to="Settings/ScrollContainer/VBoxContainer/Música/MusicControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Settings/ScrollContainer/VBoxContainer/SFX/SFXControl" to="Settings/ScrollContainer/VBoxContainer/SFX/SFXControl" method="_on_value_changed"]
+[connection signal="toggled" from="Settings/ScrollContainer/VBoxContainer/FullScreen/FullscreenControl" to="Settings/ScrollContainer/VBoxContainer/FullScreen/FullscreenControl" method="_on_toggled"]
+[connection signal="pressed" from="Settings/ScrollContainer/VBoxContainer/Back2" to="." method="_on_back_2_pressed"]

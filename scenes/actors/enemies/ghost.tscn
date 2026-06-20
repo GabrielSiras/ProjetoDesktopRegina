@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bch6kqjjnpaok"]
 
-[ext_resource type="Script" uid="uid://2lrxftjotfsm" path="res://scripts/ghost.gd" id="1_mthm4"]
+[ext_resource type="Script" uid="uid://2lrxftjotfsm" path="res://scripts/actors/enemies/ghost.gd" id="1_mthm4"]
 [ext_resource type="Texture2D" uid="uid://doyabksgxq348" path="res://assets/sprites/Enemies/Ghost.png" id="2_mthm4"]
+[ext_resource type="AudioStream" uid="uid://dwwgjoleqdcq7" path="res://assets/audios/sfx/ghost/ghost-dying.mp3" id="3_rka35"]
+[ext_resource type="AudioStream" uid="uid://ddy1dq625kuc4" path="res://assets/audios/sfx/ghost/ghost-respawn.mp3" id="4_at50b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mthm4"]
 size = Vector2(3.8571424, 3.8571424)
@@ -35,6 +37,16 @@ shape = SubResource("CircleShape2D_mthm4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1230944225]
 position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_7sn4c")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=1848341453]
+stream = ExtResource("3_rka35")
+volume_db = -2.0
+bus = &"SFX"
+
+[node name="RespawnSFX" type="AudioStreamPlayer2D" parent="." unique_id=1014223371]
+stream = ExtResource("4_at50b")
+volume_db = -3.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Field_of_view" to="." method="_on_detection_area_body_exited"]
