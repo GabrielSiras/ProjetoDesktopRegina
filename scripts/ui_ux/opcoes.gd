@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var check_button: CheckButton = %FullscreenControl
 var sfx_bus_id: int
 var audio_bus_id: int
+var dialogue_was_visible := false
 
 func _ready() -> void:
 	visible = false
@@ -33,12 +34,18 @@ func _process(_delta: float) -> void:
 		toggle_pause()
 
 func toggle_pause() -> void:
-	visible = !visible
-	get_tree().paused = visible
+	var paused = !get_tree().paused
+	get_tree().paused = paused
+	visible = paused
 	
-	if visible:
-		main_panel.visible = true
-		settings_panel.visible = false
+	var dialogue_box = get_tree().current_scene.find_child("DialogueBox", true, false)
+	
+	if dialogue_box:
+		if paused:
+			dialogue_was_visible = dialogue_box.visible
+			dialogue_box.visible = false
+		else:
+			dialogue_box.visible = dialogue_was_visible
 
 func _on_back_pressed() -> void:
 	if get_tree().paused:

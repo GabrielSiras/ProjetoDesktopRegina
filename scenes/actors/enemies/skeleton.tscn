@@ -40,10 +40,12 @@ shape = SubResource("CircleShape2D_yr2h2")
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=1775748370]
 stream = ExtResource("3_vivfe")
+max_distance = 400.0
 bus = &"SFX"
 
 [node name="RespawnSFX" type="AudioStreamPlayer2D" parent="." unique_id=1153763490]
 stream = ExtResource("4_5v485")
+max_distance = 400.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -6,12 +6,14 @@ class_name Spider
 @onready var timer: Timer = $Timer
 
 @export var respawn_time: float = 5.0
+@export var COOLDOWN_TIME: float = 2.0
 
 var detection_radius: float = 150.0
 var start_position: Vector2
 var start_rotation: float
 var base_scale: Vector2
 var is_weaving_web: bool = false
+var can_shoot: bool = true
 var respawn_timer: Timer 
 var can_play_respawn_sfx := false
 
@@ -26,6 +28,8 @@ func _ready() -> void:
 	start_position = global_position
 	start_rotation = rotation
 	base_scale = scale
+	
+	timer.wait_time = COOLDOWN_TIME
 	timer.stop()
 
 	var fov_shape = find_child("field_of_view", true, false).find_child("CollisionShape2D", true, false) if find_child("field_of_view", true, false) else null
@@ -53,17 +57,22 @@ func _process(_delta: float) -> void:
 		if distance <= detection_radius:
 			if target_player == null:
 				target_player = regina
-				shoot_web()
-				timer.start()
+				if can_shoot:
+					shoot_web()
+					timer.start()
 			look_at(regina.global_position)
 		elif target_player != null:
 			target_player = null
-			timer.stop()
+			if is_weaving_web:
+				can_shoot = true
+			#if has_node("AttackSFX") and $AttackSFX.playing:
+			#	$AttackSFX.stop() pra tirar o som se sair fora da fov
 
 func shoot_web() -> void:
 	if target_player == null or is_weaving_web: return
 	
 	is_weaving_web = true
+	can_shoot = false
 	
 	if has_node("AttackSFX"):
 		$AttackSFX.play()
@@ -78,6 +87,7 @@ func shoot_web() -> void:
 	if not visible or target_player == null:
 		if is_instance_valid(instance): instance.queue_free()
 		is_weaving_web = false
+		can_shoot = true
 		return
 	
 	var start_pos := instance.global_position
@@ -94,7 +104,12 @@ func shoot_web() -> void:
 	is_weaving_web = false
 
 func _on_timer_timeout() -> void:
-	shoot_web()
+	can_shoot= true
+	
+	if target_player != null:
+		shoot_web()
+	else:
+		timer.stop()
 
 func toggle_collisions(disable: bool) -> void:
 	for node in ["CollisionShape2D", "Hurtbox/CollisionShape2D"]:

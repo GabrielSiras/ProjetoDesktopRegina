@@ -47,10 +47,12 @@ autostart = true
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=265982869]
 stream = ExtResource("3_bigkt")
 volume_db = -3.0
+max_distance = 400.0
 bus = &"SFX"
 
 [node name="RespawnSFX" type="AudioStreamPlayer2D" parent="." unique_id=1180876778]
 stream = ExtResource("4_exjdq")
+max_distance = 400.0
 bus = &"SFX"
 
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="." unique_id=1841991507]

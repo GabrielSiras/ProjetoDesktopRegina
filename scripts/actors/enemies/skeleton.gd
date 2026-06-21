@@ -67,6 +67,7 @@ func respawn() -> void:
 	
 	if can_play_respawn_sfx and respawn_timer and respawn_timer.time_left <= 0.1:
 		if has_node("RespawnSFX"):
+			
 			$RespawnSFX.play()
 	
 	if respawn_timer: respawn_timer.stop()

@@ -13,6 +13,8 @@ var can_play_respawn_sfx := false
 
 func _ready() -> void:
 	super._ready()
+	
+	base_sprite = $Sprite2D
 	AFFECTED_BY_GRAVITY = false
 	SPEED /= 2
 	
@@ -35,12 +37,35 @@ func _exit_tree() -> void:
 
 func _physics_process(delta: float) -> void:
 	time += delta
+	
+	if target_player == null:
+		var regina = get_tree().get_first_node_in_group("player")
+		if not regina:
+			regina = get_tree().current_scene.find_child("Regina", true, false)
+			
+		var fov_area = find_child("Field_of_view", true, false) 
+		if regina and fov_area:
+			var max_distance = 150.0
+			var fov_shape = fov_area.find_child("CollisionShape2D", true, false)
+			if fov_shape and fov_shape.shape is CircleShape2D:
+				max_distance = fov_shape.shape.radius
+			
+			if global_position.distance_to(regina.global_position) <= max_distance:
+				target_player = regina
+
 	super(delta)
 	
 	if target_player == null:
 		global_position.y = start_position.y + sin(time * FLOAT_SPEED) * FLOAT_DISTANCE
 	else:
-		velocity.y += sin(time * FLOAT_SPEED) * 5.0 
+		velocity.y += sin(time * FLOAT_SPEED) * 5.0
+
+func chase_target() -> void:
+	if target_player:
+		var direction = (target_player.global_position - global_position).normalized()
+		velocity = direction * SPEED
+		if base_sprite and direction.x != 0:
+			base_sprite.flip_h = direction.x < 0
 
 func toggle_collisions(disable: bool) -> void:
 	for node in ["CollisionShape2D", "Hurtbox/CollisionShape2D"]:
@@ -60,18 +85,15 @@ func on_death() -> void:
 	
 	can_play_respawn_sfx = true
 	respawn_timer.start()
-
+	
 func respawn() -> void:
 	global_position = start_position
 	scale = start_scale
 	time = 0.0 
+	velocity = Vector2.ZERO
+	target_player = null
 	
 	if "current_health" in self: current_health = max_health
-	
-	var regina = get_tree().current_scene.find_child("Regina", true, false)
-	var fov_area = find_child("field_of_view", true, false)
-	
-	target_player = regina if (regina and fov_area and fov_area.overlaps_body(regina)) else null
 		
 	toggle_collisions(false)
 	set_process(true)
@@ -82,5 +104,5 @@ func respawn() -> void:
 		if has_node("RespawnSFX"):
 			$RespawnSFX.play()
 	
-	respawn_timer.stop()
+	if respawn_timer: respawn_timer.stop()
 	can_play_respawn_sfx = false

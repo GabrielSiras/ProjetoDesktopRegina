@@ -6,13 +6,13 @@
 [ext_resource type="AudioStream" uid="uid://ddy1dq625kuc4" path="res://assets/audios/sfx/ghost/ghost-respawn.mp3" id="4_at50b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mthm4"]
-size = Vector2(3.8571424, 3.8571424)
+size = Vector2(2.5714283, 3.142857)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mthm4"]
 radius = 103.31021
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sn4c"]
-size = Vector2(16, 18)
+size = Vector2(18, 24)
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1950784212]
 script = ExtResource("1_mthm4")
@@ -23,11 +23,12 @@ scale = Vector2(0.12380952, 0.12380952)
 texture = ExtResource("2_mthm4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168319503]
-position = Vector2(-0.5000005, 0.5000002)
+position = Vector2(-2.0000002, -0.9999995)
 scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_mthm4")
 
 [node name="Field_of_view" type="Area2D" parent="." unique_id=1364850414]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Field_of_view" unique_id=535461324]
 shape = SubResource("CircleShape2D_mthm4")
@@ -41,13 +42,16 @@ shape = SubResource("RectangleShape2D_7sn4c")
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=1848341453]
 stream = ExtResource("3_rka35")
 volume_db = -2.0
+max_distance = 400.0
 bus = &"SFX"
 
 [node name="RespawnSFX" type="AudioStreamPlayer2D" parent="." unique_id=1014223371]
 stream = ExtResource("4_at50b")
 volume_db = -3.0
+max_distance = 400.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="Field_of_view" to="." method="_on_field_of_view_body_entered"]
 [connection signal="body_exited" from="Field_of_view" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hitbox_area_body_entered"]

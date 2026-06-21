@@ -19,6 +19,7 @@ var life_timer: float = 0.0
 
 func _ready() -> void:
 	default_scale = scale
+	add_to_group("web_projectiles")
 	
 	if not area.body_entered.is_connected(_on_area_2d_body_entered):
 		area.body_entered.connect(_on_area_2d_body_entered)
@@ -60,6 +61,10 @@ func launch(shoot_direction: Vector2, projectile_z_index: int = 0) -> void:
 	modulate.a = 1.0
 
 func _physics_process(delta: float) -> void:
+	if not is_inside_tree():
+		queue_free()
+		return
+	
 	if not launched:
 		return
 	

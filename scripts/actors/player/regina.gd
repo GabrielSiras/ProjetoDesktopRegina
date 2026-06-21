@@ -71,9 +71,14 @@ func _ready() -> void:
 	
 	if base_sprite and base_sprite.has_method("play"):
 		base_sprite.play("regina-idle")
+		
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
+		for web in get_tree().get_nodes_in_group("web_projectiles"):
+			web.queue_free()
+		
 		call_deferred("_reload_current_scene_with_fade")
 		return
 		
