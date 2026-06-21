@@ -1,32 +1,52 @@
 [gd_scene format=3 uid="uid://fek6gy54l1un"]
 
 [ext_resource type="Script" uid="uid://ckhn1a7n2baxo" path="res://scripts/ui_ux/dialogue_box.gd" id="1_r2og1"]
+[ext_resource type="AudioStream" uid="uid://67qmjpd5m1rk" path="res://assets/audios/sfx/ui-ux/writing.mp3" id="2_jw2sj"]
+[ext_resource type="FontFile" uid="uid://by3jl8rpg3tc3" path="res://assets/fonts/VT323-Regular.ttf" id="3_mwgqx"]
+[ext_resource type="Texture2D" uid="uid://rq3skiskufqa" path="res://assets/images/dialogbox/scroll-dialogue-box.png" id="3_t261c"]
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=862037101]
 script = ExtResource("1_r2og1")
 
-[node name="Panel" type="Panel" parent="." unique_id=314949492]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 30.5
-offset_top = -83.0
-offset_right = -40.5
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Scroll-background" type="TextureRect" parent="." unique_id=2071740850]
+offset_left = -16.0
+offset_top = 229.0
+offset_right = 658.0
+offset_bottom = 390.0
+texture = ExtResource("3_t261c")
+expand_mode = 1
 
-[node name="TextLabel" type="RichTextLabel" parent="Panel" unique_id=648381564]
+[node name="TextLabel" type="RichTextLabel" parent="Scroll-background" unique_id=648381564]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 124.0
+offset_top = 59.0
+offset_right = -125.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
-horizontal_alignment = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_mwgqx")
+theme_override_fonts/bold_font = ExtResource("3_mwgqx")
+theme_override_fonts/bold_italics_font = ExtResource("3_mwgqx")
+theme_override_fonts/italics_font = ExtResource("3_mwgqx")
+theme_override_fonts/mono_font = ExtResource("3_mwgqx")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
 vertical_alignment = 1
+visible_characters_behavior = 2
 
 [node name="LetterTimer" type="Timer" parent="." unique_id=1803586128]
 wait_time = 0.03
 one_shot = true
+
+[node name="Writing" type="AudioStreamPlayer" parent="." unique_id=113716352]
+process_mode = 3
+stream = ExtResource("2_jw2sj")
+bus = &"SFX"

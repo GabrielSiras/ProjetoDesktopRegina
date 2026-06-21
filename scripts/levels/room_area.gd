@@ -1,6 +1,5 @@
 extends Area2D
 
-# ORDEM DA SALA: Defina no Inspetor do Godot (Sala 1 = 0, Sala 2 = 1, Sala 4 = 3, etc.)
 @export var room_index: int = 0 
 
 var room_left: float
@@ -40,7 +39,6 @@ func _on_body_entered(body: Node2D) -> void:
 				
 			camera.change_room_boundaries(room_left, room_right, room_top, room_bottom)
 			
-			# Envia o room_index no final para o GameManager validar o progresso!
 			var current_scene_path = get_tree().current_scene.scene_file_path
 			GameManager.save_checkpoint(
 				current_scene_path, 
@@ -54,7 +52,6 @@ func _force_initial_room() -> void:
 	if camera and camera.has_method("force_room_start"):
 		camera.force_room_start(room_left, room_right, room_top, room_bottom)
 		
-		# Envia o room_index também na primeira sala que o jogo carrega!
 		var regina = get_tree().current_scene.find_child("Regina", true, false)
 		if regina:
 			GameManager.save_checkpoint(

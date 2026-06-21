@@ -51,7 +51,6 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body is Player:
-		# Se a Regina estiver no meio de um dash, o inimigo NÃO PODE dar dano nela!
 		if body.is_dashing:
 			return
 		body.die()
@@ -60,20 +59,15 @@ func die() -> void:
 	if has_node("CollisionShape2D"):
 		$CollisionShape2D.set_deferred("disabled", true)
 		
-	# 2. Desativa a área que dá dano na Regina (Hurtbox)
-	# (Substitua 'CollisionShape2D' pelo nome do nó filho de colisão da sua Hurtbox se for diferente)
 	if has_node("Hurtbox/CollisionShape2D"):
 		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	elif hurtbox_area and hurtbox_area.has_node("CollisionShape2D"):
 		hurtbox_area.get_node("CollisionShape2D").set_deferred("disabled", true)
 
-	# 3. Executa o resto da sua lógica padrão
 	if has_method("on_death"):
 		call("on_death")
 	else:
 		visible = false
 		set_process(false)
 		set_physics_process(false)
-		# Opcional: se ele não tiver animação de morte complexa, 
-		# você pode dar queue_free() aqui para sumir com ele da memória de vez!
 		queue_free()

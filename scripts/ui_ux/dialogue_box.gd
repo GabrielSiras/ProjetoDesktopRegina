@@ -1,8 +1,8 @@
 extends CanvasLayer
 class_name DialogueBox
-
-@onready var text_label: RichTextLabel = $Panel/TextLabel
+@onready var text_label: RichTextLabel = $"Scroll-background/TextLabel"
 @onready var letter_timer: Timer = $LetterTimer
+@onready var writing: AudioStreamPlayer = $Writing
 
 var dialogue_lines: Array[String] = []
 var current_line_index: int = 0
@@ -42,9 +42,15 @@ func show_line() -> void:
 func _on_letter_timer_timeout() -> void:
 	if text_label.visible_characters < text_label.text.length():
 		text_label.visible_characters += 1
+		
+		if writing:
+			writing.play()
+			
 		letter_timer.start()
 	else:
 		is_typing = false
+		if writing:
+			writing.stop()
 
 func advance_dialogue() -> void:
 	current_line_index += 1

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://chq3v5puva6cl"]
+
+[ext_resource type="Script" uid="uid://2uqxrwqwt8wi" path="res://scripts/settings/audio_settings.gd" id="1_qbuer"]
+[ext_resource type="AudioStream" uid="uid://b5ei0ur3a5w3k" path="res://assets/audios/sfx/ui-ux/button.mp3" id="2_l0shk"]
+
+[node name="Node2D" type="Node2D" unique_id=530779724]
+script = ExtResource("1_qbuer")
+
+[node name="ButtonClickSFX" type="AudioStreamPlayer" parent="." unique_id=791652031]
+stream = ExtResource("2_l0shk")
+bus = &"SFX"

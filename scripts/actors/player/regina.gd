@@ -39,9 +39,16 @@ class_name Player
 @export_group("Perigos")
 @export var SPIKE_DAMAGE := 1
 @export var SPIKE_DAMAGE_COOLDOWN := 0.6
+@export var TILE_CHECK_OFFSET := Vector2(0, 9)
 
 @export_group("Morte")
 @export var DEATH_FADE_TIME := 0.3
+
+@export_group("SFXs")
+@onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
+@onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
+@onready var stone_foot_steps_sfx: AudioStreamPlayer2D = $StoneFootStepsSFX
+@onready var dash_sfx: AudioStreamPlayer2D = $DashSFX
 
 var is_dead := false
 var spike_damage_timer := 0.0
@@ -67,7 +74,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
-		die()
+		call_deferred("_reload_current_scene_with_fade")
 		return
 		
 	if dash_cooldown_timer > 0.0:
@@ -97,6 +104,7 @@ func _physics_process(delta: float) -> void:
 	was_on_floor_last_frame = is_on_floor()
 	update_ground_recharge(was_on_floor_before_move)
 	update_jump_indicator()
+	handle_footsteps_sfx()
 
 func check_tile_effects() -> void:
 	if is_dashing or (velocity.y < 0 and jump_available == true and not is_on_floor()):
@@ -105,8 +113,6 @@ func check_tile_effects() -> void:
 	if has_tile_flag("death") or has_tile_flag("spikes"):
 		die()
 		return
-
-@export var TILE_CHECK_OFFSET := Vector2(0, 9)
 
 func take_damage(amount: int) -> void:
 	if is_dashing:
@@ -245,15 +251,12 @@ func hide_dash_sword() -> void:
 	)
 	
 func _on_dash_attack_area_body_entered(body: Node2D) -> void:
-	# Se não está no dash, ignora
 	if not is_dashing:
 		return
 		
 	if body is BaseEnemy:		
-		# 1. Dá o dano primeiro (o inimigo morre)
 		body.take_damage(1)
 		
-		# 2. Configura o pulo para afastar ela do chão/inimigo
 		can_dash = true
 		jump_available = true
 		dash_used_since_ground = false
@@ -263,10 +266,8 @@ func _on_dash_attack_area_body_entered(body: Node2D) -> void:
 		velocity.x = 0
 		velocity.y = JUMP_VELOCITY
 		
-		# 3. Executa o movimento de subida ANTES de desligar o dash
 		move_and_slide()
 		
-		# 4. SÓ AGORA, depois de se afastar fisicamente, desliga o dash!
 		is_dashing = false
 
 func update_dash(delta: float) -> void:
@@ -277,8 +278,6 @@ func update_dash(delta: float) -> void:
 	
 	velocity = dash_direction * (step / delta)
 	move_and_slide()
-	
-	check_dash_attack()
 	
 	if not is_dashing:
 		return
@@ -327,22 +326,19 @@ func check_enemy_contact() -> void:
 		if object == null:
 			continue
 		
-		# TRATAMENTO ESPECIAL PARA A TEIA (Mesmo que ela herde de BaseEnemy)
 		if object is WebProjectile:
 			if is_dashing:
-				# Desativa as colisões da teia na marra para ela sumir imediatamente
 				if object.has_node("CollisionShape2D"):
 					object.get_node("CollisionShape2D").set_deferred("disabled", true)
 				if object.has_node("Area2D/CollisionShape2D"):
 					object.get_node("Area2D/CollisionShape2D").set_deferred("disabled", true)
 				
-				object.queue_free() # Destrói a teia
-				return # Ignora a colisão e não morre!
+				object.queue_free()
+				return
 			else:
-				die() # Se não estava no dash, morre normal
+				die()
 				return
 		
-		# INIMIGOS NORMAIS (Que dão o impulso para cima)
 		if object is BaseEnemy:
 			if is_dashing or velocity.y < 0:
 				return
@@ -350,13 +346,22 @@ func check_enemy_contact() -> void:
 				die()
 				return
 
-func check_dash_attack() -> void:
-	pass
+	
+func handle_footsteps_sfx() -> void:
+	var is_moving := velocity.x != 0
+	
+	if is_on_floor() and is_moving and not is_dashing and not is_dead:
+		if not stone_foot_steps_sfx.playing:
+			stone_foot_steps_sfx.play()
+	else:
+		if stone_foot_steps_sfx.playing:
+			stone_foot_steps_sfx.stop()
 
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and jump_available:
 		velocity.y = JUMP_VELOCITY
 		jump_available = false
+		jump_sfx.play()
 
 func handle_jump_cut() -> void:
 	if Input.is_action_just_released("jump") and velocity.y < 0:
@@ -424,7 +429,6 @@ func start_dash() -> void:
 	
 	dash_direction = input_vec.normalized() if input_vec != Vector2.ZERO else default_dir
 	
-	# Deixa o dash apenas horizontal
 	dash_direction.y = 0
 	
 	if dash_direction.x == 0:
@@ -442,14 +446,19 @@ func start_dash() -> void:
 	velocity = Vector2.ZERO
 	
 	show_dash_sword()
+	
+	if(dash_sfx):
+		dash_sfx.play()
 
 func die() -> void:
 	if is_dashing:
-		print("🛡️ TENTATIVA DE MORTE BLOQUEADA: Algo tentou matar a Regina DURANTE o Dash!")
 		return
 		
 	if is_dead:
 		return
+		
+	if death_sfx:
+		death_sfx.play()
 		
 	print("💀 REGINA MORREU! Chamado por: ", get_stack()[1]["source"], " na linha ", get_stack()[1]["line"])
 	
