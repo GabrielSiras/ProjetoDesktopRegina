@@ -18,7 +18,6 @@ var respawn_timer: Timer
 var can_play_respawn_sfx := false
 
 func _ready() -> void:
-	
 	can_play_respawn_sfx = false
 	
 	super._ready()
@@ -45,7 +44,6 @@ func _ready() -> void:
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body is Player and not body.is_dashing:
-		print("Aranha pegou a Regina!")
 		body.die()
 
 func _process(_delta: float) -> void:
@@ -65,11 +63,9 @@ func _process(_delta: float) -> void:
 			target_player = null
 			if is_weaving_web:
 				can_shoot = true
-			#if has_node("AttackSFX") and $AttackSFX.playing:
-			#	$AttackSFX.stop() pra tirar o som se sair fora da fov
 
 func shoot_web() -> void:
-	if target_player == null or is_weaving_web: return
+	if target_player == null or is_weaving_web or not can_shoot: return
 	
 	is_weaving_web = true
 	can_shoot = false
@@ -104,8 +100,7 @@ func shoot_web() -> void:
 	is_weaving_web = false
 
 func _on_timer_timeout() -> void:
-	can_shoot= true
-	
+	can_shoot = true
 	if target_player != null:
 		shoot_web()
 	else:
@@ -121,7 +116,7 @@ func on_death() -> void:
 		$DeathSFX.play()
 	
 	visible = false
-	set_process(true)
+	set_process(false)
 	set_physics_process(false)
 	timer.stop()
 	target_player = null
@@ -139,6 +134,7 @@ func respawn() -> void:
 	scale = base_scale
 	rotation = start_rotation
 	is_weaving_web = false
+	can_shoot = true
 	target_player = null
 	
 	if "current_health" in self: current_health = max_health
@@ -154,4 +150,3 @@ func respawn() -> void:
 		
 	respawn_timer.stop()
 	can_play_respawn_sfx = false
-	
