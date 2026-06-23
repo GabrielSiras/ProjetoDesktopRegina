@@ -43,5 +43,29 @@ layout_mode = 2
 text = "Fase 2
 "
 
+[node name="BtnFase3" type="Button" parent="HBoxContainer" unique_id=1787984245]
+layout_mode = 2
+text = "Fase 3
+"
+
+[node name="BtnFase4" type="Button" parent="HBoxContainer" unique_id=698808724]
+layout_mode = 2
+text = "Fase 4
+"
+
+[node name="BtnFase5" type="Button" parent="HBoxContainer" unique_id=1404713395]
+layout_mode = 2
+text = "Fase 5
+"
+
+[node name="BtnFase6" type="Button" parent="HBoxContainer" unique_id=822858507]
+layout_mode = 2
+text = "Fase 6
+"
+
 [connection signal="pressed" from="HBoxContainer/BtnFase1" to="." method="_on_btn_fase_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/BtnFase2" to="." method="_on_btn_fase_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/BtnFase3" to="." method="_on_btn_fase_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/BtnFase4" to="." method="_on_btn_fase_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/BtnFase5" to="." method="_on_btn_fase_5_pressed"]
+[connection signal="pressed" from="HBoxContainer/BtnFase6" to="." method="_on_btn_fase_6_pressed"]
