@@ -17,7 +17,7 @@ class_name Player
 @export var TILE_SIZE := 16.0
 @export var DASH_TILES := 4.0
 @export var DASH_SPEED := 1500.0
-@export var DASH_COOLDOWN := 0.35
+@export var DASH_COOLDOWN := 0.25
 @export var DASH_EXIT_MOMENTUM := 200.0
 @export var SWORD_OFFSET_X := 0.0
 @export var SWORD_OFFSET_Y := 0.0

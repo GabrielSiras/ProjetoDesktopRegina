@@ -659,11 +659,6 @@ position = Vector2(-545, -40)
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1820756090]
 
 [node name="Opções" parent="Hud" unique_id=1955436429 instance=ExtResource("3_10xc4")]
-offset_left = -221.0
-offset_top = -146.0
-offset_right = 229.0
-offset_bottom = 159.0
-size_flags_horizontal = 4
 
 [node name="end-of-phase-portal" parent="." unique_id=583445692 instance=ExtResource("5_c83vx")]
 position = Vector2(810, -576)
