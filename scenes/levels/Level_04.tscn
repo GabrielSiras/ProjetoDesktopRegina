@@ -1281,6 +1281,9 @@ position = Vector2(2903, -1510)
 [node name="Spider17" parent="." unique_id=276777739 instance=ExtResource("11_sdfdg")]
 position = Vector2(3436, -1375)
 
+[node name="end-of-phase-portal2" parent="." unique_id=332577094 instance=ExtResource("10_0ljkm")]
+position = Vector2(3294, -1455)
+
 [editable path="Spike/Room1"]
 [editable path="Spike/Room2"]
 [editable path="Spike/Room3"]
