@@ -394,15 +394,16 @@ func limit_fall_speed() -> void:
 	velocity.y = min(velocity.y, MAX_FALL_SPEED)
 
 func update_ice_momentum_state(delta: float) -> void:
+	var just_landed := not was_on_floor_last_frame and is_on_floor()
+	
 	if is_on_ice():
-		ice_momentum_active = true
-		ice_exit_timer = ICE_EXIT_GRACE
+		if just_landed:
+			ice_momentum_active = true
+			ice_exit_timer = ICE_EXIT_GRACE
 		return
 	
 	if not is_on_floor():
 		return
-	
-	var just_landed := not was_on_floor_last_frame and is_on_floor()
 	
 	if just_landed:
 		ice_momentum_active = false
@@ -411,7 +412,6 @@ func update_ice_momentum_state(delta: float) -> void:
 	
 	if ice_momentum_active:
 		ice_exit_timer -= delta
-		
 		if ice_exit_timer <= 0.0:
 			ice_momentum_active = false
 
@@ -467,6 +467,10 @@ func start_dash() -> void:
 	dash_remaining_distance = TILE_SIZE * DASH_TILES
 	
 	velocity = Vector2.ZERO
+	
+	ice_momentum_active = false
+	ice_exit_timer = 0.0
+	#piupipi
 	
 	show_dash_sword()
 	
