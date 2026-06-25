@@ -13,6 +13,7 @@ class_name Player
 @export var FRICTION := 3000
 @export var JUMP_VELOCITY := -315.0
 @export var JUMP_CUT_MULTIPLIER := 0.566
+@export var ENEMY_BOUNCE_TILES := 2.5
 
 @export_group("Dash")
 @export var TILE_SIZE := 16.0
@@ -274,9 +275,18 @@ func _on_dash_attack_area_body_entered(body: Node2D) -> void:
 		hide_dash_sword()
 		
 		velocity.x = 0
-		velocity.y = JUMP_VELOCITY
+
+		var g := 980.0
+		if "gravity" in self: 
+			g = self.gravity
+		elif "GRAVITY" in self: 
+			g = self.GRAVITY
+		else:
+			g = ProjectSettings.get_setting("physics/2d/default_gravity", 980.0)
+			
+		var target_height := ENEMY_BOUNCE_TILES * TILE_SIZE
 		
-		move_and_slide()
+		velocity.y = -sqrt(2.0 * g * target_height)
 		
 		is_dashing = false
 
