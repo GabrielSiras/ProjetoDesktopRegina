@@ -3,6 +3,7 @@ class_name Player
 
 @onready var dash_sword: Node2D = $DashSword
 @onready var jump_indicator: Node2D = $JumpIndicator
+@onready var interact_indicator: Node2D = $InteractIndicator
 @onready var dash_attack_shape: CollisionShape2D = $DashSword/DashAttackArea/CollisionShape2D
 
 @export_group("Movimento")
@@ -212,6 +213,10 @@ func update_ground_recharge(was_on_floor_before_move: bool) -> void:
 		if was_on_floor_before_move and dash_used_since_ground:
 			can_dash = false
 
+func set_interact_indicator_visible(value: bool) -> void:
+	if interact_indicator:
+		interact_indicator.visible = value
+
 func update_jump_indicator() -> void:
 	if jump_indicator == null:
 		return
@@ -345,6 +350,9 @@ func check_enemy_contact() -> void:
 				return
 		
 		if object is BaseEnemy:
+			if object.is_in_group("non_damaging_enemy"):
+				return
+			
 			if is_dashing or velocity.y < 0:
 				return
 			else:

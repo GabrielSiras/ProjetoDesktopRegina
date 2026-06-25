@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bcahf35oth0d1"]
+
+[ext_resource type="Script" uid="uid://2j3gymvi6h5x" path="res://scripts/actors/enemies/target.gd" id="1_jm3b5"]
+[ext_resource type="Texture2D" uid="uid://c7odg2yfp42ar" path="res://assets/sprites/Enemies/Target.png" id="2_le4wy"]
+[ext_resource type="AudioStream" uid="uid://g0h1566i4uf7" path="res://assets/audios/sfx/skeleton/skeleton-dying.mp3" id="3_djmvy"]
+[ext_resource type="AudioStream" uid="uid://bhemxhnaa1urn" path="res://assets/audios/sfx/skeleton/skeleton-respawn.mp3" id="4_6e5h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm3b5"]
+size = Vector2(14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hafij"]
+size = Vector2(16, 16)
+
+[node name="Target" type="CharacterBody2D" unique_id=273717979]
+script = ExtResource("1_jm3b5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=543718510]
+texture = ExtResource("2_le4wy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=696628965]
+shape = SubResource("RectangleShape2D_jm3b5")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1036819546]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1393092802]
+shape = SubResource("RectangleShape2D_hafij")
+disabled = true
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=1775748370]
+stream = ExtResource("3_djmvy")
+max_distance = 400.0
+bus = &"SFX"
+
+[node name="RespawnSFX" type="AudioStreamPlayer2D" parent="." unique_id=1153763490]
+stream = ExtResource("4_6e5h2")
+max_distance = 400.0
+bus = &"SFX"

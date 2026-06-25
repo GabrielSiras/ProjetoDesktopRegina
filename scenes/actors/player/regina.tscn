@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://252h4jqtfh7x" path="res://assets/audios/sfx/regina/death.mp3" id="6_1ggjg"]
 [ext_resource type="AudioStream" uid="uid://c7m18gnqql11t" path="res://assets/audios/sfx/regina/dash.mp3" id="6_in7ln"]
 [ext_resource type="AudioStream" uid="uid://dbl2xvyiknih4" path="res://assets/audios/sfx/regina/stone-footsteps.mp3" id="6_k0w25"]
+[ext_resource type="Texture2D" uid="uid://2xvq2kx81pjy" path="res://assets/sprites/Regina/Interact/Interact.png" id="9_atmkk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jvx2"]
 atlas = ExtResource("2_f77aw")
@@ -81,6 +82,28 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfw50"]
+atlas = ExtResource("9_atmkk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2lx5"]
+atlas = ExtResource("9_atmkk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elgbw"]
+animations = [{
+"frames": [{
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_qfw50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2lx5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Regina" type="CharacterBody2D" unique_id=1694901564]
 script = ExtResource("1_f77aw")
 
@@ -139,5 +162,15 @@ bus = &"SFX"
 process_mode = 3
 stream = ExtResource("6_in7ln")
 bus = &"SFX"
+
+[node name="InteractIndicator" type="Node2D" parent="." unique_id=1004140716]
+visible = false
+position = Vector2(-1, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InteractIndicator" unique_id=2138103707]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_elgbw")
+autoplay = "default"
+frame_progress = 0.36193624
 
 [connection signal="body_entered" from="DashSword/DashAttackArea" to="." method="_on_dash_attack_area_body_entered"]
