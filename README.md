@@ -1,15 +1,15 @@
 # Regina’s Ascent
-## Status do Projeto: 🛠️ Em desenvolvimento (Trabalho Acadêmico)
+## Status do Projeto: Trabalho Acadêmico ️em desenvolvimento.
 
 ## 📖 Sobre o Projeto
-Este é um jogo de plataforma 2D desenvolvido como projeto para a faculdade. A história inverte os papéis clássicos: aqui, a princesa Regina utiliza sua agilidade e força para subir uma torre perigosa, enfrentar inimigos e resgatar seu cavaleiro.
+Este é um jogo de plataforma 2D desenvolvido como projeto para a faculdade. A história inverte os papéis clássicos: aqui, a princesa Regina utiliza sua agilidade e força para subir uma torre perigosa, enfrentando inimigos para resgatar o seu cavaleiro.
 
-## Principais Mecânicas:
-Movimentação Fluida: Plataforma clássica com foco em precisão.
+## 🕹 Principais Mecânicas:
+Movimentação Fluida: Movimentação clássica de plataforma com foco em precisão e execução.
 
-Dash: Habilidade de impulso rápido para desviar de ataques e alcançar plataformas distantes.
+Dash: Habilidade de impulso e ataque para alcançar plataformas distantes e derrotar inimigos.
 
-Combate: Sistema de ataque para derrotar inimigos ao longo da subida.
+Combate: Ao derrotar inimigos Regina é lançada para cima, recarregando seu pulo e dash, para que possam ser utilizados novamente no ar.
 
 ## 🛠️ Tecnologias Utilizadas
 Engine: Godot Engine (Versão 4.6.2)
@@ -30,17 +30,8 @@ O projeto segue uma estrutura modular para facilitar o desenvolvimento em grupo:
 /resources: Temas e configurações de tilesets.
 
 ## 🚀 Como Rodar o Jogo
-Faça o download e instale a Godot Engine (versão 4.6.2).
 
-Clone este repositório:
-
-Bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-Abra a Godot e clique em "Import".
-
-Navegue até a pasta do projeto e selecione o arquivo project.godot.
-
-Pressione F5 para rodar!
+...
 
 ## 👥 Equipe (Créditos)
 Gabriel Sironi da Luz - https://github.com/GabrielSiras
