@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d0kr2fkk4imjv" path="res://assets/sprites/Tiles/Spikes.png" id="10_xpxa0"]
 [ext_resource type="PackedScene" uid="uid://cmeaabg7vjvb4" path="res://scenes/levels/cam_area_room.tscn" id="11_vlkw4"]
 [ext_resource type="PackedScene" uid="uid://fek6gy54l1un" path="res://scenes/ui_ux/DialogueBox.tscn" id="14_xg7sb"]
+[ext_resource type="Texture2D" uid="uid://dcgxjv442yy8x" path="res://assets/sprites/Backgrounds/Esgoto/4.png" id="15_wa6rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_shv8k"]
 texture = ExtResource("4_dwcxj")
@@ -702,9 +703,11 @@ tile_map_data = PackedByteArray("AABXAPH/AQAAAAAAAABYAPH/AQAAAAAAAABZAPH/AQAAAAA
 tile_set = SubResource("TileSet_o03p7")
 
 [node name="Room1" parent="." unique_id=1576416373 instance=ExtResource("11_vlkw4")]
+visible = false
 position = Vector2(-61, -83)
 
 [node name="Room2" parent="." unique_id=816111515 instance=ExtResource("11_vlkw4")]
+visible = false
 position = Vector2(538, -177)
 room_index = 1
 
@@ -741,6 +744,32 @@ position = Vector2(1721, -544)
 position = Vector2(995, -658)
 
 [node name="DialogueBox" parent="." unique_id=862037101 instance=ExtResource("14_xg7sb")]
+
+[node name="Backgrounds" type="Node" parent="." unique_id=933756392]
+
+[node name="1-Parallax" type="Parallax2D" parent="Backgrounds" unique_id=1098766066]
+scroll_scale = Vector2(0.8, 0.3)
+repeat_size = Vector2(384, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/1-Parallax" unique_id=1385115824]
+
+[node name="2-Parallax" type="Parallax2D" parent="Backgrounds" unique_id=810655595]
+scroll_scale = Vector2(0.5, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/2-Parallax" unique_id=1850856914]
+
+[node name="3-Parallax" type="Parallax2D" parent="Backgrounds" unique_id=1469332546]
+scroll_scale = Vector2(0.2, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/3-Parallax" unique_id=1707420437]
+
+[node name="4-Parallax" type="Parallax2D" parent="Backgrounds" unique_id=521089060]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/4-Parallax" unique_id=1977939361]
+z_index = -10
+position = Vector2(-484, -85)
+texture = ExtResource("15_wa6rg")
 
 [editable path="Room2"]
 [editable path="Room4"]
