@@ -17,6 +17,18 @@ func _process(_delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed(interact_action):
+		var dialogue_box = get_tree().current_scene.find_child("DialogueBox", true, false)
+		if dialogue_box and dialogue_box.visible:
+			dialogue_box.visible = false
+			player.set_physics_process(true)
+			if player.base_sprite and player.base_sprite.has_method("play"):
+				player.base_sprite.play("regina-idle")
+		else:
+			player.velocity = Vector2.ZERO
+			player.set_physics_process(false)
+			read_sign()
+	
+	if Input.is_action_just_pressed(interact_action):
 		read_sign()
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
@@ -34,10 +46,13 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		player = null
 
 func read_sign() -> void:
-	print(sign_text)
+	var dialogue_box = get_tree().current_scene.find_child("DialogueBox", true, false)
 	
-	# Aqui você chama o sistema de diálogo do projeto.
-	# Exemplo:
-	# DialogueManager.start_dialogue(sign_text)
-	# ou:
-	# DialogSystem.show_text(sign_text)
+	if dialogue_box:
+		dialogue_box.visible = true
+		
+		var label = dialogue_box.find_child("TextLabel", true, false)
+		if label:
+			label.text = sign_text
+			
+		print("Lendo placa: ", sign_text)

@@ -62,6 +62,7 @@ var is_dashing := false
 var can_dash := true
 var dash_cooldown_timer := 0.0
 var dash_used_since_ground := false
+var pulse_timer_protection := 0.0
 
 var dash_momentum_active := false
 var dash_direction := Vector2.ZERO
@@ -77,6 +78,9 @@ func _ready() -> void:
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
+	if pulse_timer_protection > 0.0:
+		pulse_timer_protection -= delta
+	
 	if Input.is_action_just_pressed("reset"):
 		for web in get_tree().get_nodes_in_group("web_projectiles"):
 			web.queue_free()
@@ -288,7 +292,11 @@ func _on_dash_attack_area_body_entered(body: Node2D) -> void:
 		
 		velocity.y = -sqrt(2.0 * g * target_height)
 		
+		pulse_timer_protection = 0.15
+		
 		is_dashing = false
+		
+		#move_and_slide()
 
 func update_dash(delta: float) -> void:
 	var step := DASH_SPEED * delta
@@ -387,6 +395,9 @@ func handle_jump() -> void:
 		jump_sfx.play()
 
 func handle_jump_cut() -> void:
+	if pulse_timer_protection > 0.0:
+		return
+	
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= JUMP_CUT_MULTIPLIER
 
@@ -470,7 +481,6 @@ func start_dash() -> void:
 	
 	ice_momentum_active = false
 	ice_exit_timer = 0.0
-	#piupipi
 	
 	show_dash_sword()
 	
