@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cdhcl1n4ytf37"]
+
+[ext_resource type="Script" uid="uid://bucdpgpkrb43m" path="res://scripts/actors/player/sword_pickup.gd" id="1_a7ch1"]
+[ext_resource type="Texture2D" uid="uid://bg7abxk01e1r7" path="res://assets/sprites/Regina/Sword/Sword-dash-1.png" id="2_170ao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uecgc"]
+atlas = ExtResource("2_170ao")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbwll"]
+atlas = ExtResource("2_170ao")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lobcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uecgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbwll")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tywps"]
+size = Vector2(20, 9.999992)
+
+[node name="SwordPickup" type="Area2D" unique_id=1212866375]
+script = ExtResource("1_a7ch1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=882755284]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_lobcm")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081179967]
+position = Vector2(0.00059203734, 1.9999994)
+rotation = -0.0011840757
+shape = SubResource("RectangleShape2D_tywps")

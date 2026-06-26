@@ -13,7 +13,12 @@ class_name Player
 @export var FRICTION := 3000
 @export var JUMP_VELOCITY := -315.0
 @export var JUMP_CUT_MULTIPLIER := 0.566
-@export var ENEMY_BOUNCE_TILES := 2.5
+@export var ENEMY_BOUNCE_TILES := 3.2
+
+@export_group("Progressão")
+@export var START_WITH_SWORD := true
+
+var sword_unlocked := false
 
 @export_group("Dash")
 @export var TILE_SIZE := 16.0
@@ -71,6 +76,8 @@ var sword_tween: Tween
 
 func _ready() -> void:
 	base_sprite = $AnimatedSprite2D
+	
+	sword_unlocked = START_WITH_SWORD or GameManager.sword_unlocked
 	
 	if base_sprite and base_sprite.has_method("play"):
 		base_sprite.play("regina-idle")
@@ -221,6 +228,11 @@ func update_ground_recharge(was_on_floor_before_move: bool) -> void:
 func set_interact_indicator_visible(value: bool) -> void:
 	if interact_indicator:
 		interact_indicator.visible = value
+
+func unlock_sword() -> void:
+	sword_unlocked = true
+	GameManager.sword_unlocked = true
+	can_dash = true
 
 func update_jump_indicator() -> void:
 	if jump_indicator == null:
@@ -449,6 +461,9 @@ func handle_movement(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, target_vel, accel_rate * delta)
 
 func handle_dash_input() -> void:
+	if not sword_unlocked:
+		return
+	
 	var ready_cooldown = (dash_cooldown_timer <= 0.0)
 	if Input.is_action_just_pressed("dash") and can_dash and ready_cooldown:
 		start_dash()
@@ -457,6 +472,9 @@ func recharge_dash() -> void:
 	can_dash = true
 
 func start_dash() -> void:
+	if not sword_unlocked:
+		return
+		
 	var input_vec := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var is_flipped = base_sprite.flip_h if base_sprite else false
 	var default_dir = Vector2.LEFT if is_flipped else Vector2.RIGHT
