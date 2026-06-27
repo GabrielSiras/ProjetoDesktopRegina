@@ -8,10 +8,9 @@ func _ready() -> void:
 	if dialog_box:
 		# Lista de frases
 		var introducao: Array[String] = [
-			"...Como cheguei aqui?",
-			"Preciso salvar meu cavaleiro!",
-			"Essas paredes... parecem que estou em algum tipo de esgoto.",
-			"Preciso tomar cuidado. Sinto que não estou sozinha aqui dentro...",
+			"Este é o esgoto do castelo do mal!",
+			"Meu cavalheiro deve ter sido raptado pelo vilão!",
+			"Se deixou cair sua espada realmente deve estar em apuros, preciso resgata-lo!",
 		]
 		
 		dialog_box.start_dialogue(introducao)
