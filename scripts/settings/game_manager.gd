@@ -10,6 +10,7 @@ var last_room_bottom: float
 var last_room_index: int = -1
 
 var sword_unlocked := false
+var max_unlocked_level: int = 1
 
 func save_checkpoint(scene_path: String, player_pos: Vector2, left: float, right: float, top: float, bottom: float, room_index: int) -> void:
 	if room_index < last_room_index:

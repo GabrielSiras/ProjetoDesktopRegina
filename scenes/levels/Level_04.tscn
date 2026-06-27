@@ -1283,6 +1283,7 @@ position = Vector2(3436, -1375)
 
 [node name="end-of-phase-portal2" parent="." unique_id=332577094 instance=ExtResource("10_0ljkm")]
 position = Vector2(3294, -1455)
+current_level_number = 4
 
 [editable path="Spike/Room1"]
 [editable path="Spike/Room2"]

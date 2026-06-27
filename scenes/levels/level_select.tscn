@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dghjanqtrlc8o"]
 
 [ext_resource type="Script" uid="uid://7qxpjgfbqjyk" path="res://scripts/levels/level_select.gd" id="1_qi77a"]
+[ext_resource type="Theme" uid="uid://kvrkbcqcyp81" path="res://assets/ui/themes/pattern_theme.tres" id="2_ngp83"]
 
 [node name="level_select" type="Control" unique_id=1254227703]
 layout_mode = 3
@@ -34,35 +35,53 @@ offset_bottom = 19.25
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Tutorial" type="Button" parent="HBoxContainer" unique_id=472739044]
+layout_mode = 2
+theme = ExtResource("2_ngp83")
+text = "Tutorial"
+
 [node name="BtnFase1" type="Button" parent="HBoxContainer" unique_id=118860393]
 layout_mode = 2
+theme = ExtResource("2_ngp83")
+disabled = true
 text = "Fase 1"
 
 [node name="BtnFase2" type="Button" parent="HBoxContainer" unique_id=408087731]
 layout_mode = 2
+theme = ExtResource("2_ngp83")
+disabled = true
 text = "Fase 2
 "
 
 [node name="BtnFase3" type="Button" parent="HBoxContainer" unique_id=1787984245]
 layout_mode = 2
+theme = ExtResource("2_ngp83")
+disabled = true
 text = "Fase 3
 "
 
 [node name="BtnFase4" type="Button" parent="HBoxContainer" unique_id=698808724]
 layout_mode = 2
+theme = ExtResource("2_ngp83")
+disabled = true
 text = "Fase 4
 "
 
 [node name="BtnFase5" type="Button" parent="HBoxContainer" unique_id=1404713395]
 layout_mode = 2
+theme = ExtResource("2_ngp83")
+disabled = true
 text = "Fase 5
 "
 
 [node name="BtnFase6" type="Button" parent="HBoxContainer" unique_id=822858507]
 layout_mode = 2
+theme = ExtResource("2_ngp83")
+disabled = true
 text = "Fase 6
 "
 
+[connection signal="pressed" from="HBoxContainer/Tutorial" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/BtnFase1" to="." method="_on_btn_fase_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/BtnFase2" to="." method="_on_btn_fase_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/BtnFase3" to="." method="_on_btn_fase_3_pressed"]

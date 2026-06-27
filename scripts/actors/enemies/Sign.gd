@@ -16,20 +16,25 @@ func _process(_delta: float) -> void:
 	if player == null:
 		return
 	
-	if Input.is_action_just_pressed(interact_action):
-		var dialogue_box = get_tree().current_scene.find_child("DialogueBox", true, false)
-		if dialogue_box and dialogue_box.visible:
+	var dialogue_box = get_tree().current_scene.find_child("DialogueBox", true, false)
+	var is_box_open = dialogue_box and dialogue_box.visible
+	
+	if is_box_open:
+		if Input.is_action_just_pressed(interact_action) or Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("dash"):
 			dialogue_box.visible = false
-			player.set_physics_process(true)
-			if player.base_sprite and player.base_sprite.has_method("play"):
-				player.base_sprite.play("regina-idle")
-		else:
+			
+			await get_tree().create_timer(0.02).timeout
+			
+			if player: 
+				player.set_physics_process(true)
+				if player.base_sprite and player.base_sprite.has_method("play"):
+					player.base_sprite.play("regina-idle")
+			
+	else:
+		if Input.is_action_just_pressed(interact_action):
 			player.velocity = Vector2.ZERO
 			player.set_physics_process(false)
 			read_sign()
-	
-	if Input.is_action_just_pressed(interact_action):
-		read_sign()
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -40,6 +45,12 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body == player:
+		var dialogue_box = get_tree().current_scene.find_child("DialogueBox", true, false)
+		if dialogue_box:
+			dialogue_box.visible = false
+			
+		player.set_physics_process(true)
+		
 		if player.has_method("set_interact_indicator_visible"):
 			player.set_interact_indicator_visible(false)
 		

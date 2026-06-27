@@ -707,6 +707,7 @@ tile_set = SubResource("TileSet_4b1sg")
 [node name="end-of-phase-portal" parent="." unique_id=583445692 instance=ExtResource("10_a42ct")]
 position = Vector2(4536, -1679)
 next_phase_path = "uid://dghjanqtrlc8o"
+current_level_number = 5
 
 [node name="Skeleton20" parent="." unique_id=546196475 instance=ExtResource("12_n21ju")]
 position = Vector2(3985, -1342)
