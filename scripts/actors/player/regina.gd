@@ -145,6 +145,17 @@ func _physics_process(delta: float) -> void:
 				base_sprite.play("regina-idle")
 
 func check_tile_effects() -> void:
+	var half_width := 5.0
+	var check_y := TILE_CHECK_OFFSET.y
+	
+	var check_center := Vector2(0, check_y)
+	var check_left := Vector2(-half_width, check_y)
+	var check_right := Vector2(half_width, check_y)
+	
+	if has_tile_flag_at_offset("spikes", check_center) or \
+	   has_tile_flag_at_offset("spikes", check_left) or \
+	   has_tile_flag_at_offset("spikes", check_right):
+		die()
 	if is_dashing or (velocity.y < 0 and jump_available == true and not is_on_floor()):
 		return
 		
