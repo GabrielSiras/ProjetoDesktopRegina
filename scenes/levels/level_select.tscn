@@ -33,13 +33,14 @@ text = "Tutorial"
 layout_mode = 0
 offset_left = 280.0
 offset_top = 186.0
-offset_right = 348.0
+offset_right = 355.0
 offset_bottom = 219.0
 theme = ExtResource("2_ngp83")
 disabled = true
 text = "Fase 1"
 
 [node name="BtnFase2" type="Button" parent="." unique_id=408087731]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 0
 offset_left = 382.0
 offset_top = 166.0
@@ -51,6 +52,7 @@ text = "Fase 2
 "
 
 [node name="BtnFase3" type="Button" parent="." unique_id=1787984245]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 0
 offset_left = 355.0
 offset_top = 132.0
@@ -62,6 +64,7 @@ text = "Fase 3
 "
 
 [node name="BtnFase4" type="Button" parent="." unique_id=698808724]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 0
 offset_left = 252.0
 offset_top = 126.0
@@ -73,6 +76,7 @@ text = "Fase 4
 "
 
 [node name="BtnFase5" type="Button" parent="." unique_id=1404713395]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 0
 offset_left = 248.0
 offset_top = 65.0
@@ -84,6 +88,7 @@ text = "Fase 5
 "
 
 [node name="BtnFase6" type="Button" parent="." unique_id=822858507]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 0
 offset_left = 312.0
 offset_top = 18.0

@@ -1048,6 +1048,17 @@ text = "* Música e trilha sonora:
   Link: https://alkakrab.itch.io/free-medieval-soundtrack-no-copyright
   Licença: Creative Commons (Uso Livre)"
 
+[node name="Label3" type="Label" parent="Créditos/Settings/ScrollContainer/VBoxContainer" unique_id=884486626]
+layout_mode = 2
+theme = ExtResource("4_npm72")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "* Background do Tutorial:
+\"Simple Pixels Skies\" por Hazmat.
+  Link: https://hazmat-game-studios.itch.io/simple-pixels-skies
+  Licença: Creative Commons (Uso Livre)"
+
 [node name="Label2" type="Label" parent="Créditos/Settings/ScrollContainer/VBoxContainer" unique_id=1517113954]
 layout_mode = 2
 theme = ExtResource("4_npm72")
