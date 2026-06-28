@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dghjanqtrlc8o"]
 
 [ext_resource type="Script" uid="uid://7qxpjgfbqjyk" path="res://scripts/levels/level_select.gd" id="1_qi77a"]
+[ext_resource type="Texture2D" uid="uid://f7r8fr5gt8wm" path="res://assets/images/Regina's Ascent Main Menu Art.png" id="2_gqipl"]
 [ext_resource type="Theme" uid="uid://kvrkbcqcyp81" path="res://assets/ui/themes/pattern_theme.tres" id="2_ngp83"]
 
 [node name="level_select" type="Control" unique_id=1254227703]
@@ -12,79 +13,91 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qi77a")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1235900478]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.48235294, 0, 1, 1)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1527015561]
+layout_mode = 0
+offset_left = -455.0
+offset_right = 645.0
+offset_bottom = 360.0
+texture = ExtResource("2_gqipl")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2100406517]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -19.25
-offset_right = 59.0
-offset_bottom = 19.25
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Tutorial" type="Button" parent="HBoxContainer" unique_id=472739044]
-layout_mode = 2
+[node name="Tutorial" type="Button" parent="." unique_id=472739044]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 313.0
+offset_right = 363.0
+offset_bottom = 351.0
 theme = ExtResource("2_ngp83")
 text = "Tutorial"
 
-[node name="BtnFase1" type="Button" parent="HBoxContainer" unique_id=118860393]
-layout_mode = 2
+[node name="BtnFase1" type="Button" parent="." unique_id=118860393]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 186.0
+offset_right = 348.0
+offset_bottom = 219.0
 theme = ExtResource("2_ngp83")
 disabled = true
 text = "Fase 1"
 
-[node name="BtnFase2" type="Button" parent="HBoxContainer" unique_id=408087731]
-layout_mode = 2
+[node name="BtnFase2" type="Button" parent="." unique_id=408087731]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 166.0
+offset_right = 450.0
+offset_bottom = 204.0
 theme = ExtResource("2_ngp83")
 disabled = true
 text = "Fase 2
 "
 
-[node name="BtnFase3" type="Button" parent="HBoxContainer" unique_id=1787984245]
-layout_mode = 2
+[node name="BtnFase3" type="Button" parent="." unique_id=1787984245]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 132.0
+offset_right = 423.0
+offset_bottom = 170.0
 theme = ExtResource("2_ngp83")
 disabled = true
 text = "Fase 3
 "
 
-[node name="BtnFase4" type="Button" parent="HBoxContainer" unique_id=698808724]
-layout_mode = 2
+[node name="BtnFase4" type="Button" parent="." unique_id=698808724]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 126.0
+offset_right = 320.0
+offset_bottom = 164.0
 theme = ExtResource("2_ngp83")
 disabled = true
 text = "Fase 4
 "
 
-[node name="BtnFase5" type="Button" parent="HBoxContainer" unique_id=1404713395]
-layout_mode = 2
+[node name="BtnFase5" type="Button" parent="." unique_id=1404713395]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 65.0
+offset_right = 316.0
+offset_bottom = 103.0
 theme = ExtResource("2_ngp83")
 disabled = true
 text = "Fase 5
 "
 
-[node name="BtnFase6" type="Button" parent="HBoxContainer" unique_id=822858507]
-layout_mode = 2
+[node name="BtnFase6" type="Button" parent="." unique_id=822858507]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 18.0
+offset_right = 380.0
+offset_bottom = 56.0
 theme = ExtResource("2_ngp83")
 disabled = true
 text = "Fase 6
 "
 
-[connection signal="pressed" from="HBoxContainer/Tutorial" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnFase1" to="." method="_on_btn_fase_1_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnFase2" to="." method="_on_btn_fase_2_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnFase3" to="." method="_on_btn_fase_3_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnFase4" to="." method="_on_btn_fase_4_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnFase5" to="." method="_on_btn_fase_5_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnFase6" to="." method="_on_btn_fase_6_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BtnFase1" to="." method="_on_btn_fase_1_pressed"]
+[connection signal="pressed" from="BtnFase2" to="." method="_on_btn_fase_2_pressed"]
+[connection signal="pressed" from="BtnFase3" to="." method="_on_btn_fase_3_pressed"]
+[connection signal="pressed" from="BtnFase4" to="." method="_on_btn_fase_4_pressed"]
+[connection signal="pressed" from="BtnFase5" to="." method="_on_btn_fase_5_pressed"]
+[connection signal="pressed" from="BtnFase6" to="." method="_on_btn_fase_6_pressed"]

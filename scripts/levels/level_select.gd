@@ -6,13 +6,13 @@ func _ready() -> void:
 func _update_level_buttons() -> void:
 	var max_level = GameManager.max_unlocked_level
 	
-	if has_node("HBoxContainer/Tutorial"): $HBoxContainer/Tutorial.disabled = (0 > max_level)
-	if has_node("HBoxContainer/BtnFase1"): $HBoxContainer/BtnFase1.disabled = (1 > max_level)
-	if has_node("HBoxContainer/BtnFase2"): $HBoxContainer/BtnFase2.disabled = (2 > max_level)
-	if has_node("HBoxContainer/BtnFase3"): $HBoxContainer/BtnFase3.disabled = (3 > max_level)
-	if has_node("HBoxContainer/BtnFase4"): $HBoxContainer/BtnFase4.disabled = (4 > max_level)
-	if has_node("HBoxContainer/BtnFase5"): $HBoxContainer/BtnFase5.disabled = (5 > max_level)
-	if has_node("HBoxContainer/BtnFase6"): $HBoxContainer/BtnFase6.disabled = (6 > max_level)
+	if has_node("Tutorial"): $Tutorial.disabled = (0 > max_level)
+	if has_node("BtnFase1"): $BtnFase1.disabled = (1 > max_level)
+	if has_node("BtnFase2"): $BtnFase2.disabled = (2 > max_level)
+	if has_node("BtnFase3"): $BtnFase3.disabled = (3 > max_level)
+	if has_node("BtnFase4"): $BtnFase4.disabled = (4 > max_level)
+	if has_node("BtnFase5"): $BtnFase5.disabled = (5 > max_level)
+	if has_node("BtnFase6"): $BtnFase6.disabled = (6 > max_level)
 
 func _on_button_pressed() -> void:
 	GameManager.reset_checkpoint_progression()
