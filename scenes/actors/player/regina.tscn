@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsisum0mu6omg" path="res://scripts/actors/player/regina.gd" id="1_f77aw"]
 [ext_resource type="Texture2D" uid="uid://3m1f7nnbpktj" path="res://assets/sprites/Regina/Sword/regina-dash.png" id="2_n2lx5"]
-[ext_resource type="Texture2D" uid="uid://cx5ym87f8ggon" path="res://assets/sprites/Regina/Idle/regina-idle-1.png" id="2_qfw50"]
+[ext_resource type="Texture2D" uid="uid://cx5ym87f8ggon" path="res://assets/sprites/Regina/Idle/Regina-idle-1.png" id="2_qfw50"]
 [ext_resource type="Texture2D" uid="uid://bg7abxk01e1r7" path="res://assets/sprites/Regina/Sword/Sword-dash-1.png" id="3_8jvx2"]
 [ext_resource type="Texture2D" uid="uid://cxihd6cw1v4el" path="res://assets/sprites/Regina/Moving/regina-moving.png" id="3_qfw50"]
 [ext_resource type="Texture2D" uid="uid://bki3vyclmgwt" path="res://assets/sprites/Regina/Jump/jump-air-1.png" id="4_5tqi8"]
@@ -162,13 +162,13 @@ animations = [{
 script = ExtResource("1_f77aw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2059761543]
-position = Vector2(-2, 0)
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_2ksm4")
 animation = &"regina-dash"
 autoplay = "regina-idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113969849]
-position = Vector2(-1.5, 2.4975)
+position = Vector2(0, 2)
 scale = Vector2(1.09, 1.09)
 shape = SubResource("RectangleShape2D_f77aw")
 
@@ -176,13 +176,14 @@ shape = SubResource("RectangleShape2D_f77aw")
 visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DashSword" unique_id=1999180861]
-position = Vector2(8, 4)
+position = Vector2(8, 3)
 sprite_frames = SubResource("SpriteFrames_m48ne")
 animation = &"sword-dash"
 autoplay = "sword-dash"
 frame_progress = 0.68394464
 
 [node name="DashAttackArea" type="Area2D" parent="DashSword" unique_id=908768107]
+position = Vector2(2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashSword/DashAttackArea" unique_id=235701048]
 position = Vector2(4, 2)
@@ -190,9 +191,10 @@ shape = SubResource("RectangleShape2D_dwghu")
 disabled = true
 
 [node name="JumpIndicator" type="Node2D" parent="." unique_id=1436962936]
+position = Vector2(-1, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="JumpIndicator" unique_id=1135133019]
-position = Vector2(0, 11)
+position = Vector2(1, 11)
 sprite_frames = SubResource("SpriteFrames_4r2mg")
 autoplay = "default"
 frame = 1
@@ -200,21 +202,25 @@ frame_progress = 0.69806683
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1984826315]
 process_mode = 3
+position = Vector2(-1, 0)
 stream = ExtResource("5_m1k2j")
 bus = &"SFX"
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=2086437168]
+position = Vector2(-1, 0)
 stream = ExtResource("6_1ggjg")
 bus = &"SFX"
 
 [node name="StoneFootStepsSFX" type="AudioStreamPlayer2D" parent="." unique_id=628525550]
 process_mode = 3
+position = Vector2(-1, 0)
 stream = ExtResource("6_k0w25")
 volume_db = -15.0
 bus = &"SFX"
 
 [node name="DashSFX" type="AudioStreamPlayer2D" parent="." unique_id=1153627994]
 process_mode = 3
+position = Vector2(-1, 0)
 stream = ExtResource("6_in7ln")
 bus = &"SFX"
 
@@ -223,7 +229,7 @@ visible = false
 position = Vector2(-1, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InteractIndicator" unique_id=2138103707]
-position = Vector2(0, -16)
+position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_elgbw")
 autoplay = "default"
 frame_progress = 0.36193624
