@@ -1275,19 +1275,19 @@ tile_set = SubResource("TileSet_4b1sg")
 [node name="Enemies" type="Node" parent="." unique_id=1701510008]
 
 [node name="Skeleton12" parent="Enemies" unique_id=516893187 instance=ExtResource("12_glc5h")]
-position = Vector2(1762, -1357)
+position = Vector2(1762, -1355)
 
 [node name="Skeleton16" parent="Enemies" unique_id=273717979 instance=ExtResource("12_glc5h")]
-position = Vector2(1913, -1374)
+position = Vector2(1913, -1371)
 
 [node name="Skeleton19" parent="Enemies" unique_id=1184643825 instance=ExtResource("12_glc5h")]
-position = Vector2(1811, -1470)
+position = Vector2(1811, -1474)
 
 [node name="Skeleton17" parent="Enemies" unique_id=695738441 instance=ExtResource("12_glc5h")]
-position = Vector2(2049, -1389)
+position = Vector2(2049, -1387)
 
 [node name="Skeleton13" parent="Enemies" unique_id=2079663376 instance=ExtResource("12_glc5h")]
-position = Vector2(2005, -1565)
+position = Vector2(2005, -1564)
 
 [node name="Spider18" parent="Enemies" unique_id=1950784212 instance=ExtResource("11_sdfdg")]
 position = Vector2(1172, -1409)
@@ -1305,13 +1305,13 @@ position = Vector2(2118, -1412)
 position = Vector2(1688, -1505)
 
 [node name="Skeleton20" parent="Enemies" unique_id=1353431715 instance=ExtResource("12_glc5h")]
-position = Vector2(2432, -1559)
+position = Vector2(2432, -1554)
 
 [node name="Skeleton23" parent="Enemies" unique_id=545981339 instance=ExtResource("12_glc5h")]
-position = Vector2(3319, -1790)
+position = Vector2(3319, -1787)
 
 [node name="Skeleton24" parent="Enemies" unique_id=694845654 instance=ExtResource("12_glc5h")]
-position = Vector2(3122, -1718)
+position = Vector2(3122, -1714)
 
 [node name="Spider23" parent="Enemies" unique_id=1794350276 instance=ExtResource("11_sdfdg")]
 position = Vector2(2518, -1680)
@@ -1332,22 +1332,22 @@ position = Vector2(3162, -1839)
 position = Vector2(2997, -1728)
 
 [node name="Skeleton25" parent="Enemies" unique_id=2080590184 instance=ExtResource("12_glc5h")]
-position = Vector2(4256, -1783)
+position = Vector2(4256, -1762)
 
 [node name="Skeleton26" parent="Enemies" unique_id=83063172 instance=ExtResource("12_glc5h")]
-position = Vector2(4321, -1813)
+position = Vector2(4321, -1810)
 
 [node name="Skeleton27" parent="Enemies" unique_id=2131272716 instance=ExtResource("12_glc5h")]
-position = Vector2(4519, -1782)
+position = Vector2(4521, -1778)
 
 [node name="Skeleton29" parent="Enemies" unique_id=1793403332 instance=ExtResource("12_glc5h")]
-position = Vector2(4747, -1718)
+position = Vector2(4746, -1714)
 
 [node name="Skeleton28" parent="Enemies" unique_id=31085817 instance=ExtResource("12_glc5h")]
-position = Vector2(4411, -1846)
+position = Vector2(4411, -1842)
 
 [node name="Spider27" parent="Enemies" unique_id=175351617 instance=ExtResource("11_sdfdg")]
-position = Vector2(3633, -1809)
+position = Vector2(3636, -1809)
 
 [node name="Spider30" parent="Enemies" unique_id=1915171069 instance=ExtResource("11_sdfdg")]
 position = Vector2(3847, -1696)
@@ -1391,6 +1391,7 @@ position = Vector2(3237, -1729)
 [node name="Rooms" type="Node" parent="." unique_id=846713878]
 
 [node name="Room1" parent="Rooms" unique_id=1576416373 instance=ExtResource("3_fcxuc")]
+visible = false
 position = Vector2(1038, -570.3)
 
 [node name="CollisionShape2D" parent="Rooms/Room1" index="0" unique_id=75590030]
@@ -1398,6 +1399,7 @@ position = Vector2(178, -881.69995)
 shape = SubResource("RectangleShape2D_qrwky")
 
 [node name="Room2" parent="Rooms" unique_id=696236795 instance=ExtResource("3_fcxuc")]
+visible = false
 position = Vector2(313, -106.3)
 room_index = 1
 
@@ -1406,6 +1408,7 @@ position = Vector2(1543, -1345.7)
 shape = SubResource("RectangleShape2D_bh6y1")
 
 [node name="Room3" parent="Rooms" unique_id=616165854 instance=ExtResource("3_fcxuc")]
+visible = false
 position = Vector2(537, -1748.3)
 room_index = 2
 

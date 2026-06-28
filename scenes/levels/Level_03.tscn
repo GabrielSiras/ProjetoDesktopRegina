@@ -836,28 +836,28 @@ position = Vector2(263, -2224)
 position = Vector2(297, -2224)
 
 [node name="Skeleton" parent="Enemies" unique_id=273717979 instance=ExtResource("12_26y65")]
-position = Vector2(-471, -1396)
+position = Vector2(-471, -1395)
 
 [node name="Skeleton2" parent="Enemies" unique_id=1940082606 instance=ExtResource("12_26y65")]
-position = Vector2(-520, -1445)
+position = Vector2(-519, -1443)
 
 [node name="Skeleton3" parent="Enemies" unique_id=1795267436 instance=ExtResource("12_26y65")]
-position = Vector2(-568, -1492)
+position = Vector2(-566, -1491)
 
 [node name="Skeleton5" parent="Enemies" unique_id=1222770907 instance=ExtResource("12_26y65")]
 position = Vector2(-470, -1691)
 
 [node name="Skeleton6" parent="Enemies" unique_id=356227071 instance=ExtResource("12_26y65")]
-position = Vector2(393, -1596)
+position = Vector2(391, -1595)
 
 [node name="Skeleton8" parent="Enemies" unique_id=562285181 instance=ExtResource("12_26y65")]
 position = Vector2(-231, -1691)
 
 [node name="Skeleton9" parent="Enemies" unique_id=210779467 instance=ExtResource("12_26y65")]
-position = Vector2(-344, -1862)
+position = Vector2(-344, -1858)
 
 [node name="Skeleton10" parent="Enemies" unique_id=2127115170 instance=ExtResource("12_26y65")]
-position = Vector2(-95, -1875)
+position = Vector2(-88, -1875)
 
 [node name="Spider4" parent="Enemies" unique_id=618845014 instance=ExtResource("11_wm7ww")]
 position = Vector2(600, -1408)

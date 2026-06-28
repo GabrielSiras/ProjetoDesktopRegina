@@ -904,19 +904,19 @@ position = Vector2(1477, -432)
 rotation = 1.5707964
 
 [node name="Skeleton" parent="Enemies" unique_id=825564716 instance=ExtResource("6_5mpa8")]
-position = Vector2(909, -288)
+position = Vector2(909, -284)
 
 [node name="Skeleton5" parent="Enemies" unique_id=1425140702 instance=ExtResource("6_5mpa8")]
-position = Vector2(258, -77)
+position = Vector2(258, -76)
 
 [node name="Skeleton2" parent="Enemies" unique_id=1637855712 instance=ExtResource("6_5mpa8")]
-position = Vector2(1115, -222)
+position = Vector2(1110, -220)
 
 [node name="Skeleton3" parent="Enemies" unique_id=765745750 instance=ExtResource("6_5mpa8")]
-position = Vector2(1352, -620)
+position = Vector2(1352, -619)
 
 [node name="Skeleton4" parent="Enemies" unique_id=1557790569 instance=ExtResource("6_5mpa8")]
-position = Vector2(1655, -365)
+position = Vector2(1655, -364)
 
 [node name="Tiles" type="Node" parent="." unique_id=849409535]
 

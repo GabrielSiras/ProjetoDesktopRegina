@@ -879,28 +879,28 @@ current_level_number = 2
 [node name="Enemies" type="Node" parent="." unique_id=601245673]
 
 [node name="Skeleton" parent="Enemies" unique_id=273717979 instance=ExtResource("6_24xvj")]
-position = Vector2(-1472, -140)
+position = Vector2(-1472, -123)
 
 [node name="Skeleton2" parent="Enemies" unique_id=1940082606 instance=ExtResource("6_24xvj")]
-position = Vector2(-984, -220)
+position = Vector2(-984, -219)
 
 [node name="Skeleton3" parent="Enemies" unique_id=1352355378 instance=ExtResource("6_24xvj")]
-position = Vector2(-694, -214)
+position = Vector2(-696, -210)
 
 [node name="Skeleton4" parent="Enemies" unique_id=1732008299 instance=ExtResource("6_24xvj")]
-position = Vector2(-25, -168)
+position = Vector2(-25, -163)
 
 [node name="Skeleton5" parent="Enemies" unique_id=1222770907 instance=ExtResource("6_24xvj")]
-position = Vector2(584, -109)
+position = Vector2(581, -99)
 
 [node name="Skeleton6" parent="Enemies" unique_id=356227071 instance=ExtResource("6_24xvj")]
-position = Vector2(695, -156)
+position = Vector2(695, -147)
 
 [node name="Skeleton7" parent="Enemies" unique_id=1457914331 instance=ExtResource("6_24xvj")]
-position = Vector2(585, -252)
+position = Vector2(585, -242)
 
 [node name="Skeleton8" parent="Enemies" unique_id=562285181 instance=ExtResource("6_24xvj")]
-position = Vector2(921, -195)
+position = Vector2(919, -194)
 
 [node name="Target" parent="Enemies" unique_id=138726994 instance=ExtResource("12_ivapw")]
 position = Vector2(281, -169)

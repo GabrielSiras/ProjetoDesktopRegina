@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://g0h1566i4uf7" path="res://assets/audios/sfx/skeleton/skeleton-dying.mp3" id="3_vivfe"]
 [ext_resource type="AudioStream" uid="uid://bhemxhnaa1urn" path="res://assets/audios/sfx/skeleton/skeleton-respawn.mp3" id="4_5v485"]
 [ext_resource type="Texture2D" uid="uid://clvfhf4bhib2a" path="res://assets/sprites/Enemies/skeleton/idle/skeleton-idle.png" id="5_b50ct"]
+[ext_resource type="Texture2D" uid="uid://breknv175vcy7" path="res://assets/sprites/Enemies/skeleton/respawner/skeleton-respawner.png" id="6_5aduq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5aduq"]
 atlas = ExtResource("5_b50ct")
@@ -72,6 +73,7 @@ radius = 12.572239
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=273717979]
 script = ExtResource("1_yr2h2")
+bone_pile_offset_y = 4.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=438601826]
 scale = Vector2(1.38, 1.38)
@@ -106,6 +108,11 @@ bus = &"SFX"
 stream = ExtResource("4_5v485")
 max_distance = 400.0
 bus = &"SFX"
+
+[node name="BonePile" type="Sprite2D" parent="." unique_id=1920264434]
+visible = false
+position = Vector2(0, 5)
+texture = ExtResource("6_5aduq")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_field_of_view_body_entered"]
