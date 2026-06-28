@@ -62,6 +62,7 @@ style_name = "Medium"
 font_weight = 500
 subpixel_positioning = 0
 msdf_pixel_range = 8
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -770,10 +771,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = 23.999998
-offset_right = -38.0
-offset_bottom = -37.0
+offset_left = 95.0
+offset_top = 24.999998
+offset_right = -85.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -874,9 +875,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_g6w13")
 theme_override_font_sizes/font_size = 20
-text = "Mover para Esquerda:"
+text = "Esquerda:"
 
 [node name="Left" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Left" unique_id=1842263265]
+custom_minimum_size = Vector2(235, 0)
 layout_mode = 2
 theme = ExtResource("4_0m4xa")
 theme_override_fonts/font = ExtResource("5_g6w13")
@@ -895,9 +897,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_g6w13")
 theme_override_font_sizes/font_size = 20
-text = "Mover para Direita:"
+text = "Direita:"
 
 [node name="Right" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Right" unique_id=2063483574]
+custom_minimum_size = Vector2(242, 0)
 layout_mode = 2
 theme = ExtResource("4_0m4xa")
 theme_override_font_sizes/font_size = 30
@@ -918,6 +921,7 @@ theme_override_font_sizes/font_size = 20
 text = "Pulo:"
 
 [node name="Jump2" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Jump" unique_id=845439709]
+custom_minimum_size = Vector2(267, 0)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("4_0m4xa")
@@ -940,6 +944,7 @@ theme_override_font_sizes/font_size = 20
 text = "Dash:"
 
 [node name="Dash2" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Dash" unique_id=761204842]
+custom_minimum_size = Vector2(267, 0)
 layout_mode = 2
 theme = ExtResource("4_0m4xa")
 theme_override_fonts/font = ExtResource("5_g6w13")
@@ -950,7 +955,9 @@ script = ExtResource("3_7xt70")
 action_name = "dash"
 
 [node name="Back2" type="Button" parent="Settings/ScrollContainer/VBoxContainer" unique_id=1253974708]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("4_0m4xa")
 theme_override_font_sizes/font_size = 30
 toggle_mode = true

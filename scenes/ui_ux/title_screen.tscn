@@ -800,10 +800,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 154.0
+offset_left = 122.0
 offset_top = 25.0
-offset_right = -37.0
-offset_bottom = -37.0
+offset_right = -34.0
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -904,10 +904,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_vujkq")
 theme_override_font_sizes/font_size = 20
-text = "Mover para Esquerda:"
+text = "Esquerda:"
 
 [node name="Left" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Left" unique_id=1842263265]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(217, 0)
 layout_mode = 2
 theme = ExtResource("4_npm72")
 theme_override_fonts/font = ExtResource("3_vujkq")
@@ -926,10 +926,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_vujkq")
 theme_override_font_sizes/font_size = 20
-text = "Mover para Direita:"
+text = "Direita:"
 
 [node name="Right" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Right" unique_id=2063483574]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 theme = ExtResource("4_npm72")
 theme_override_font_sizes/font_size = 30
@@ -950,7 +950,7 @@ theme_override_font_sizes/font_size = 20
 text = "Pulo:"
 
 [node name="Jump2" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Jump" unique_id=845439709]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("4_npm72")
@@ -973,7 +973,7 @@ theme_override_font_sizes/font_size = 20
 text = "Dash:"
 
 [node name="Dash2" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Dash" unique_id=761204842]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme = ExtResource("4_npm72")
 theme_override_fonts/font = ExtResource("3_vujkq")

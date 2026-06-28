@@ -23,7 +23,7 @@ func update_button_text() -> void:
 func _toggled(toggled_on: bool) -> void:
 	is_listening = toggled_on
 	if is_listening:
-		text = "... Aperte uma Tecla ..."
+		text = ".Aperte uma Tecla."
 		set_process_input(true)
 	else:
 		update_button_text()
