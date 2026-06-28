@@ -1,9 +1,65 @@
 [gd_scene format=3 uid="uid://cjd4rko0ehkwn"]
 
 [ext_resource type="Script" uid="uid://dsglk2hgi0s5p" path="res://scripts/actors/enemies/skeleton.gd" id="1_yr2h2"]
-[ext_resource type="Texture2D" uid="uid://trsfytsi0b18" path="res://assets/sprites/Enemies/Skeleton.png" id="2_yr2h2"]
+[ext_resource type="Texture2D" uid="uid://00l6baalr854" path="res://assets/sprites/Enemies/skeleton/walking/skeleton-walking.png" id="3_b50ct"]
 [ext_resource type="AudioStream" uid="uid://g0h1566i4uf7" path="res://assets/audios/sfx/skeleton/skeleton-dying.mp3" id="3_vivfe"]
 [ext_resource type="AudioStream" uid="uid://bhemxhnaa1urn" path="res://assets/audios/sfx/skeleton/skeleton-respawn.mp3" id="4_5v485"]
+[ext_resource type="Texture2D" uid="uid://clvfhf4bhib2a" path="res://assets/sprites/Enemies/skeleton/idle/skeleton-idle.png" id="5_b50ct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aduq"]
+atlas = ExtResource("5_b50ct")
+region = Rect2(0, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cery2"]
+atlas = ExtResource("5_b50ct")
+region = Rect2(16, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f25r8"]
+atlas = ExtResource("3_b50ct")
+region = Rect2(0, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e81s"]
+atlas = ExtResource("3_b50ct")
+region = Rect2(16, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpb6y"]
+atlas = ExtResource("3_b50ct")
+region = Rect2(32, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ronjr"]
+atlas = ExtResource("3_b50ct")
+region = Rect2(48, 0, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f25r8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aduq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cery2")
+}],
+"loop": true,
+"name": &"skeleton-idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f25r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e81s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpb6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ronjr")
+}],
+"loop": true,
+"name": &"skeleton-walking",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2h2"]
 size = Vector2(14, 21)
@@ -17,9 +73,12 @@ radius = 12.572239
 [node name="Skeleton" type="CharacterBody2D" unique_id=273717979]
 script = ExtResource("1_yr2h2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=543718510]
-scale = Vector2(0.1375, 0.1375)
-texture = ExtResource("2_yr2h2")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=438601826]
+scale = Vector2(1.38, 1.38)
+sprite_frames = SubResource("SpriteFrames_f25r8")
+animation = &"skeleton-walking"
+autoplay = "skeleton-idle"
+frame_progress = 0.7654912
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1434139721]
 position = Vector2(0, 0.5)

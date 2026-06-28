@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqjykmgnntvul"]
 
 [ext_resource type="Script" uid="uid://bsisum0mu6omg" path="res://scripts/actors/player/regina.gd" id="1_f77aw"]
+[ext_resource type="Texture2D" uid="uid://3m1f7nnbpktj" path="res://assets/sprites/Regina/Sword/regina-dash.png" id="2_n2lx5"]
 [ext_resource type="Texture2D" uid="uid://cx5ym87f8ggon" path="res://assets/sprites/Regina/Idle/regina-idle-1.png" id="2_qfw50"]
 [ext_resource type="Texture2D" uid="uid://bg7abxk01e1r7" path="res://assets/sprites/Regina/Sword/Sword-dash-1.png" id="3_8jvx2"]
 [ext_resource type="Texture2D" uid="uid://cxihd6cw1v4el" path="res://assets/sprites/Regina/Moving/regina-moving.png" id="3_qfw50"]
@@ -10,6 +11,14 @@
 [ext_resource type="AudioStream" uid="uid://c7m18gnqql11t" path="res://assets/audios/sfx/regina/dash.mp3" id="6_in7ln"]
 [ext_resource type="AudioStream" uid="uid://dbl2xvyiknih4" path="res://assets/audios/sfx/regina/stone-footsteps.mp3" id="6_k0w25"]
 [ext_resource type="Texture2D" uid="uid://2xvq2kx81pjy" path="res://assets/sprites/Regina/Interact/Interact.png" id="9_atmkk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1477d"]
+atlas = ExtResource("2_n2lx5")
+region = Rect2(0, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo2o6"]
+atlas = ExtResource("2_n2lx5")
+region = Rect2(16, 0, 16, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2n4nh"]
 atlas = ExtResource("2_qfw50")
@@ -37,6 +46,17 @@ region = Rect2(48, 0, 15, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ksm4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1477d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo2o6")
+}],
+"loop": false,
+"name": &"regina-dash",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2n4nh")
@@ -92,7 +112,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwghu"]
-size = Vector2(21, 13)
+size = Vector2(20, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m48ne"]
 atlas = ExtResource("4_5tqi8")
@@ -142,11 +162,10 @@ animations = [{
 script = ExtResource("1_f77aw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2059761543]
-position = Vector2(-3, 0)
+position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_2ksm4")
-animation = &"regina-moving"
+animation = &"regina-dash"
 autoplay = "regina-idle"
-frame_progress = 0.13934587
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113969849]
 position = Vector2(-1.5, 2.4975)
@@ -157,7 +176,7 @@ shape = SubResource("RectangleShape2D_f77aw")
 visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DashSword" unique_id=1999180861]
-position = Vector2(9, 2)
+position = Vector2(8, 4)
 sprite_frames = SubResource("SpriteFrames_m48ne")
 animation = &"sword-dash"
 autoplay = "sword-dash"
@@ -166,7 +185,7 @@ frame_progress = 0.68394464
 [node name="DashAttackArea" type="Area2D" parent="DashSword" unique_id=908768107]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashSword/DashAttackArea" unique_id=235701048]
-position = Vector2(6.5, 1.5)
+position = Vector2(4, 2)
 shape = SubResource("RectangleShape2D_dwghu")
 disabled = true
 

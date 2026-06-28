@@ -125,19 +125,24 @@ func _physics_process(delta: float) -> void:
 	update_jump_indicator()
 	handle_footsteps_sfx()
 	
-	if not is_dead and not is_dashing:
-		# Se a velocidade horizontal NÃO for 0, ela está correndo!
-		if velocity.x != 0:
-			base_sprite.play("regina-moving")
-			
-			# Vira o sprite para o lado certo
+	if not is_dead:
+		if is_dashing:
+			base_sprite.play("regina-dash")
 			if velocity.x > 0:
-				base_sprite.flip_h = false # Direita
+				base_sprite.flip_h = false
+				base_sprite.offset.x = 0
 			elif velocity.x < 0:
-				base_sprite.flip_h = true  # Esquerda
+				base_sprite.flip_h = true
+				base_sprite.offset.x = 4
 		else:
-			# Se estiver parada no chão, usa a idle
-			base_sprite.play("regina-idle")
+			if velocity.x != 0:
+				base_sprite.play("regina-moving")
+				if velocity.x > 0:
+					base_sprite.flip_h = false
+				elif velocity.x < 0:
+					base_sprite.flip_h = true
+			else:
+				base_sprite.play("regina-idle")
 
 func check_tile_effects() -> void:
 	if is_dashing or (velocity.y < 0 and jump_available == true and not is_on_floor()):
