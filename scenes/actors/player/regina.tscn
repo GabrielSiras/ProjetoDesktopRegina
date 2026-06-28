@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cqjykmgnntvul"]
 
 [ext_resource type="Script" uid="uid://bsisum0mu6omg" path="res://scripts/actors/player/regina.gd" id="1_f77aw"]
-[ext_resource type="Texture2D" uid="uid://bthyk8h20bl4" path="res://assets/sprites/Regina/Idle/Regina-idle-1.png" id="2_f77aw"]
+[ext_resource type="Texture2D" uid="uid://cx5ym87f8ggon" path="res://assets/sprites/Regina/Idle/regina-idle-1.png" id="2_qfw50"]
 [ext_resource type="Texture2D" uid="uid://bg7abxk01e1r7" path="res://assets/sprites/Regina/Sword/Sword-dash-1.png" id="3_8jvx2"]
+[ext_resource type="Texture2D" uid="uid://cxihd6cw1v4el" path="res://assets/sprites/Regina/Moving/regina-moving.png" id="3_qfw50"]
 [ext_resource type="Texture2D" uid="uid://bki3vyclmgwt" path="res://assets/sprites/Regina/Jump/jump-air-1.png" id="4_5tqi8"]
 [ext_resource type="AudioStream" uid="uid://cohe1lukofy0a" path="res://assets/audios/sfx/regina/jump.mp3" id="5_m1k2j"]
 [ext_resource type="AudioStream" uid="uid://252h4jqtfh7x" path="res://assets/audios/sfx/regina/death.mp3" id="6_1ggjg"]
@@ -10,30 +11,63 @@
 [ext_resource type="AudioStream" uid="uid://dbl2xvyiknih4" path="res://assets/audios/sfx/regina/stone-footsteps.mp3" id="6_k0w25"]
 [ext_resource type="Texture2D" uid="uid://2xvq2kx81pjy" path="res://assets/sprites/Regina/Interact/Interact.png" id="9_atmkk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8jvx2"]
-atlas = ExtResource("2_f77aw")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n4nh"]
+atlas = ExtResource("2_qfw50")
+region = Rect2(0, 0, 16, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5tqi8"]
-atlas = ExtResource("2_f77aw")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ryi"]
+atlas = ExtResource("2_qfw50")
+region = Rect2(16, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elgbw"]
+atlas = ExtResource("3_qfw50")
+region = Rect2(0, 0, 15, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok457"]
+atlas = ExtResource("3_qfw50")
+region = Rect2(16, 0, 15, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2kl7"]
+atlas = ExtResource("3_qfw50")
+region = Rect2(32, 0, 15, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhb0c"]
+atlas = ExtResource("3_qfw50")
+region = Rect2(48, 0, 15, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ksm4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8jvx2")
+"texture": SubResource("AtlasTexture_2n4nh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5tqi8")
+"texture": SubResource("AtlasTexture_e3ryi")
 }],
 "loop": true,
 "name": &"regina-idle",
-"speed": 5.0
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elgbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok457")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2kl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhb0c")
+}],
+"loop": true,
+"name": &"regina-moving",
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f77aw"]
-size = Vector2(7.3394494, 11.004587)
+size = Vector2(8.256881, 11.922018)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08jca"]
 atlas = ExtResource("3_8jvx2")
@@ -108,13 +142,14 @@ animations = [{
 script = ExtResource("1_f77aw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2059761543]
+position = Vector2(-3, 0)
 sprite_frames = SubResource("SpriteFrames_2ksm4")
-animation = &"regina-idle"
+animation = &"regina-moving"
 autoplay = "regina-idle"
-frame_progress = 0.5521725
+frame_progress = 0.13934587
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113969849]
-position = Vector2(0, 1.9975)
+position = Vector2(-1.5, 2.4975)
 scale = Vector2(1.09, 1.09)
 shape = SubResource("RectangleShape2D_f77aw")
 
@@ -138,10 +173,11 @@ disabled = true
 [node name="JumpIndicator" type="Node2D" parent="." unique_id=1436962936]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="JumpIndicator" unique_id=1135133019]
-position = Vector2(0, 10)
+position = Vector2(0, 11)
 sprite_frames = SubResource("SpriteFrames_4r2mg")
 autoplay = "default"
-frame_progress = 0.82559276
+frame = 1
+frame_progress = 0.69806683
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1984826315]
 process_mode = 3

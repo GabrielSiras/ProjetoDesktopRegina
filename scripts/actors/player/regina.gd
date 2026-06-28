@@ -14,6 +14,7 @@ class_name Player
 @export var JUMP_VELOCITY := -315.0
 @export var JUMP_CUT_MULTIPLIER := 0.566
 @export var ENEMY_BOUNCE_TILES := 3.2
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export_group("Progressão")
 @export var START_WITH_SWORD := true
@@ -79,8 +80,8 @@ func _ready() -> void:
 	
 	sword_unlocked = START_WITH_SWORD or GameManager.sword_unlocked
 	
-	if base_sprite and base_sprite.has_method("play"):
-		base_sprite.play("regina-idle")
+	#if base_sprite and base_sprite.has_method("play"):
+	#	base_sprite.play("regina-idle")
 		
 	add_to_group("player")
 
@@ -123,6 +124,20 @@ func _physics_process(delta: float) -> void:
 	update_ground_recharge(was_on_floor_before_move)
 	update_jump_indicator()
 	handle_footsteps_sfx()
+	
+	if not is_dead and not is_dashing:
+		# Se a velocidade horizontal NÃO for 0, ela está correndo!
+		if velocity.x != 0:
+			base_sprite.play("regina-moving")
+			
+			# Vira o sprite para o lado certo
+			if velocity.x > 0:
+				base_sprite.flip_h = false # Direita
+			elif velocity.x < 0:
+				base_sprite.flip_h = true  # Esquerda
+		else:
+			# Se estiver parada no chão, usa a idle
+			base_sprite.play("regina-idle")
 
 func check_tile_effects() -> void:
 	if is_dashing or (velocity.y < 0 and jump_available == true and not is_on_floor()):
