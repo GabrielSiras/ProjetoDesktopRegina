@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://by3jl8rpg3tc3" path="res://assets/fonts/VT323-Regular.ttf" id="3_vujkq"]
 [ext_resource type="Theme" uid="uid://kvrkbcqcyp81" path="res://assets/ui/themes/pattern_theme.tres" id="4_npm72"]
 [ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/settings/volume_slider.gd" id="5_bl8v3"]
-[ext_resource type="AudioStream" uid="uid://dv40stf7ikaxp" path="res://assets/audios/musics/som-basico.mp3" id="5_hki88"]
+[ext_resource type="AudioStream" uid="uid://c2k2rfyi2p31s" path="res://assets/audios/musics/menu/menu-theme.mp3" id="5_hpf2x"]
 [ext_resource type="Script" uid="uid://dpv06ef0jixdn" path="res://scripts/ui_ux/fullscreen_control.gd" id="6_bl8v3"]
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="7_6ik4u"]
 [ext_resource type="Texture2D" uid="uid://ddr718wb88p3o" path="res://assets/images/options-paused/scrollbackground.png" id="7_e4pmv"]
@@ -691,6 +691,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k83vc")
+menu_music = ExtResource("5_hpf2x")
+menu_volume_db = -15.0
 
 [node name="Background" type="TextureRect" parent="." unique_id=2070275874]
 layout_mode = 0
@@ -761,12 +763,6 @@ text = "Configurações"
 layout_mode = 2
 theme = ExtResource("4_npm72")
 text = "Sair do Jogo"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1049621128]
-stream = ExtResource("5_hki88")
-volume_db = 1.825
-autoplay = true
-bus = &"Music"
 
 [node name="Opções" type="CanvasLayer" parent="." unique_id=734415693]
 metadata/_edit_use_anchors_ = true
@@ -908,6 +904,7 @@ theme_override_font_sizes/font_size = 20
 text = "Mover para Esquerda:"
 
 [node name="Left" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Left" unique_id=1842263265]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme = ExtResource("4_npm72")
 theme_override_fonts/font = ExtResource("3_vujkq")
@@ -929,6 +926,7 @@ theme_override_font_sizes/font_size = 20
 text = "Mover para Direita:"
 
 [node name="Right" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Right" unique_id=2063483574]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme = ExtResource("4_npm72")
 theme_override_font_sizes/font_size = 30
@@ -949,6 +947,7 @@ theme_override_font_sizes/font_size = 20
 text = "Pulo:"
 
 [node name="Jump2" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Jump" unique_id=845439709]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("4_npm72")
@@ -971,6 +970,7 @@ theme_override_font_sizes/font_size = 20
 text = "Dash:"
 
 [node name="Dash2" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer/Dash" unique_id=761204842]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme = ExtResource("4_npm72")
 theme_override_fonts/font = ExtResource("3_vujkq")
@@ -981,12 +981,75 @@ script = ExtResource("11_dkmoh")
 action_name = "dash"
 
 [node name="Back2" type="Button" parent="Opções/Settings/ScrollContainer/VBoxContainer" unique_id=1253974708]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme = ExtResource("4_npm72")
 theme_override_font_sizes/font_size = 30
 toggle_mode = true
 text = "Voltar
 "
+
+[node name="Créditos" type="CanvasLayer" parent="." unique_id=1967685467]
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="Panel" parent="Créditos" unique_id=167824611]
+anchors_preset = -1
+anchor_left = 0.0921875
+anchor_top = 0.06388889
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -53.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Scroll" type="Panel" parent="Créditos/Settings" unique_id=2110708857]
+layout_mode = 0
+offset_right = 528.0
+offset_bottom = 313.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mja0o")
+
+[node name="Wood-Frame" type="Panel" parent="Créditos/Settings" unique_id=1515087137]
+layout_mode = 0
+offset_right = 528.0
+offset_bottom = 313.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_22mjj")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Créditos/Settings" unique_id=1149659725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 34.0
+offset_right = -59.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Créditos/Settings/ScrollContainer" unique_id=1804122907]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Créditos/Settings/ScrollContainer/VBoxContainer" unique_id=755388907]
+layout_mode = 2
+theme = ExtResource("4_npm72")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "MÚSICA E TRILHA SONORA:
+* \"Free Medieval Soundtrack\" por AlKrab
+  Link: https://alkakrab.itch.io/free-medieval-soundtrack-no-copyright
+  Licença: Creative Commons (Uso Livre)"
+
+[node name="Back" type="Button" parent="Créditos/Settings/ScrollContainer/VBoxContainer" unique_id=772177655]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("4_npm72")
+text = "Voltar"
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=401857997]
 process_mode = 3
@@ -1004,3 +1067,4 @@ script = ExtResource("7_6ik4u")
 [connection signal="value_changed" from="Opções/Settings/ScrollContainer/VBoxContainer/SFX/SFXControl" to="Opções/Settings/ScrollContainer/VBoxContainer/SFX/SFXControl" method="_on_value_changed"]
 [connection signal="toggled" from="Opções/Settings/ScrollContainer/VBoxContainer/FullScreen/FullscreenControl" to="Opções/Settings/ScrollContainer/VBoxContainer/FullScreen/FullscreenControl" method="_on_toggled"]
 [connection signal="pressed" from="Opções/Settings/ScrollContainer/VBoxContainer/Back2" to="." method="_on_back_2_pressed"]
+[connection signal="pressed" from="Créditos/Settings/ScrollContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://byr28hak7g55f"]
 
+[ext_resource type="Script" uid="uid://dw2w0rngxn60e" path="res://scripts/levels/level_02.gd" id="1_juc02"]
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="1_x0641"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui_ux/opcoes.tscn" id="2_24xvj"]
+[ext_resource type="AudioStream" uid="uid://ck2m3wtoyrd1f" path="res://assets/audios/musics/levels/level02/level02.mp3" id="2_dsu4p"]
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="2_ivapw"]
 [ext_resource type="PackedScene" uid="uid://cmeaabg7vjvb4" path="res://scenes/levels/cam_area_room.tscn" id="2_vvr1n"]
 [ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="3_ox0pa"]
@@ -644,6 +646,9 @@ custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_8ccjp")
 
 [node name="Level_02" type="Node2D" unique_id=1261008392]
+script = ExtResource("1_juc02")
+level_music = ExtResource("2_dsu4p")
+music_volume_db = -20.0
 metadata/_edit_lock_ = true
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=864005008]

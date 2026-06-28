@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://dsu7frl5r8338"]
 
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="1_mr7xf"]
+[ext_resource type="Script" uid="uid://comyytclduk70" path="res://scripts/levels/level_03.gd" id="1_x63ga"]
+[ext_resource type="AudioStream" uid="uid://dqcbg3olqw5gh" path="res://assets/audios/musics/levels/level03/level03.mp3" id="2_sywh5"]
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="2_x63ga"]
 [ext_resource type="PackedScene" uid="uid://cmeaabg7vjvb4" path="res://scenes/levels/cam_area_room.tscn" id="3_sywh5"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui_ux/opcoes.tscn" id="4_qs6ra"]
@@ -1145,6 +1147,8 @@ size = Vector2(640, 360)
 size = Vector2(640, 360)
 
 [node name="Level_03" type="Node2D" unique_id=1261008392]
+script = ExtResource("1_x63ga")
+level_music = ExtResource("2_sywh5")
 metadata/_edit_lock_ = true
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=864005008]

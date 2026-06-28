@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://du7mglaob3gid"]
 
+[ext_resource type="Script" uid="uid://ce0lbgfbaagrb" path="res://scripts/levels/level_00.gd" id="1_eowpo"]
+[ext_resource type="AudioStream" uid="uid://htf0ti5gdnc8" path="res://assets/audios/musics/levels/tutorial-music/tutorial-theme.mp3" id="2_iern1"]
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="2_obhu1"]
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="3_iern1"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui_ux/opcoes.tscn" id="4_w8f47"]
@@ -1205,6 +1207,9 @@ terrain_set_0/terrain_0/color = Color(0.7411765, 0.13725491, 0.2509804, 1)
 sources/1 = SubResource("TileSetAtlasSource_hu06y")
 
 [node name="Level_00" type="Node2D" unique_id=1261008392]
+script = ExtResource("1_eowpo")
+level_music = ExtResource("2_iern1")
+music_volume_db = -15.0
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=978070134]
 process_mode = 3

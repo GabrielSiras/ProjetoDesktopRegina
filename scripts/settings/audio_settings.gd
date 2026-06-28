@@ -1,11 +1,33 @@
 extends Node
 
 var saved_volumes: Dictionary = {}
+var music_player: AudioStreamPlayer
+
 @onready var button_click_sfx: AudioStreamPlayer = $ButtonClickSFX
 
 func _ready() -> void:
+	music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	music_player.bus = "Music"
+	
 	get_tree().node_added.connect(_on_node_added)
 	_connect_existing_buttons(get_tree().root)
+
+func play_music(music_stream: AudioStream, volume: float = 0.0) -> void:
+	if music_stream == null:
+		music_player.stop()
+		music_player.stream = null
+		return
+
+	if music_player.stream != music_stream:
+		music_player.stream = music_stream
+		music_player.volume_db = volume
+		music_player.play()
+	else:
+		music_player.volume_db = volume
+		if not music_player.playing:
+			music_player.play()
 
 func _on_node_added(node: Node) -> void:
 	if node is Button:

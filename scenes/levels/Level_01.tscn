@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="1_hhyrm"]
 [ext_resource type="Script" uid="uid://2w5xxnx75apf" path="res://scripts/levels/level_01.gd" id="1_shv8k"]
+[ext_resource type="AudioStream" uid="uid://bnvuedos2ckjl" path="res://assets/audios/musics/levels/level01/level01.mp3" id="2_uj5uh"]
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="2_xpxa0"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui_ux/opcoes.tscn" id="3_10xc4"]
 [ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="4_dwcxj"]
@@ -651,6 +652,8 @@ size = Vector2(640, 720)
 
 [node name="Level_01" type="Node2D" unique_id=1261008392]
 script = ExtResource("1_shv8k")
+level_music = ExtResource("2_uj5uh")
+music_volume_db = -20.0
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=978070134]
 process_mode = 3
