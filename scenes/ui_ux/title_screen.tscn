@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dipy6y1atruy5"]
 
 [ext_resource type="Script" uid="uid://bw3h6e7h3vxo" path="res://scripts/ui_ux/title_screen.gd" id="1_k83vc"]
-[ext_resource type="Texture2D" uid="uid://bfm57fetwaeud" path="res://assets/images/title-screen-bg.png" id="1_yc6j5"]
+[ext_resource type="Texture2D" uid="uid://f7r8fr5gt8wm" path="res://assets/images/Regina's Ascent Main Menu Art.png" id="3_hpf2x"]
 [ext_resource type="FontFile" uid="uid://by3jl8rpg3tc3" path="res://assets/fonts/VT323-Regular.ttf" id="3_vujkq"]
 [ext_resource type="Theme" uid="uid://kvrkbcqcyp81" path="res://assets/ui/themes/pattern_theme.tres" id="4_npm72"]
 [ext_resource type="Script" uid="uid://nmckipvklo0y" path="res://scripts/settings/volume_slider.gd" id="5_bl8v3"]
@@ -696,9 +696,9 @@ menu_volume_db = -15.0
 
 [node name="Background" type="TextureRect" parent="." unique_id=2070275874]
 layout_mode = 0
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 360.0
-texture = ExtResource("1_yc6j5")
+texture = ExtResource("3_hpf2x")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=921272606]
@@ -706,9 +706,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = -3.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -720,13 +720,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -176.0
-offset_top = 13.0
-offset_right = 172.5
-offset_bottom = 68.0
+offset_left = -318.0
+offset_top = 35.0
+offset_right = -27.0
+offset_bottom = 90.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("3_vujkq")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "Regina's Ascent"
 
 [node name="Botões" type="VBoxContainer" parent="." unique_id=2113917244]
@@ -736,10 +739,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -266.0
-offset_top = -86.0
-offset_right = -35.0
-offset_bottom = 86.0
+offset_left = -263.0
+offset_top = -31.0
+offset_right = -92.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1037,12 +1040,22 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="Créditos/Settings/ScrollContainer/VBoxContainer" unique_id=755388907]
 layout_mode = 2
 theme = ExtResource("4_npm72")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 14
-text = "MÚSICA E TRILHA SONORA:
-* \"Free Medieval Soundtrack\" por AlKrab
+text = "* Música e trilha sonora:
+\"Free Medieval Soundtrack\" por AlKrab.
   Link: https://alkakrab.itch.io/free-medieval-soundtrack-no-copyright
   Licença: Creative Commons (Uso Livre)"
+
+[node name="Label2" type="Label" parent="Créditos/Settings/ScrollContainer/VBoxContainer" unique_id=1517113954]
+layout_mode = 2
+theme = ExtResource("4_npm72")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "* Arte, Game Desing e Programação:
+Douglas Antônio Romio, Gabriel Sironi da Luz e Matheus Concari Metz."
 
 [node name="Back" type="Button" parent="Créditos/Settings/ScrollContainer/VBoxContainer" unique_id=772177655]
 custom_minimum_size = Vector2(85, 0)
