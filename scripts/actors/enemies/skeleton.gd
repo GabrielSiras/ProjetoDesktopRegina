@@ -12,7 +12,7 @@ func _ready() -> void:
 	can_play_respawn_sfx = false
 	
 	super._ready()
-	base_sprite = $Sprite2D
+	base_sprite = $AnimatedSprite2D
 	max_health = 1
 	current_health = max_health
 	SPEED = 60.0
@@ -20,6 +20,9 @@ func _ready() -> void:
 	start_position = global_position
 	start_scale = scale
 	add_to_group("enemies")
+	
+	if base_sprite and base_sprite.has_method("play"):
+		base_sprite.play("idle")
 	
 	respawn_timer = Timer.new()
 	add_child(respawn_timer)
@@ -60,7 +63,8 @@ func respawn() -> void:
 	velocity = Vector2.ZERO
 	target_player = null
 	
-	if base_sprite and base_sprite.has_method("play"): base_sprite.play("idle")
+	if base_sprite and base_sprite.has_method("play"): 
+		base_sprite.play("skeleton-idle")
 		
 	toggle_collisions(false)
 	visible = true
@@ -77,3 +81,16 @@ func respawn() -> void:
 	var fov_area = find_child("field_of_view", true, false)
 	if regina and fov_area and fov_area.overlaps_body(regina):
 		_on_field_of_view_body_entered(regina)
+	
+func _physics_process(delta: float) -> void:
+	super(delta)
+	if visible and base_sprite:
+		if velocity.x != 0:
+			base_sprite.play("skeleton-walking")
+			
+			if velocity.x > 0:
+				base_sprite.flip_h = false
+			elif velocity.x < 0:
+				base_sprite.flip_h = true
+		else:
+			base_sprite.play("skeleton-idle")

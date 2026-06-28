@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxn7bxc54drid"
-path="res://.godot/imported/Regina.png-88bf847618bf1644baf473994251d015.ctex"
+uid="uid://00l6baalr854"
+path="res://.godot/imported/skeleton-walking.png-8194f6f604abeaeb5d69b02444e9b17d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Regina/Regina.png"
-dest_files=["res://.godot/imported/Regina.png-88bf847618bf1644baf473994251d015.ctex"]
+source_file="res://assets/sprites/Enemies/skeleton/walking/skeleton-walking.png"
+dest_files=["res://.godot/imported/skeleton-walking.png-8194f6f604abeaeb5d69b02444e9b17d.ctex"]
 
 [params]
 

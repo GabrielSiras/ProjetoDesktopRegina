@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx5ym87f8ggon"
-path="res://.godot/imported/regina-idle-1.png-ff542f393378da2103ee94fc17e352a5.ctex"
+uid="uid://clvfhf4bhib2a"
+path="res://.godot/imported/skeleton-idle.png-d2e31631c92cfd28c0c17440761f0d50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Regina/Idle/regina-idle-1.png"
-dest_files=["res://.godot/imported/regina-idle-1.png-ff542f393378da2103ee94fc17e352a5.ctex"]
+source_file="res://assets/sprites/Enemies/skeleton/idle/skeleton-idle.png"
+dest_files=["res://.godot/imported/skeleton-idle.png-d2e31631c92cfd28c0c17440761f0d50.ctex"]
 
 [params]
 
