@@ -12,6 +12,9 @@ size = Vector2(14, 16)
 size = Vector2(16, 16)
 
 [node name="Target" type="CharacterBody2D" unique_id=358878081]
+collision_layer = 4
+platform_floor_layers = 4294967042
+platform_wall_layers = 2
 script = ExtResource("1_jm3b5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=543718510]
@@ -22,6 +25,8 @@ shape = SubResource("RectangleShape2D_jm3b5")
 one_way_collision_margin = 0.0
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1036819546]
+collision_layer = 4
+collision_mask = 2
 monitoring = false
 monitorable = false
 

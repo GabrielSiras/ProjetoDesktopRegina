@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cm7t8v7rqca5e" path="res://assets/sprites/Tiles/TilesetTowers.png" id="7_s2i3n"]
 [ext_resource type="Texture2D" uid="uid://cuntkq355cpem" path="res://assets/sprites/Tiles/tiles-pedra-1.png" id="7_wryis"]
 [ext_resource type="PackedScene" uid="uid://bwn72gatu541w" path="res://scenes/actors/enemies/spider.tscn" id="8_pcnt6"]
+[ext_resource type="PackedScene" uid="uid://bch6kqjjnpaok" path="res://scenes/actors/enemies/ghost.tscn" id="9_rdij4"]
 [ext_resource type="Script" uid="uid://brfg7je7yxmr0" path="res://scripts/levels/room_area.gd" id="11_hqlyh"]
 [ext_resource type="PackedScene" uid="uid://cmeaabg7vjvb4" path="res://scenes/levels/cam_area_room.tscn" id="12_s2i3n"]
 [ext_resource type="Texture2D" uid="uid://51tpc5lmb6hy" path="res://assets/sprites/Tiles/TilesetForest.png" id="13_wryis"]
@@ -1008,9 +1009,12 @@ tile_set = SubResource("TileSet_sbchu")
 tile_map_data = PackedByteArray("AAD6/wEAAQAAAAAAAAD5/wEAAQAAAAAAAAD4/wEAAQAAAAAAAAD3/wEAAQAAAAAAAAD2/wEAAQAAAAAAAADt//z/AQAAAAAAAADu//v/AQAAAAAAAADv//r/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_wryis")
 
+[node name="Ghost" parent="TileMaps" unique_id=1950784212 instance=ExtResource("9_rdij4")]
+position = Vector2(-666, -124)
+
 [node name="Enemies" type="Node" parent="." unique_id=1167476668]
 
-[node name="Spider" parent="Enemies" unique_id=1950784212 instance=ExtResource("8_pcnt6")]
+[node name="Spider" parent="Enemies" unique_id=753079124 instance=ExtResource("8_pcnt6")]
 position = Vector2(-389, -313)
 
 [node name="Sala1" parent="." unique_id=1576416373 instance=ExtResource("12_s2i3n")]

@@ -15,8 +15,8 @@ func _ready() -> void:
 		# Lista de frases
 		var introducao: Array[String] = [
 			"Este é o esgoto do castelo do mal!",
-			"Meu cavalheiro deve ter sido raptado pelo vilão!",
-			"Se deixou cair sua espada realmente deve estar em apuros, preciso resgata-lo!",
+			"Meu cavaleiro deve ter sido raptado pelo vilão!",
+			"Se deixou cair sua espada realmente deve estar em apuros, preciso resgatá-lo!",
 		]
 		
 		dialog_box.start_dialogue(introducao)

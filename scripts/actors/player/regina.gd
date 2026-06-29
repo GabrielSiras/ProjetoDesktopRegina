@@ -77,12 +77,7 @@ var sword_tween: Tween
 
 func _ready() -> void:
 	base_sprite = $AnimatedSprite2D
-	
 	sword_unlocked = START_WITH_SWORD or GameManager.sword_unlocked
-	
-	#if base_sprite and base_sprite.has_method("play"):
-	#	base_sprite.play("regina-idle")
-		
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
@@ -338,8 +333,6 @@ func _on_dash_attack_area_body_entered(body: Node2D) -> void:
 		pulse_timer_protection = 0.15
 		
 		is_dashing = false
-		
-		#move_and_slide()
 
 func update_dash(delta: float) -> void:
 	var step := DASH_SPEED * delta
@@ -420,7 +413,6 @@ func check_enemy_contact() -> void:
 				die()
 				return
 
-	
 func handle_footsteps_sfx() -> void:
 	var is_moving := velocity.x != 0
 	
@@ -581,4 +573,3 @@ func _reload_current_scene_with_fade() -> void:
 	
 	await tween_out.finished
 	canvas.queue_free()
-	

@@ -8,15 +8,12 @@ var is_invincible := false
 
 var base_sprite: Node2D
 
-# Efeito de piscar ao tomar dano:
 func _physics_process(delta: float) -> void:
 	if is_invincible and base_sprite:
 		base_sprite.modulate.a = 0.4 if Engine.get_frames_drawn() % 10 < 5 else 1.0
 	elif base_sprite:
 		base_sprite.modulate.a = 1.0
-		
 
-# Gravidade:
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -27,7 +24,6 @@ func take_damage(amount: int) -> void:
 	
 	die()
 
-# Invincibilidade:
 func active_imunity(time: float) -> void:
 	is_invincible = true
 	await get_tree().create_timer(time).timeout

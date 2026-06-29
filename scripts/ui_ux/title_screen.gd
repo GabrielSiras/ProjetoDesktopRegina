@@ -23,9 +23,7 @@ func _on_creditos_pressed() -> void:
 	créditos.show()
 
 func _on_configurações_pressed() -> void:
-	print("Clicou no botão! Escondendo botões principais...")
 	botões.visible = false
-	print("Tentando mostrar as opções...")
 	opções.show()
 
 func _on_sairdojogo_pressed() -> void:

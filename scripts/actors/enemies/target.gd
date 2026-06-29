@@ -2,8 +2,7 @@ extends BaseEnemy
 class_name Target
 
 func _ready() -> void:
-	super._ready()
-	
+	super._ready()	
 	base_sprite = $Sprite2D
 	SPEED = 0.0
 	AFFECTED_BY_GRAVITY = false
@@ -14,6 +13,8 @@ func _ready() -> void:
 	add_to_group("enemies")
 	add_to_group("non_damaging_enemy")
 
+func _physics_process(_delta: float) -> void:
+	velocity = Vector2.ZERO
 func take_damage(_amount: int) -> void:
 	current_health = max_health
 	

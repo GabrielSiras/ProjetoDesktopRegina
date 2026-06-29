@@ -71,8 +71,9 @@ interact={
 
 [layer_names]
 
-2d_physics/layer_2="Layer 2"
-2d_physics/layer_3="Layer 3"
+2d_physics/layer_1="Chão/Paredes"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Inimigos"
 
 [physics]
 

@@ -15,6 +15,8 @@ radius = 103.31021
 size = Vector2(18, 24)
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1950784212]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_mthm4")
 metadata/_custom_type_script = "uid://cdkyqxxy0u0j5"
 
@@ -29,11 +31,15 @@ shape = SubResource("RectangleShape2D_mthm4")
 
 [node name="Field_of_view" type="Area2D" parent="." unique_id=1364850414]
 visible = false
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Field_of_view" unique_id=535461324]
 shape = SubResource("CircleShape2D_mthm4")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=766492616]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1230944225]
 position = Vector2(-2, -1)
@@ -51,7 +57,7 @@ volume_db = -3.0
 max_distance = 400.0
 bus = &"SFX"
 
-[connection signal="body_entered" from="Field_of_view" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="Field_of_view" to="." method="_on_field_of_view_body_entered"]
+[connection signal="body_entered" from="Field_of_view" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Field_of_view" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hitbox_area_body_entered"]

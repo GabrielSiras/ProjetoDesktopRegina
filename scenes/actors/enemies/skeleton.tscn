@@ -72,6 +72,7 @@ size = Vector2(16, 23)
 radius = 12.572239
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=273717979]
+collision_layer = 4
 script = ExtResource("1_yr2h2")
 bone_pile_offset_y = 4.0
 
@@ -87,12 +88,16 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yr2h2")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1036819546]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1393092802]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_624a8")
 
 [node name="Field_of_view" type="Area2D" parent="." unique_id=688170111]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Field_of_view" unique_id=2035795205]
 position = Vector2(1.1368684e-13, 1.1368684e-13)

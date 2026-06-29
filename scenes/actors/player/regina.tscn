@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsisum0mu6omg" path="res://scripts/actors/player/regina.gd" id="1_f77aw"]
 [ext_resource type="Texture2D" uid="uid://3m1f7nnbpktj" path="res://assets/sprites/Regina/Sword/regina-dash.png" id="2_n2lx5"]
-[ext_resource type="Texture2D" uid="uid://cx5ym87f8ggon" path="res://assets/sprites/Regina/Idle/Regina-idle-1.png" id="2_qfw50"]
+[ext_resource type="Texture2D" uid="uid://cx5ym87f8ggon" path="res://assets/sprites/Regina/Idle/regina-idle-1.png" id="2_qfw50"]
 [ext_resource type="Texture2D" uid="uid://bg7abxk01e1r7" path="res://assets/sprites/Regina/Sword/Sword-dash-1.png" id="3_8jvx2"]
 [ext_resource type="Texture2D" uid="uid://cxihd6cw1v4el" path="res://assets/sprites/Regina/Moving/regina-moving.png" id="3_qfw50"]
 [ext_resource type="Texture2D" uid="uid://bki3vyclmgwt" path="res://assets/sprites/Regina/Jump/jump-air-1.png" id="4_5tqi8"]
@@ -159,6 +159,8 @@ animations = [{
 }]
 
 [node name="Regina" type="CharacterBody2D" unique_id=1694901564]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_f77aw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2059761543]
@@ -184,6 +186,8 @@ frame_progress = 0.68394464
 
 [node name="DashAttackArea" type="Area2D" parent="DashSword" unique_id=908768107]
 position = Vector2(2, 0)
+collision_layer = 0
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashSword/DashAttackArea" unique_id=235701048]
 position = Vector2(4, 2)

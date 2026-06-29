@@ -15,6 +15,7 @@ radius = 152.0033
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khy4e"]
 
 [node name="Spider" type="CharacterBody2D" unique_id=1950784212]
+collision_layer = 4
 script = ExtResource("1_xoucn")
 metadata/_custom_type_script = "uid://cdkyqxxy0u0j5"
 
@@ -29,12 +30,16 @@ scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_7q7pv")
 
 [node name="Field_of_view" type="Area2D" parent="." unique_id=1364850414]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Field_of_view" unique_id=1138538236]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_gdlk0")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=766492616]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1230944225]
 rotation = 1.5707964

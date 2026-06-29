@@ -6,6 +6,3 @@ extends Node2D
 func _ready() -> void:
 	if level_music and has_node("/root/AudioSettings"):
 		AudioSettings.play_music(level_music, music_volume_db)
-
-func _process(delta: float) -> void:
-	pass

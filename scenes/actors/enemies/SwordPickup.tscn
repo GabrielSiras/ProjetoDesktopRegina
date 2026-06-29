@@ -29,6 +29,7 @@ animations = [{
 size = Vector2(20, 9.999992)
 
 [node name="SwordPickup" type="Area2D" unique_id=1212866375]
+collision_mask = 2
 script = ExtResource("1_a7ch1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=882755284]

@@ -48,7 +48,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 	
 	if not is_dead_and_waiting and base_sprite:
-		# Garante que a pilha fique fixa no chão original enquanto ele caminha vivo
 		if bone_pile:
 			bone_pile.global_position = start_position + Vector2(0, bone_pile_offset_y)
 			
