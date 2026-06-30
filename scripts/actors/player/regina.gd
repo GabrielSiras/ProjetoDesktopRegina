@@ -140,7 +140,7 @@ func _physics_process(delta: float) -> void:
 				base_sprite.play("regina-idle")
 
 func check_tile_effects() -> void:
-	var half_width := 5.0
+	var half_width := 3.6
 	var check_y := TILE_CHECK_OFFSET.y
 	
 	var check_center := Vector2(0, check_y)
