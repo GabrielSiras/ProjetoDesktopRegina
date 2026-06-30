@@ -682,7 +682,7 @@ position = Vector2(0, 1)
 script = ExtResource("1_k2p1l")
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("2_7dsvl")]
-position = Vector2(5866, -1639)
+position = Vector2(5629, -2001)
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1820756090]
 
@@ -765,8 +765,23 @@ position = Vector2(5848, -1488)
 [node name="Spider21" parent="Enemies" unique_id=1950784212 instance=ExtResource("11_oerqr")]
 position = Vector2(5689, -1872)
 
+[node name="Spider22" parent="Enemies" unique_id=487120156 instance=ExtResource("11_oerqr")]
+position = Vector2(5689, -1872)
+
 [node name="Spider24" parent="Enemies" unique_id=274284810 instance=ExtResource("11_oerqr")]
-position = Vector2(5766, -1931)
+position = Vector2(5224, -2068)
+
+[node name="Spider25" parent="Enemies" unique_id=841139637 instance=ExtResource("11_oerqr")]
+position = Vector2(5003, -1861)
+
+[node name="Spider26" parent="Enemies" unique_id=1849799581 instance=ExtResource("11_oerqr")]
+position = Vector2(4618, -1862)
+
+[node name="Spider27" parent="Enemies" unique_id=1739637785 instance=ExtResource("11_oerqr")]
+position = Vector2(4410, -2022)
+
+[node name="Spider31" parent="Enemies" unique_id=2033720255 instance=ExtResource("11_oerqr")]
+position = Vector2(4725, -2037)
 
 [node name="Spider30" parent="Enemies" unique_id=972395829 instance=ExtResource("11_oerqr")]
 position = Vector2(5705, -1578)
