@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://det7o1vqc1bxo"]
 
-[ext_resource type="Script" uid="uid://0bk23162ys17" path="res://scripts/levels/level_06.gd" id="1_rio2c"]
+[ext_resource type="Script" uid="uid://dnsuoqfj0q57t" path="res://scenes/levels/game_end.gd" id="1_d6ycx"]
 [ext_resource type="Script" uid="uid://nq3hrjk4kqo" path="res://scripts/levels/game_camera.gd" id="3_5a742"]
 [ext_resource type="PackedScene" uid="uid://cqjykmgnntvul" path="res://scenes/actors/player/regina.tscn" id="4_7dmxl"]
 [ext_resource type="PackedScene" uid="uid://diulgkqwhcxp5" path="res://scenes/ui_ux/opcoes.tscn" id="5_e6f18"]
@@ -564,7 +564,7 @@ terrain_set_0/terrain_1/color = Color(0, 0.4392157, 0.2509804, 1)
 sources/2 = SubResource("TileSetAtlasSource_udrqn")
 
 [node name="Game_end" type="Node2D" unique_id=1261008392]
-script = ExtResource("1_rio2c")
+script = ExtResource("1_d6ycx")
 metadata/_edit_lock_ = true
 
 [node name="GameCamera" type="Camera2D" parent="." unique_id=864005008]
