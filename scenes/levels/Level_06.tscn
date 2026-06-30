@@ -1294,7 +1294,7 @@ position = Vector2(0, 1)
 script = ExtResource("1_xvesj")
 
 [node name="Regina" parent="." unique_id=1694901564 instance=ExtResource("2_62i7n")]
-position = Vector2(7873, -1956)
+position = Vector2(7714, -1258)
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1820756090]
 
