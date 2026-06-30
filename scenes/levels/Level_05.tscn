@@ -856,19 +856,19 @@ rotation = -1.5707964
 position = Vector2(5353, -2000)
 rotation = -1.5707964
 
-[node name="Ghost" parent="." unique_id=842555191 instance=ExtResource("15_7dbxd")]
+[node name="Ghost" parent="Enemies" unique_id=842555191 instance=ExtResource("15_7dbxd")]
 position = Vector2(6219, -1901)
 
-[node name="Ghost10" parent="." unique_id=322106203 instance=ExtResource("15_7dbxd")]
+[node name="Ghost10" parent="Enemies" unique_id=322106203 instance=ExtResource("15_7dbxd")]
 position = Vector2(4917, -1551)
 
-[node name="Ghost2" parent="." unique_id=640183612 instance=ExtResource("15_7dbxd")]
+[node name="Ghost2" parent="Enemies" unique_id=640183612 instance=ExtResource("15_7dbxd")]
 position = Vector2(5707, -1428)
 
-[node name="Ghost3" parent="." unique_id=1980479688 instance=ExtResource("15_7dbxd")]
+[node name="Ghost3" parent="Enemies" unique_id=1980479688 instance=ExtResource("15_7dbxd")]
 position = Vector2(6000, -1656)
 
-[node name="Ghost5" parent="." unique_id=1059327203 instance=ExtResource("15_7dbxd")]
+[node name="Ghost5" parent="Enemies" unique_id=1059327203 instance=ExtResource("15_7dbxd")]
 position = Vector2(6125, -1584)
 
 [editable path="Rooms/Room1"]
